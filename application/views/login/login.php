@@ -54,7 +54,7 @@
       <label for="email" class="visually-hidden">Email</label>
       <input type="email" id="email" name="email" class="form-control" placeholder="Email" required autofocus>
       <label for="inputPassword" class="visually-hidden">Contraseña</label>
-      <input type="clave" id="clave" name="clave" class="form-control" placeholder="Contraseña" required>
+      <input type="password" id="clave" name="clave" class="form-control" placeholder="Contraseña" required>
       <button type="submit" class="w-100 btn btn-lg btn-primary" >Aceptar</button>
       <p class="mt-5 mb-3 text-muted">&copy; 2021</p>
     </form>
