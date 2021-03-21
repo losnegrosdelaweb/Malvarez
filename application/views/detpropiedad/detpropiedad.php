@@ -33,6 +33,7 @@
   <body>    
 
 <main>
+  <div class="container">
 	<div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
@@ -90,10 +91,8 @@
               <h3 class="my-3">LOWA - $80.00</h3>
               <p>Raw denim you probably haven't heard of them jean shorts Austin. Nesciunt tofu stumptown aliqua butcher retro keffiyeh dreamcatcher synth. Cosby sweater eu banh mi, qui irure terr.</p>
 
-			 
 				<input type="text" class="form-control" id="id" name="id" hidden="">
-        		  
-					  <div class="row"> 
+					  <!--div class="row"> 
 						<div class="col-4">
 						  <div class="form-group">
 							<label for="situacion">Situación</label>
@@ -112,94 +111,90 @@
 							<input type="text" class="form-control" id="Orientacion" name="Orientacion" placeholder="Orientación">
 						  </div>
 						</div>
-					  </div>
+					  </div-->
+					  
 					  <div class="row">  
 						<div class="col-2" style="padding-right: 30px">
 						  <div class="form-group">
 							<label for="ambientes">Ambientes</label>
-							<input type="number" class="form-control" id="Ambientes" name="Ambientes" placeholder="0" min="0">
+							<input type="number" class="form-control" id="Ambientes" name="Ambientes" placeholder="0" min="0" readonly>
 						  </div>
 						</div>
 						<div class="col-2">
 						  <div class="form-group">
 							<label for="dormitorios">Dormitorios</label>
-							<input type="number" class="form-control" id="Dormitorios" name="Dormitorios" placeholder="0" min="0">
+							<input type="number" class="form-control" id="Dormitorios" name="Dormitorios" placeholder="0" min="0" readonly>
 						  </div>
 						</div>
 						<div class="col-2">
 						  <div class="form-group">
 							<label for="bano">Baños</label>
-							<input type="number" class="form-control" id="Bano" name="Bano" placeholder="0" min="0">
+							<input type="number" class="form-control" id="Bano" name="Bano" placeholder="0" min="0" readonly>
 						  </div>
 						</div>
 						<div class="col-2">
 						  <div class="form-group">
 							<label for="cochera">Cocheras</label>
-							<input type="number" class="form-control" id="Cochera" name="Cochera" placeholder="0" min="0">
+							<input type="number" class="form-control" id="Cochera" name="Cochera" placeholder="0" min="0" readonly>
 						  </div>
 						</div>
 						<div class="col-2">
 						  <div class="form-group">
 							<label for="pisos">Pisos</label>
-							<input type="number" class="form-control" id="Pisos" name="Pisos" placeholder="0" min="0">
+							<input type="number" class="form-control" id="Pisos" name="Pisos" placeholder="0" min="0" readonly>
 						  </div>
 						</div>
 						<div class="col-2">
 						  <div class="form-group">
 							<label for="antiguedad">Antiguedad</label>
-							<input type="number" class="form-control" id="Antiguedad" name="Antiguedad" placeholder="0" min="0">
+							<input type="number" class="form-control" id="Antiguedad" name="Antiguedad" placeholder="0" min="0" readonly>
 						  </div>
 						</div>
-
-
 					  </div>
-
-
 
 					  <div class="row"> 
 						<div class="col-4">
 						  <div class="form-group">
 							<label for="situacion">Situación</label>
-							<input type="text" class="form-control" id="Situacion" name="Situacion" placeholder="Situación">
+							<input type="text" class="form-control" id="Situacion" name="Situacion" placeholder="Situación" readonly>
 						  </div>
 						</div>
 						<div class="col-4">
 						  <div class="form-group">
 							<label for="expensas">Expensas</label>
-							<input type="text" class="form-control" id="Expensas" name="Expensas" placeholder="Expensas">
+							<input type="text" class="form-control" id="Expensas" name="Expensas" placeholder="Expensas" readonly>
 						  </div>
 						</div>
 						 <div class="col-4">
 						  <div class="form-group">
 							<label for="orientacion">Orientación</label>
-							<input type="text" class="form-control" id="Orientacion" name="Orientacion" placeholder="Orientación">
+							<input type="text" class="form-control" id="Orientacion" name="Orientacion" placeholder="Orientación" readonly>
 						  </div>
 						</div>
 					  </div>
-
-
-
 
 					  <div class="row">
 					   
 						<div class="col-4">
 						  <div class="form-group">
-							<label for="disposicion">Disposición</label>
-							<input type="text" class="form-control" id="Disposicion" name="Disposicion" placeholder="Disposición">
+							<label for="disposicion">Disposición</label><br>
+							<input type="text" class="form-control" id="Disposicion" name="Disposicion" placeholder="Disposición" readonly>
 						  </div>
 						</div>
 						<div class="col-4">
 						  <div class="form-group">
+						  
 							<label for="estado">Estado</label>
-							<input type="text" class="form-control" id="Estado" name="Estado" placeholder="Estado">
+							<input type="text" class="form-control" id="Estado" name="Estado" placeholder="Estado" readonly>
+						  
 						  </div>
 						</div>
-						<div class="col-4">
+						<!--div class="col-4">
 						  <div class="form-group">
 							<label for="descripcion">Descripción</label>
 							<input type="text" class="form-control" id="Descripcion" name="Descripcion" placeholder="Descripción">
 						  </div>
-						</div>
+						</div-->
 					  </div>
 				</div>
 				</div>
@@ -212,7 +207,7 @@
 					  </div>
 					</nav>
 					<div class="tab-content p-3" id="nav-tabContent">
-					  <div class="tab-pane fade show active" id="product-desc" role="tabpanel" aria-labelledby="product-desc-tab"> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi vitae condimentum erat. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Sed posuere, purus at efficitur hendrerit, augue elit lacinia arcu, a eleifend sem elit et nunc. Sed rutrum vestibulum est, sit amet cursus dolor fermentum vel. Suspendisse mi nibh, congue et ante et, commodo mattis lacus. Duis varius finibus purus sed venenatis. Vivamus varius metus quam, id dapibus velit mattis eu. Praesent et semper risus. Vestibulum erat erat, condimentum at elit at, bibendum placerat orci. Nullam gravida velit mauris, in pellentesque urna pellentesque viverra. Nullam non pellentesque justo, et ultricies neque. Praesent vel metus rutrum, tempus erat a, rutrum ante. Quisque interdum efficitur nunc vitae consectetur. Suspendisse venenatis, tortor non convallis interdum, urna mi molestie eros, vel tempor justo lacus ac justo. Fusce id enim a erat fringilla sollicitudin ultrices vel metus. </div>
+					  <div class="tab-pane fade show active" id="product-desc" role="tabpanel" aria-labelledby="product-desc-tab"> Descripción </div>
 					</div>
 				</div>
 				</div>				
@@ -248,16 +243,19 @@
 						<div class="col">
 						  <div class="form-group">
 							<label for="msj">Mensaje</label>
-							<input type="text" class="form-control" id="Msj" name="Msj">
+							<textarea class="form-control" rows="3" id="Msj" name="Msj"></textarea>
+							<!--input type="text" class="form-control" id="Msj" name="Msj"-->
 						  </div>
 						</div>
 						<div class="mt-4" style="float: right;">
 							<div class="btn btn-primary btn-lg btn-flat">
-							  <i class="fas fa-cart-plus fa-lg mr-2"></i>
+							  
+							  <!--i class="fas fa-cart-plus fa-lg mr-2"></i-->
+							  <i class="fas fa-envelope-open-text"></i>
 							  Consultar
 							</div>
 						  </div>
-					  </div>
+				  </div>
 					  
 				</div>
 				  
@@ -273,7 +271,7 @@
     </section>
     <!-- /.content -->
   </div>
-  
+ </div>
 </main>
 
 

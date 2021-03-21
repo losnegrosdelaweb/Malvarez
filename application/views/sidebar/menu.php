@@ -74,7 +74,8 @@
 					<a class="nav-link" style="padding-right: 10%;" href="/<?=site_url('catalogo')?>">Propiedades</a>
 				  </li>
 				  <li class="nav-item" style="padding-left: 70%;">
-					<a class="ingresar nav-link" style="color: #fff;" href="/<?=site_url('login')?>" tabindex="-1">Inicio Sesión</a>
+				  
+					<a class="ingresar nav-link" style="color: #fff;" href="/<?=site_url('login')?>" tabindex="-1"><i class="fas fa-user-lock"></i> Login</a>
 				  </li>
 				  <!--
 				  <li class="nav-item dropdown">
