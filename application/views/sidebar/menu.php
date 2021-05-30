@@ -55,7 +55,7 @@
       <!--a class="navbar-brand" href="#">Proyecto A</a-->
 	  <div class="row" style="width: 100%;">
 		<div class="row">
-			<a href="/<?=site_url('')?>" style="width: auto;"><img id="logo" src="/<?=base_url('')?>/assets/img/logo.png"></a>
+			<a href="/<?=site_url('')?>" style="width: auto;"><img id="logo" style="width: 80%;" src="/<?=base_url('')?>/assets/img/logo.jpg"></a>
 		</div>
 		<hr>
 		<div class="row">	
