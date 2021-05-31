@@ -64,6 +64,8 @@ $route['validar'] = 'login/validarLogin';
 
 $route['detpropiedad/(:num)'] = 'detpropiedad/$1';
 
+//Emprendimientos
+$route['emprendimientos'] = 'emprendimientos';
 
 //Tipo Propiedad Rutas
 $route['tipoPropiedad'] = 'tipoPropiedad';
@@ -93,6 +95,6 @@ $route['buscarCiudades/(:num)'] = 'propiedad/getCiudades/$1';
 
 
 
-$route['404_override'] = '';
+$route['404_override'] = 'error404';
 $route['translate_uri_dashes'] = FALSE;
 
