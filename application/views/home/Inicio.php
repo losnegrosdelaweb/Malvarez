@@ -165,7 +165,7 @@
 <script>
 function edit(id){
   $.ajax({
-    url: '<?=site_url()?>/../../detpropiedad'
+    url: '<?=site_url()?>/../../detpropiedad',
     type: "GET",
     dataType : 'json',
     success: function(respuesta) {

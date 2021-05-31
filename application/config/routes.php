@@ -85,7 +85,8 @@ $route['ajuntoImagen/(:num)'] = 'adjunto/SubirImagen/$1';
 $route['adjuntoListado/(:num)'] = 'propiedad/ListadoAdjuntos/$1';
 $route['borrarImagen/(:num)/(:num)'] = 'adjunto/DeleteAdjunto/$1/$2';
 
-
+//Mantenimiento
+$route['mantenimiento'] = 'mantenimiento';
 
 //Propiedades
 $route['propiedad'] = 'propiedad';

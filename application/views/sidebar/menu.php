@@ -26,6 +26,15 @@
        background-size: cover;
        height: 100%;
        width: 100% ;
+     }
+     .emprendimiento2{
+       background: url('..//assets/img/emprendimientos.jpg') no-repeat fixed center;
+       -webkit-background-size: cover;
+       -moz-background-size: cover;
+       -o-background-size: cover;
+       background-size: cover;
+       height: 100%;
+       width: 100% ;
      } 
 
       img.dest-img{
@@ -89,7 +98,7 @@
 					 <a class="nav-link" aria-current="page" href="/<?=site_url('')?>">Inicio</a>
 				  </li>
           <li class="nav-item">
-           <a class="nav-link" href="/<?=site_url('nosotros')?>">Nosotros</a>
+           <a class="nav-link" href="/<?=site_url('mantenimiento')?>">Nosotros</a>
           </li>
 				  <!-- li class="nav-item">
 					 <a class="nav-link" href="/<!?=site_url('catalogo')?>">Propiedades</a>
@@ -104,10 +113,10 @@
            <a class="nav-link" href="/<?=site_url('emprendimientos')?>">Emprendimientos</a>
           </li>
           <li class="nav-item">
-           <a class="nav-link" href="/<?=site_url('mundo')?>">Mundo Inmobiliario</a>
+           <a class="nav-link" href="/<?=site_url('mantenimiento')?>">Mundo Inmobiliario</a>
           </li>
           <li class="nav-item">
-           <a class="nav-link" href="/<?=site_url('contacto')?>">Contacto</a>
+           <a class="nav-link" href="/<?=site_url('mantenimiento')?>">Contacto</a>
           </li>
           <li class="nav-item" style="margin-left: auto;">
 				    <a class="ingresar nav-link" style="color: #fff;" href="/<?=site_url('login')?>" tabindex="-1"><i class="fas fa-user-lock"></i> Login</a>
