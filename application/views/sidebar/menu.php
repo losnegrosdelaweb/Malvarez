@@ -55,7 +55,7 @@
       <!--a class="navbar-brand" href="#">Proyecto A</a-->
 	  <div class="row" style="width: 100%;">
 		<div class="row">
-			<a href="/<?=site_url('')?>" style="width: auto;"><img id="logo" src="/<?=base_url('')?>/assets/img/logo.png"></a>
+			<a href="/<?=site_url('')?>" style="width: auto;"><img id="logo" style="width: 80%;" src="/<?=base_url('')?>/assets/img/logo.jpg"></a>
 		</div>
 		<hr>
 		<div class="row">	
@@ -74,7 +74,8 @@
 					<a class="nav-link" style="padding-right: 10%;" href="/<?=site_url('catalogo')?>">Propiedades</a>
 				  </li>
 				  <li class="nav-item" style="padding-left: 70%;">
-					<a class="ingresar nav-link" style="color: #fff;" href="/<?=site_url('login')?>" tabindex="-1">Inicio Sesión</a>
+				  
+					<a class="ingresar nav-link" style="color: #fff;" href="/<?=site_url('login')?>" tabindex="-1"><i class="fas fa-user-lock"></i> Login</a>
 				  </li>
 				  <!--
 				  <li class="nav-item dropdown">
