@@ -40,9 +40,13 @@
     display: block;
   }
 }
+a{
+  text-decoration: none;
+}
+
   </style>
 
- <a id="app-whatsapp" target="_blanck" href="https://wa.me/+1135038821">
+ <a id="app-whatsapp" target="_blanck" href="https://wa.me/+1135560795">
      <img src="/<?=base_url('assets/img/Whatsapp.png')?>" style="width: 100%;">
      <!--<i class="fab fa-whatsapp"></i>-->
 </a>
@@ -51,45 +55,44 @@
 <footer class="foot py-5">
   <div class="row" style="width: 90%;">
     <div class="col-12 col-md">
-      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="d-block mb-2" role="img" viewBox="0 0 24 24"><title>Product</title><circle cx="12" cy="12" r="10"/><path d="M14.31 8l5.74 9.94M9.69 8h11.48M7.38 12l5.74-9.94M9.69 16L3.95 6.06M14.31 16H2.83m13.79-4l-5.74 9.94"/></svg>
-      <small class="d-block mb-3 text-muted">&copy; 2017-2020</small>
+      <img src="/<?=base_url('assets/img/logo-footer.png')?>" style="width: 100%;">
+
+      <small class="d-block mb-3 text-muted">&copy; 2021 - MALVAREZ Servicios Inmobiliarios.</small>
     </div>
+
     <div class="col-6 col-md">
-      <h5>Features</h5>
+      <h5>Matrícula</h5>
       <ul class="list-unstyled text-small">
-        <li><a class="link-secondary" href="#">Cool stuff</a></li>
-        <li><a class="link-secondary" href="#">Random feature</a></li>
-        <li><a class="link-secondary" href="#">Team feature</a></li>
-        <li><a class="link-secondary" href="#">Stuff for developers</a></li>
-        <li><a class="link-secondary" href="#">Another one</a></li>
-        <li><a class="link-secondary" href="#">Last time</a></li>
+        <li class="link-secondary">MAT. 7420 CUCICBA</li>
+        <li class="link-secondary">Bienes raíces · Abogado de bienes raíces · Servicio de escritura.</li>
+      </ul>
+    </div>
+
+    <div class="col-6 col-md">
+      <h5>Seguinos en</h5>
+      <ul class="list-unstyled text-small">
+              <li><a href="https://www.facebook.com/MAlvarez-Servicios-Inmobiliarios-105021768004660">
+                  <img src="https://static.tokkobroker.com/tfw/img/r-facebook.svg?20210602200718" width="40" height="40">
+                </a>              
+                <a href="https://www.facebook.com/MAlvarez-Servicios-Inmobiliarios-105021768004660">
+                  <img src="https://static.tokkobroker.com/tfw/img/r-instagram.svg?20210602200718" width="40" height="40">
+                </a></li>
       </ul>
     </div>
     <div class="col-6 col-md">
-      <h5>Resources</h5>
+      <h5>Contactos</h5>
       <ul class="list-unstyled text-small">
-        <li><a class="link-secondary" href="#">Resource name</a></li>
-        <li><a class="link-secondary" href="#">Resource</a></li>
-        <li><a class="link-secondary" href="#">Another resource</a></li>
-        <li><a class="link-secondary" href="#">Final resource</a></li>
+        <li>
+          <a class="link-secondary" href="tel:011 3556-0795"><i class="fas fa-mobile-alt" style="color: white;"></i> 011 3556-0795</a></li>
+        <li>
+          <i class="far fa-envelope"></i><a class="link-secondary" href="mailto:infomalvarezsi@gmail.com"> infomalvarezsi@gmail.com</a>
       </ul>
     </div>
+    
     <div class="col-6 col-md">
-      <h5>Resources</h5>
+      <h5>Acceso</h5>
       <ul class="list-unstyled text-small">
-        <li><a class="link-secondary" href="#">Business</a></li>
-        <li><a class="link-secondary" href="#">Education</a></li>
-        <li><a class="link-secondary" href="#">Government</a></li>
-        <li><a class="link-secondary" href="#">Gaming</a></li>
-      </ul>
-    </div>
-    <div class="col-6 col-md">
-      <h5>About</h5>
-      <ul class="list-unstyled text-small">
-        <li><a class="link-secondary" href="#">Team</a></li>
-        <li><a class="link-secondary" href="#">Locations</a></li>
-        <li><a class="link-secondary" href="#">Privacy</a></li>
-        <li><a class="link-secondary" href="#">Terms</a></li>
+        <li><i class="fas fa-user-lock"></i><a class="link-secondary" href="/./Malvarezsi/index.php/login"> Login</a></li>
       </ul>
     </div>
   </div>

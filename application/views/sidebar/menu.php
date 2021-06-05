@@ -82,9 +82,9 @@
 
   <nav class="navbar navbar-expand-lg navbar-dark" aria-label="Ninth navbar example">
     <div class="container-xl">
-	  <div class="row" style="width: 100%;">
-		<div class="row" style="place-content: center;">
-      <a href="/<?=site_url('')?>" style="width: auto;"><img id="logo" src="/<?=base_url('')?>/assets/img/logo.jpg"></a>
+	  <div class="row" style="width: 100%; justify-content: center;">
+		<div class="row" style="text-align: -webkit-center;margin-top: 15px;margin-bottom: 15px;">
+      <a href="/<?=site_url('')?>"><img id="logo" style="width: 325px;" src="/<?=base_url('')?>/assets/img/logo-head.png"></a>
 		</div>
 		<hr>
 		<div class="row">	
@@ -92,7 +92,7 @@
 				<span class="navbar-toggler-icon"></span>
 				</button>
 				<div class="navbar-collapse collapse" id="navbarsExample07XL" style=""></div>
-				<ul class="navbar-nav" style="padding-bottom: 1%;">		
+				<ul class="navbar-nav" style="padding-bottom: 1%;justify-content: center;">		
           <!--style="padding-right: 10%;-->
 				  <li class="nav-item active">
 					 <a class="nav-link" aria-current="page" href="/<?=site_url('')?>">Inicio</a>
@@ -118,9 +118,6 @@
           <li class="nav-item">
            <a class="nav-link" href="/<?=site_url('mantenimiento')?>">Contacto</a>
           </li>
-          <li class="nav-item" style="margin-left: auto;">
-				    <a class="ingresar nav-link" style="color: #fff;" href="/<?=site_url('login')?>" tabindex="-1"><i class="fas fa-user-lock"></i> Login</a>
-				  </li>
           </ul>
 				  <!--
 				  <li class="nav-item dropdown">
