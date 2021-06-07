@@ -11,7 +11,7 @@
     text-align: -webkit-center;
     position: absolute;
     bottom: 0;
-    height: 240px;
+    height: auto;
   }
    #app-messenger, #app-whatsapp{
   position: fixed;
@@ -46,6 +46,11 @@
 a{
   text-decoration: none;
 }
+.responsive {
+  width: 100%;
+  max-width: 250px;
+  height: auto;
+}
 
   </style>
 
@@ -58,7 +63,7 @@ a{
 <footer class="foot py-5">
   <div class="row" style="width: 90%;">
     <div class="col-12 col-md">
-      <img src="/<?=base_url('assets/img/logo-footer.png')?>" style="width: 100%;">
+      <img src="/<?=base_url('assets/img/logo-footer.png')?>" class="responsive">
 
       <small class="d-block mb-3 text-muted">&copy; 2021 - MALVAREZ Servicios Inmobiliarios.</small>
     </div>

@@ -11,6 +11,7 @@
        html {
           min-height: 100%;
           position: relative;
+          zoom: 90%;
         }
         body{
           padding-bottom: 240px;
@@ -72,6 +73,7 @@
       .navbar-nav li:last-child {
       border-right:none;
       }
+
     </style>
 
   <link rel="stylesheet" href="/<?=base_url('plugins/select2/css/select2.min.css')?>">
