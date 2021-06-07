@@ -38,11 +38,11 @@
  
 <div class="row mb-2">
 		<div class="col-md-6">
-      <div class="row container border rounded  ">
+      <div class="row container border rounded  " style="padding-left: 0px;">
         <div class="col">
 
 			  <div class="card shadow-sm">				
-				<div id="carouselPropiedadesDestacadas1" class="carousel slide" style="width: 100%;">
+				<div id="carouselPropiedadesDestacadas1" class="carousel slide" style="width: 100%;width: 100%;height: 100%;">
 				  <ol class="carousel-indicators">
 					<li data-bs-target="#carouselPropiedadesDestacadas1" data-bs-slide-to="0" class="active"></li>
 					<li data-bs-target="#carouselPropiedadesDestacadas1" data-bs-slide-to="1"></li>
@@ -76,8 +76,18 @@
           <h3 class="mb-0">$ 24.000</h3>
           <div class="mb-1 text-muted">+ $ 12.000 Expensas</div>
           <br>
-          <p class="card-text mb-auto">This is a wider card with supporting text below as a natural lead-in to additional content.</p>
-          <a href="#">Continue reading</a>
+          <p>
+	          <span style="padding-right: 5%;"><i class="fas fa-ruler-combined"> </i> 80 m²</span>
+	          <span style="padding-right: 5%;"><i class="fas fa-door-open"></i> 3 amb.</span>
+	          <span style="padding-right: 5%;"><i class="fas fa-bed"></i> 2 dorm.</span>
+        	</p>
+          <p class="card-text mb-auto"> </p>
+           <h4 class="mb-0">BOULOGNE SUR MER 1590. Entre Illia y Pedriel</h4>
+          <div class="mb-1 text-muted">Villa Maipu, General San Martín</div>
+          <!--<a href="#">Continue reading</a>-->
+          <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+					  <button class="btn btn-primary me-md-2" type="button">Contactar</button>
+					</div>
         </div>
       </div>
     </div>
@@ -85,7 +95,7 @@
 
 
 		<div class="col-md-6 ">
-      <div class="row container g-0 border rounded flex-md-row mb-4 shadow-sm h-md-250 ">
+      <div class="row container border rounded " style="padding-left: 0px;width: 100%;height: 100%;">
         <div class="col">
 			  <div class="card shadow-sm">				
 				<div id="carouselPropiedadesDestacadas2" class="carousel slide" style="width: 100%;">
@@ -121,14 +131,24 @@
           <h3 class="mb-0">$ 60.000</h3>
           <br>
           <!--<div class="mb-1 text-muted">Nov 12</div>-->
-          <p class="card-text mb-auto">This is a wider card with supporting text below as a natural lead-in to additional content.</p>
-          <a href="#">Continue reading</a>
+        	<p>
+	          <span style="padding-right: 5%;"><i class="fas fa-ruler-combined"> </i> 80 m²</span>
+	          <span style="padding-right: 5%;"><i class="fas fa-door-open"></i> 3 amb.</span>
+	          <span style="padding-right: 5%;"><i class="fas fa-bed"></i> 2 dorm.</span>
+        	</p>
+          <p class="card-text mb-auto"> </p>
+           <h4 class="mb-0">Laprida al 2145</h4>
+          <div class="mb-1 text-muted">Florida, Vicente López</div>
+          <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+					  <button class="btn btn-primary me-md-2" type="button">Contactar</button>
+					</div>
         </div>
       </div>
     </div>
   </div>
 
-
+<br>
+<br>
 <!--
   <div class="album bg-light"style="padding-bottom:3rem!important;">
 	  <div class="container">
