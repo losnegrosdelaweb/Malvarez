@@ -6,8 +6,8 @@
 <main>
   <div class="position-relative overflow-hidden p-3 p-md-5 text-center portada">
     <div class="col-md-5 p-lg-5 mx-auto my-5" style="background-color: #18191980!important;border-radius: 15px;width: 75%;">
-      <h1 class="display-4 fw-normal text-white">Encontrá tu hogar</h1>
-      <p class="lead fw-normal text-white">Encontrá tu hogar ideal con tal solo ingresar una dirección, localidad o calle.</p>
+      <h1 class="display-4 fw-normal text-white">Buscador de Propiedades</h1>
+      <p class="lead fw-normal text-white">Encontrá el inmueble que buscás con solo ingresar...</p>
       
       <!-- Buscardor --->
       <!--<a class="btn btn-outline-secondary" href="#">Coming soon</a>-->
