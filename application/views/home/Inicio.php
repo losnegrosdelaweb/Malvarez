@@ -6,8 +6,8 @@
 <main>
   <div class="position-relative overflow-hidden p-3 p-md-5 text-center portada">
     <div class="col-md-5 p-lg-5 mx-auto my-5" style="background-color: #18191980!important;border-radius: 15px;width: 75%;">
-      <h1 class="display-4 fw-normal text-white">Encontrá tu hogar</h1>
-      <p class="lead fw-normal text-white">Encontrá tu hogar ideal con tal solo ingresar una dirección, localidad o calle.</p>
+      <h1 class="display-4 fw-normal text-white">Buscador de Propiedades</h1>
+      <p class="lead fw-normal text-white">Encontrá el inmueble que buscás con solo ingresar...</p>
       
       <!-- Buscardor --->
       <!--<a class="btn btn-outline-secondary" href="#">Coming soon</a>-->
@@ -35,9 +35,114 @@
  <div class="display-4 fw-normal text-black text-center">
   <h2 class="display-5" style="padding: 30px;">Propiedades Destacadas</h2>
 </div>
+ 
+<div class="row mb-2">
+		<div class="col-md-6">
+      <div class="row container border rounded  ">
+        <div class="col">
+
+			  <div class="card shadow-sm">				
+				<div id="carouselPropiedadesDestacadas1" class="carousel slide" style="width: 100%;">
+				  <ol class="carousel-indicators">
+					<li data-bs-target="#carouselPropiedadesDestacadas1" data-bs-slide-to="0" class="active"></li>
+					<li data-bs-target="#carouselPropiedadesDestacadas1" data-bs-slide-to="1"></li>
+					<li data-bs-target="#carouselPropiedadesDestacadas1" data-bs-slide-to="2"></li>
+				  </ol>
+				  <div class="carousel-inner">
+					<div class="carousel-item active">
+					  <img src="assets/img/ph1.jpg" class="d-block w-100" alt="...">
+					</div>
+					<div class="carousel-item">
+					  <img src="assets/img/ph1.jpg" class="d-block w-100" alt="...">
+					</div>
+					<div class="carousel-item">
+					  <img src="assets/img/casa2.jpg" class="d-block w-100" alt="...">
+					</div>
+				  </div>
+				  <a class="carousel-control-prev" href="#carouselPropiedadesDestacadas1" role="button" data-bs-slide="prev">
+					<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+					<span class="visually-hidden">Previous</span>
+				  </a>
+				  <a class="carousel-control-next" href="#carouselPropiedadesDestacadas1" role="button" data-bs-slide="next">
+					<span class="carousel-control-next-icon" aria-hidden="true"></span>
+					<span class="visually-hidden">Next</span>
+				  </a>
+				</div>
+			  </div>
+
+			</div>
+        <div class="col p-4 d-flex flex-column position-static">
+          <!--<strong class="d-inline-block mb-2 text-primary">World</strong>-->
+          <h3 class="mb-0">$ 24.000</h3>
+          <div class="mb-1 text-muted">+ $ 12.000 Expensas</div>
+          <br>
+          <p class="card-text mb-auto">This is a wider card with supporting text below as a natural lead-in to additional content.</p>
+          <a href="#">Continue reading</a>
+        </div>
+      </div>
+    </div>
+
+
+
+		<div class="col-md-6 ">
+      <div class="row container g-0 border rounded flex-md-row mb-4 shadow-sm h-md-250 ">
+        <div class="col">
+			  <div class="card shadow-sm">				
+				<div id="carouselPropiedadesDestacadas2" class="carousel slide" style="width: 100%;">
+				  <ol class="carousel-indicators">
+					<li data-bs-target="#carouselPropiedadesDestacadas2" data-bs-slide-to="0" class="active"></li>
+					<li data-bs-target="#carouselPropiedadesDestacadas2" data-bs-slide-to="1"></li>
+					<li data-bs-target="#carouselPropiedadesDestacadas2" data-bs-slide-to="2"></li>
+				  </ol>
+				  <div class="carousel-inner">
+					<div class="carousel-item active">
+					  <img src="assets/img/casa1.jpg" class="d-block w-100" alt="...">
+					</div>
+					<div class="carousel-item">
+					  <img src="assets/img/ph1.jpg" class="d-block w-100" alt="...">
+					</div>
+					<div class="carousel-item">
+					  <img src="assets/img/casa2.jpg" class="d-block w-100" alt="...">
+					</div>
+				  </div>
+				  <a class="carousel-control-prev" href="#carouselPropiedadesDestacadas2" role="button" data-bs-slide="prev">
+					<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+					<span class="visually-hidden">Previous</span>
+				  </a>
+				  <a class="carousel-control-next" href="#carouselPropiedadesDestacadas2" role="button" data-bs-slide="next">
+					<span class="carousel-control-next-icon" aria-hidden="true"></span>
+					<span class="visually-hidden">Next</span>
+				  </a>
+				</div>
+			  </div>
+			</div>
+        <div class="col p-4 d-flex flex-column position-static">
+          <!--<strong class="d-inline-block mb-2 text-primary">World</strong>-->
+          <h3 class="mb-0">$ 60.000</h3>
+          <br>
+          <!--<div class="mb-1 text-muted">Nov 12</div>-->
+          <p class="card-text mb-auto">This is a wider card with supporting text below as a natural lead-in to additional content.</p>
+          <a href="#">Continue reading</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+<!--
   <div class="album bg-light"style="padding-bottom:3rem!important;">
 	  <div class="container">
 		<div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+-->
+
+
+
+
+
+
+			
+
+<!--
 			<div class="col">
 			  <div class="card shadow-sm">				
 				<div id="carouselExampleIndicators" class="carousel slide" style="width: 100%;">
@@ -152,12 +257,13 @@
 				</div>
 			  </div>
 			</div>
-		<!--  -->	
+-->
+
+		<!-- 
 		</div>
 	  </div>
   </div>
-  <!--  -->
-</main>
+ -->
 
 
 
