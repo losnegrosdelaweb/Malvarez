@@ -64,6 +64,8 @@ $route['validar'] = 'login/validarLogin';
 
 $route['detpropiedad/(:num)'] = 'detpropiedad/$1';
 
+//Emprendimientos
+$route['emprendimientos'] = 'emprendimientos';
 
 //Tipo Propiedad Rutas
 $route['tipoPropiedad'] = 'tipoPropiedad';
@@ -83,7 +85,8 @@ $route['ajuntoImagen/(:num)'] = 'adjunto/SubirImagen/$1';
 $route['adjuntoListado/(:num)'] = 'propiedad/ListadoAdjuntos/$1';
 $route['borrarImagen/(:num)/(:num)'] = 'adjunto/DeleteAdjunto/$1/$2';
 
-
+//Mantenimiento
+$route['mantenimiento'] = 'mantenimiento';
 
 //Propiedades
 $route['propiedad'] = 'propiedad';
@@ -93,6 +96,6 @@ $route['buscarCiudades/(:num)'] = 'propiedad/getCiudades/$1';
 
 
 
-$route['404_override'] = '';
+$route['404_override'] = 'error404';
 $route['translate_uri_dashes'] = FALSE;
 

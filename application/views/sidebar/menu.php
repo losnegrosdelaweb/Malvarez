@@ -8,6 +8,13 @@
     <meta name="author" content="Nose">
 
     <style>
+       html {
+          min-height: 100%;
+          position: relative;
+        }
+        body{
+          padding-bottom: 240px;
+        }
       .portada{
        background: url('assets/img/puerto-madero.jpg') no-repeat fixed center;
        -webkit-background-size: cover;
@@ -17,7 +24,25 @@
        height: 100%;
        width: 100% ;
        text-align: center; 
-      }    
+      }
+      .emprendimiento{
+       background: url('..//assets/img/emprendimientos1.jpg') no-repeat fixed center;
+       -webkit-background-size: cover;
+       -moz-background-size: cover;
+       -o-background-size: cover;
+       background-size: cover;
+       height: 100%;
+       width: 100% ;
+     }
+     .emprendimiento2{
+       background: url('..//assets/img/emprendimientos.jpg') no-repeat fixed center;
+       -webkit-background-size: cover;
+       -moz-background-size: cover;
+       -o-background-size: cover;
+       background-size: cover;
+       height: 100%;
+       width: 100% ;
+     } 
 
       img.dest-img{
        -webkit-background-size: cover;
@@ -29,12 +54,24 @@
        text-align: center; 
       }
 	  
-	  .ingresar {
-		background: #d91a1b;
-		border-radius: 12px;
-		max-width: 100px;
-		white-space: nowrap;
-		}
+  	  .ingresar {
+  		background: #d91a1b;
+  		border-radius: 12px;
+  		max-width: 100px;
+  		white-space: nowrap;
+  		}
+
+      .navbar-nav li {
+      border-right: 1px solid #c8c9ca;
+      float: left;
+      list-style: none outside none;
+      padding-left: 5px;
+      padding-right: 5px;
+      width: auto;
+      }
+      .navbar-nav li:last-child {
+      border-right:none;
+      }
     </style>
 
   <link rel="stylesheet" href="/<?=base_url('plugins/select2/css/select2.min.css')?>">
@@ -52,31 +89,43 @@
 
   <nav class="navbar navbar-expand-lg navbar-dark" aria-label="Ninth navbar example">
     <div class="container-xl">
-      <!--a class="navbar-brand" href="#">Proyecto A</a-->
-	  <div class="row" style="width: 100%;">
-		<div class="row">
-			<a href="/<?=site_url('')?>" style="width: auto;"><img id="logo" style="width: 80%;" src="/<?=base_url('')?>/assets/img/logo.jpg"></a>
+	  <div class="row" style="width: 100%; justify-content: center;">
+		<div class="row" style="text-align: -webkit-center;margin-top: 15px;margin-bottom: 15px;">
+      <a href="/<?=site_url('')?>"><img id="logo" style="width: 325px;" src="/<?=base_url('')?>/assets/img/logo-head.png"></a>
 		</div>
 		<hr>
 		<div class="row">	
 				<button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample07XL" aria-controls="navbarsExample07XL" aria-expanded="false" aria-label="Toggle navigation">
 				<span class="navbar-toggler-icon"></span>
 				</button>
-			
 				<div class="navbar-collapse collapse" id="navbarsExample07XL" style=""></div>
-			  
-				<ul class="navbar-nav" style="padding-left: 1%; padding-bottom: 1%;">
-				
-				  <li class="nav-item active" style="padding-right: 10%;">
-					<a class="nav-link" aria-current="page" href="/<?=site_url('')?>">Inicio</a>
+				<ul class="navbar-nav" style="padding-bottom: 1%;justify-content: center;">		
+          <!--style="padding-right: 10%;-->
+				  <li class="nav-item active">
+					 <a class="nav-link" aria-current="page" href="/<?=site_url('')?>">Inicio</a>
 				  </li>
-				  <li class="nav-item">
-					<a class="nav-link" style="padding-right: 10%;" href="/<?=site_url('catalogo')?>">Propiedades</a>
-				  </li>
-				  <li class="nav-item" style="padding-left: 70%;">
-				  
-					<a class="ingresar nav-link" style="color: #fff;" href="/<?=site_url('login')?>" tabindex="-1"><i class="fas fa-user-lock"></i> Login</a>
-				  </li>
+          <li class="nav-item">
+           <a class="nav-link" href="/<?=site_url('mantenimiento')?>">Nosotros</a>
+          </li>
+				  <!-- li class="nav-item">
+					 <a class="nav-link" href="/<!?=site_url('catalogo')?>">Propiedades</a>
+				  </li -->
+          <li class="nav-item">
+           <a class="nav-link" href="/<?=site_url('catalogo?alquileres')?>">Alquileres</a>
+          </li>
+          <li class="nav-item">
+           <a class="nav-link" href="/<?=site_url('catalogo?ventas')?>">Ventas</a>
+          </li>
+          <li class="nav-item">
+           <a class="nav-link" href="/<?=site_url('emprendimientos')?>">Emprendimientos</a>
+          </li>
+          <li class="nav-item">
+           <a class="nav-link" href="/<?=site_url('mantenimiento')?>">Mundo Inmobiliario</a>
+          </li>
+          <li class="nav-item">
+           <a class="nav-link" href="/<?=site_url('mantenimiento')?>">Contacto</a>
+          </li>
+          </ul>
 				  <!--
 				  <li class="nav-item dropdown">
 					<a class="nav-link dropdown-toggle" href="#" id="dropdown07XL" data-bs-toggle="dropdown" aria-expanded="false">Dropdown</a>
@@ -87,14 +136,13 @@
 					</ul>
 				  </li>
 				  -->
-				</ul>
+				
 				</div>
         <!--
         <form>
           <input class="form-control" type="text" placeholder="Search" aria-label="Search">
         </form>
       -->
-		<hr>
 		</div>
       </div>
   </nav>
@@ -108,7 +156,7 @@
           <a class="py-2 d-none d-md-inline-block" href="/<?=site_url('')?>">Inicio</a>
           <a class="py-2 d-none d-md-inline-block" href="/<?=site_url('catalogo')?>">Catalogo</a>
           <a class="py-2 d-none d-md-inline-block" href="/<?=site_url('login')?>">Iniciar Sesión</a>
-          <!--<a class="py-2 d-none d-md-inline-block" href="/<?=site_url('dashboard')?>">Iniciar Sesión</a>-->
+          <!<a class="py-2 d-none d-md-inline-block" href="/<?=site_url('dashboard')?>">Iniciar Sesión</a>-->
         <!--</nav>
       </header>
     -->
