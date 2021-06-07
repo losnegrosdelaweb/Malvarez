@@ -8,7 +8,10 @@
     margin-left: auto;
     background-color: #020202;
     color: white;
-    text-align: -webkit-center;;
+    text-align: -webkit-center;
+    position: absolute;
+    bottom: 0;
+    height: 240px;
   }
    #app-messenger, #app-whatsapp{
   position: fixed;
@@ -61,9 +64,10 @@ a{
     </div>
 
     <div class="col-6 col-md">
-      <h5>Matrícula</h5>
+      <h5></h5>
       <ul class="list-unstyled text-small">
         <li class="link-secondary">MAT. 7420 CUCICBA</li>
+        <li class="link-secondary">Alvarez Miriam E.</li>
         <li class="link-secondary">Bienes raíces · Abogado de bienes raíces · Servicio de escritura.</li>
       </ul>
     </div>

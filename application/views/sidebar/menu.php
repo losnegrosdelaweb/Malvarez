@@ -8,6 +8,13 @@
     <meta name="author" content="Nose">
 
     <style>
+       html {
+          min-height: 100%;
+          position: relative;
+        }
+        body{
+          padding-bottom: 240px;
+        }
       .portada{
        background: url('assets/img/puerto-madero.jpg') no-repeat fixed center;
        -webkit-background-size: cover;
