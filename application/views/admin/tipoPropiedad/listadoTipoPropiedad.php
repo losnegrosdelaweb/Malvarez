@@ -27,7 +27,7 @@
                   <th scope="col">Nombre</th>
                   <th scope="col"><center>Estado</center></th>
                   <th scope="col"><center>Modificar</center></th>
-				  <th scope="col"><center>Inhabilitar/Habilitar</center></th>
+				          <th scope="col"><center>Inhabilitar/Habilitar</center></th>
                 </tr>
               </thead>
               <tbody>                

@@ -14,45 +14,45 @@
     height: auto;
   }
    #app-messenger, #app-whatsapp{
-  position: fixed;
-  right: 0%;
-  bottom: 25px;
-  width: 60px;
-  z-index: 1000;
-  display: none;
-}
-#app-whatsapp{
-  bottom: 95px;
-  display: block;
-}
-#app-messenger i, #app-whatsapp i{
-  font-size: 63px;
-}
-#app-whatsapp i{
-  color: #1ebea5;
-}
-#app-messenger i{
-  color: #0084ff; 
-}
-
-@media screen and (max-width: 766px){
-  #fb-root{
+    position: fixed;
+    right: 0%;
+    bottom: 25px;
+    width: 60px;
+    z-index: 1000;
     display: none;
   }
-  #app-messenger{
+  #app-whatsapp{
+    bottom: 95px;
     display: block;
   }
-}
-a{
-  text-decoration: none;
-}
-.responsive {
-  width: 100%;
-  max-width: 250px;
-  height: auto;
-}
+  #app-messenger i, #app-whatsapp i{
+    font-size: 63px;
+  }
+  #app-whatsapp i{
+    color: #1ebea5;
+  }
+  #app-messenger i{
+    color: #0084ff; 
+  }
 
-  </style>
+  @media screen and (max-width: 766px){
+    #fb-root{
+      display: none;
+    }
+    #app-messenger{
+      display: block;
+    }
+  }
+  a{
+    text-decoration: none;
+  }
+  .responsive {
+    width: 100%;
+    max-width: 250px;
+    height: auto;
+  }
+
+ </style>
 
  <a id="app-whatsapp" target="_blanck" href="https://wa.me/+1135560795">
      <img src="/<?=base_url('assets/img/Whatsapp.png')?>" style="width: 100%;">

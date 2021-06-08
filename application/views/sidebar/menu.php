@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>M.Alvarez S.I</title>
+    <title>MALVAREZ - S.I</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="Nose">
@@ -91,7 +91,7 @@
 				<span class="navbar-toggler-icon"></span>
 				</button>
 				<div class="navbar-collapse collapse" id="navbarsExample07XL" style=""></div>
-				<ul class="navbar-nav" style="padding-bottom: 1%;justify-content: center;">		
+				<ul class="navbar-nav" style="padding-bottom: 1%;justify-content: center;font-weight: bold;">		
           <!--style="padding-right: 10%;-->
 				  <li class="nav-item active">
 					 <a class="nav-link" aria-current="page" href="/<?=site_url('')?>">Inicio</a>

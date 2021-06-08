@@ -3,7 +3,10 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Admin | Dashboard</title>
+  <style>
+  </style>
+
+  <title>Admin | MALVAREZ - S.I.</title>
   <link rel="stylesheet" href="/<?=base_url('plugins/select2/css/select2.min.css')?>">
 
   <link rel="stylesheet" href="/<?=base_url('/plugins/fontawesome-free/css/all.min.css')?>">
