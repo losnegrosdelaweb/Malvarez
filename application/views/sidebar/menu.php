@@ -26,7 +26,7 @@
        text-align: center; 
       }
       .emprendimiento{
-       background: url('..//assets/img/emprendimientos1.jpg') no-repeat fixed center;
+       background: url('..//assets/img/img-emprendimientos.jpg') no-repeat fixed center;
        -webkit-background-size: cover;
        -moz-background-size: cover;
        -o-background-size: cover;
@@ -34,16 +34,6 @@
        height: 100%;
        width: 100% ;
      }
-     .emprendimiento2{
-       background: url('..//assets/img/emprendimientos.jpg') no-repeat fixed center;
-       -webkit-background-size: cover;
-       -moz-background-size: cover;
-       -o-background-size: cover;
-       background-size: cover;
-       height: 100%;
-       width: 100% ;
-     } 
-
       img.dest-img{
        -webkit-background-size: cover;
        -moz-background-size: cover;

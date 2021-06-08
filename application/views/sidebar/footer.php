@@ -94,14 +94,14 @@ a{
         <li>
           <a class="link-secondary" href="tel:011 3556-0795"><i class="fas fa-mobile-alt" style="color: white;"></i> 011 3556-0795</a></li>
         <li>
-          <i class="far fa-envelope"></i><a class="link-secondary" href="mailto:infomalvarezsi@gmail.com"> infomalvarezsi@gmail.com</a>
+          <a class="link-secondary" href="mailto:infomalvarezsi@gmail.com"><i class="far fa-envelope" style="color: white;"></i> infomalvarezsi@gmail.com</a>
       </ul>
     </div>
     
     <div class="col-6 col-md">
       <h5>Acceso</h5>
       <ul class="list-unstyled text-small">
-        <li><i class="fas fa-user-lock"></i><a class="link-secondary" href="/./Malvarezsi/index.php/login"> Login</a></li>
+        <li><a class="link-secondary" href="/./Malvarezsi/index.php/login"><i class="fas fa-user-lock" style="color: white;"></i> Login</a></li>
       </ul>
     </div>
   </div>
