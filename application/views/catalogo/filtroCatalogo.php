@@ -1,3 +1,5 @@
+
+
 <style>
       .bd-placeholder-img {
         font-size: 1.125rem;
@@ -31,11 +33,14 @@
       height: 235px!important;
       width: 419px!important;
     }
-    </style>    
+
+    </style>   
+   
   </head>
   <body>    
 
 <main>
+	 <!-- 
   <div class="full-row py-3 bg-gray d-none d-sm-block">
 	<div class="container">
 		<div class="row">
@@ -112,24 +117,105 @@
 	</div>
   </div>
 
-
+-->
 
 <!-- Catalogo  -->
-<div id="contenedorCatalogo">
-	<?= $vista ?>
-</div>
+<!--
+
 
 </main>
 
-<footer class="text-muted py-5">
-  <div class="container">
-    <p class="float-end mb-1">
-      <a href="#">Back to top</a>
-    </p>
-    <p class="mb-1">Album example is &copy; Bootstrap, but please download and customize it for yourself!</p>
-    <p class="mb-0">New to Bootstrap? <a href="/">Visit the homepage</a> or read our <a href="../getting-started/introduction/">getting started guide</a>.</p>
+-->
+
+
+
+<div class="row" style="background-color: #f8f9fa!important;">
+	<div class="col-2">
+		<main class="container">
+  <div class="d-flex align-items-center p-3 my-3 bg-purple rounded shadow-sm" >
+    <div class="lh-1">
+      <h1 class="h6 mb-0 lh-1">Alquileres</h1>
+      <!--<small>Since 2011</small>-->
+    </div>
   </div>
-</footer>
+
+  <div class="my-3 p-3 bg-body rounded shadow-sm" style="background-color: #e82122eb!important">
+    <h6 class="border-bottom pb-2 mb-0">Filtros</h6>
+
+
+
+    <div class="d-flex pt-3">
+ <div class="col-sm-10">
+      <div class="form-check">
+        <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1" checked>
+        <label class="form-check-label" for="gridRadios1">
+          Pesos
+        </label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="option2">
+        <label class="form-check-label" for="gridRadios2">
+          Dólares
+        </label>
+      </div>
+    </div>
+    </div>
+
+
+    <div class="d-flex pt-3">     
+			<div class="form-group">
+				<div class="row">
+			  <div class="col">
+			  	<label>Desde</label>
+			    <input type="number" class="form-control">
+			  </div>
+			  <div class="col">
+			  	<label>Hasta</label>
+			    <input type="number" class="form-control" >
+			  </div>
+			</div>
+			</div>  
+   	</div>
+	<hr>
+    <div class="d-flex pt-3">
+			<div class="form-group" style="width: 90%;">
+				<label>Tipo Propiedad</label>
+				<select class="form-control select2 select2-danger select2-hidden-accessible" name="ciudad" id="ciudad" data-dropdown-css-class="select2-danger" style="width: 100%;" data-select2-id="3" tabindex="-1" aria-hidden="true">
+					<option value="0">Todos</option>
+			     <?php
+			      foreach ($listadoTipoPropiedad as $key => $TipoPropiedades) {
+			        echo '<option class="red-input" value="'.$TipoPropiedades->Id.'">'.$TipoPropiedades->Descripcion.'</option>';
+			      }
+			    ?>
+			  </select>     
+			</div>
+    </div>
+
+    <div class="d-flex pt-3">
+			<div class="form-group" style="width: 90%;">
+				<label>Ubicación</label>
+				<select class="form-control select2 select2-danger select2-hidden-accessible" name="ciudad" id="ciudad" data-dropdown-css-class="select2-danger" style="width: 100%;" data-select2-id="3" tabindex="-1" aria-hidden="true">
+					<option value="0">Todos</option>
+			     <?php
+			      foreach ($listadoTipoPropiedad as $key => $TipoPropiedades) {
+			        echo '<option class="red-input" value="'.$TipoPropiedades->Id.'">'.$TipoPropiedades->Descripcion.'</option>';
+			      }
+			    ?>
+			  </select>     
+			</div>
+    </div>
+  </div>
+</main>
+</div>
+<div class="col-10">
+	<div id="contenedorCatalogo">
+	<?= $vista ?>
+</div>
+
+</div>
+
+
+
       
 <script type="text/javascript">
 	 $('.select2').select2();  
@@ -177,6 +263,3 @@
         });
 
 </script>
-
-
-
