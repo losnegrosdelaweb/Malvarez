@@ -103,7 +103,7 @@
 					 <a class="nav-link" href="/<!?=site_url('catalogo')?>">Propiedades</a>
 				  </li -->
           <li class="nav-item">
-           <a class="nav-link" href="/<?=site_url('catalogo?alquileres')?>">Alquileres</a>
+           <a class="nav-link" href="/<?=site_url('catalogo-alquileres')?>">Alquileres</a>
           </li>
           <li class="nav-item">
            <a class="nav-link" href="/<?=site_url('catalogo?ventas')?>">Ventas</a>

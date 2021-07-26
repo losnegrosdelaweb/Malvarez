@@ -1,3 +1,4 @@
+
     <div class="album py-5 bg-light">
     <div class="container">
 
@@ -12,10 +13,10 @@
           { ?>
 
 
-      <div class="row container border rounded " style="padding-left: 0px;width: 100%;height: 100%;margin-bottom: 2%;">
+      <div class="row container border rounded " style="padding-left: 0px;width: 100%;height: 100%;margin-bottom: 2%;background-color: white;">
 
-          <div class="col-5">
-          <div class="card shadow-sm" style="width: min-content;">        
+          <div class="col-4">
+          <div class="card shadow-sm">        
           <div  id="carouselExampleIndicators-<?=$itemCatalogo['propiedad']->id_propiedad?>" class="carousel slide" style="width: 100%;height: 100%;">
 
             <div class="carousel-inner">
@@ -28,7 +29,8 @@
                       }else{
                         echo '<div class="carousel-item">';
                       }
-                      echo '<img src="data:image/jpeg;base64,'.$value->base64.'" class="d-block w-100 listado-Carrusel" alt="...">
+                      echo '<img src="data:image/jpeg;base64,'.$value->base64.'" class="d-block w-100 listado-Carrusel" alt="..." style="width: 100%!important;
+    height: 100%!important;max-height: 235px;-webkit-writing-mode: vertical-lr;">
                           </div>';
                     $cont++;
                   }
@@ -53,7 +55,11 @@
           <?php 
               if($itemCatalogo['propiedad']->precio != NULL)
               {
-                echo '<h3 class="mb-0">$ '.$itemCatalogo['propiedad']->precio.'</h3>';
+                if($itemCatalogo['propiedad']->id_moneda==1){
+                  echo '<h3 class="mb-0">$ '.$itemCatalogo['propiedad']->precio.'</h3>';
+                }else{
+                  echo '<h3 class="mb-0">USD '.$itemCatalogo['propiedad']->precio.'</h3>';
+                }
               }    
 
               if($itemCatalogo['propiedad']->expensas != NULL)

@@ -55,9 +55,11 @@ $route['default_controller'] = 'home';
 /* Dashboard - Administración */
 $route['dashboard'] = 'admin';
 
+/* Catalogos */
+
 $route['catalogo'] = 'catalogo';
 $route['filtrarCatalogo'] = 'catalogo/getCatalogoFiltrado';
-
+$route['catalogo-alquileres'] = 'catalogo/indexAlquileres';
 
 $route['login'] = 'login';
 $route['validar'] = 'login/validarLogin';
@@ -67,12 +69,19 @@ $route['detpropiedad/(:num)'] = 'detpropiedad/$1';
 //Emprendimientos
 $route['emprendimientos'] = 'emprendimientos';
 
+
+
+/* Admin */
+
 //Tipo Propiedad Rutas
 $route['tipoPropiedad'] = 'tipoPropiedad';
 $route['insertPropiedad'] = 'tipoPropiedad/postTipoPropiedad';
 $route['getTipoPropiedad/(:num)'] = 'tipoPropiedad/getTipoPropiedad/$1';
 $route['putEstadoTipoPropiedad/(:num)'] = 'tipoPropiedad/putEnabledDisabledTipoPropiedad/$1';
 
+//Ubicaciones
+$route['ubicacion'] = 'ubicacion';
+$route['postUbicacion'] = 'ubicacion/postUbicacion';
 
 //Usuarios
 $route['users'] = 'usuario';

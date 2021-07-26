@@ -55,6 +55,14 @@
                   <p>Tipo Propiedades</p>
                 </a>
               </li>
+              <li class="nav-item">
+                <a href="/<?=site_url('ubicacion')?>" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Ubicación</p>
+                </a>
+              </li>
+
+
               <!--
               <li class="nav-item">
                 <a href="pages/layout/boxed.html" class="nav-link">

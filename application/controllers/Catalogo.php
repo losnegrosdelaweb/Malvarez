@@ -8,14 +8,17 @@ class Catalogo extends CI_Controller {
 		parent::__construct();		
 		$this->load->model('PropiedadModel');
 		$this->load->model('TipoPropiedadModel');
+		$this->load->model('UbicacionModel');
 	}
 
 	public function index()
 	{
+
 		$array = array();
 		$listadoPropiedad = $this->PropiedadModel->getPropiedades();
 		$listadoDepartamento = $this->PropiedadModel->getDepartamentos();		
 		$listadoTipoPropiedad = $this->TipoPropiedadModel->getTiposPropiedades(true);
+		$listadoUbicacion = $this->UbicacionModel->getUbicaciones(true);
 		
 
 		foreach ($listadoPropiedad as $key => $value) {
@@ -41,24 +44,57 @@ class Catalogo extends CI_Controller {
 		$this->load->view('sidebar/footer');
 	}
 
+	public function indexAlquileres()
+	{
+		
+		$array = array();
+
+		$listadoTipoPropiedad = $this->TipoPropiedadModel->getTiposPropiedades(true);
+		$listadoUbicacion = $this->UbicacionModel->getUbicaciones(true);
+
+		$listadoPropiedad = $this->PropiedadModel->getPropiedades();	
+		foreach ($listadoPropiedad as $key => $value) {
+			$PropiedadCatalogo = $this->PropiedadModel->getPropiedadCatalogo($value->id_propiedad);
+			$data = array(				
+        		'propiedad' => $value,
+				'imagenes' => $PropiedadCatalogo,
+			);
+			array_push($array, $data);
+		}
+		
+		$data['catalogo'] = $array;
+		$data['listadoTipoPropiedad'] = $listadoTipoPropiedad;
+		$data['listadoUbicacion'] = $listadoUbicacion;
+
+		
+
+		$vista['vista'] = $this->load->view('catalogo/listado', $data, true);
+
+		$this->load->view('sidebar/menu');
+		$this->load->view('catalogo/filtroCatalogo', $vista);
+		$this->load->view('sidebar/footer');
+	}
+
 	public function getCatalogoFiltrado()
 	{
 		if(isset($_POST))
-		{			
-			$departamento = isset($_POST['departamento']) ? $_POST['departamento'] : NULL;
-			$ciudad = isset($_POST['ciudad']) ? $_POST['ciudad'] : NULL;
-			$estado = isset($_POST['estado']) ? $_POST['estado'] : NULL;
+		{	
+			$moneda = isset($_POST['moneda']) ? $_POST['moneda'] : NULL;	
+			$precioDesde = isset($_POST['precioDesde']) ? $_POST['precioDesde'] : NULL;
+			$precioHasta = isset($_POST['precioHasta']) ? $_POST['precioHasta'] : NULL;
 			$tipoPropiedad = isset($_POST['tipoPropiedad']) ? $_POST['tipoPropiedad'] : NULL;
-			$dormitorios = isset($_POST['dormitorios']) ? $_POST['dormitorios'] : NULL;
-			$palabraClave  = isset($_POST['palabraClave']) ? $_POST['palabraClave'] : NULL;
-			$orden = isset($_POST['orden']) ? $_POST['orden'] : NULL;
+			$dormitoriosDesde = isset($_POST['dormitoriosDesde']) ? $_POST['dormitoriosDesde'] : NULL;
+			$dormitoriosHasta = isset($_POST['dormitoriosHasta']) ? $_POST['dormitoriosHasta'] : NULL;
+			$ambientesDesde = isset($_POST['ambientesDesde']) ? $_POST['ambientesDesde'] : NULL;
+			$ambientesHasta = isset($_POST['ambientesHasta']) ? $_POST['ambientesHasta'] : NULL;
+			$ubicacion = isset($_POST['ubicacion']) ? $_POST['ubicacion'] : NULL;
 
+			$vista['FiltradoPor'] = $this->PrepararBotonesFiltro($moneda, $precioDesde, $precioHasta, $tipoPropiedad, $dormitoriosDesde, $dormitoriosHasta, $ambientesDesde, $ambientesHasta, $ubicacion);
 		}
+		//var_dump($ambientesHasta);die;
 
 		$array = array();
-		//$listadoPropiedad = $this->PropiedadModel->getPropiedades();
-		$listadoPropiedad = $this->PropiedadModel->getPropiedadFiltro($departamento, $ciudad, $estado, $tipoPropiedad, $dormitorios, $palabraClave, $orden);
-		
+		$listadoPropiedad = $this->PropiedadModel->getPropiedadFiltro($moneda, $precioDesde, $precioHasta, $tipoPropiedad, $dormitoriosDesde, $dormitoriosHasta, $ambientesDesde, $ambientesHasta, $ubicacion);		
 
 		foreach ($listadoPropiedad as $key => $value) {
 			$PropiedadCatalogo = $this->PropiedadModel->getPropiedadCatalogo($value->id_propiedad);
@@ -72,8 +108,54 @@ class Catalogo extends CI_Controller {
 		}
 		$data['catalogo'] = $array;
 
-		$vista['vista'] = $this->load->view('catalogo/listado', $data);
-
+		if(count($data['catalogo'])>0){
+			$vista['vista'] = $this->load->view('catalogo/listado', $data, true);
+		}else{
+			$vista['vista'] = "<div class='alert alert-warning' role='alert' style='margin-top: 10%;font-size: x-large;'>No se encontró ningún Alquiler.</div>";
+		}
+		
+		echo json_encode($vista);
 	}
 
+
+	function PrepararBotonesFiltro($moneda, $precioDesde, $precioHasta, $tipoPropiedad, $dormitoriosDesde, $dormitoriosHasta, $ambientesDesde, $ambientesHasta, $ubicacion){
+
+		$filtros = "<h6 class='border-bottom pb-2 mb-0'>Filtros Aplicados</h6><br>";
+
+        if($precioDesde!=null && $precioDesde!=0){
+        	$filtros .= "<button type='button' class='btn btn-outline-danger close filtro-close' data-dismiss='alert' aria-label='Close' style='margin: 1% 1% 0 0;' onclick='filtro_close(precioDesde)'> Valor min ".$precioDesde." <span aria-hidden='true'>&times;</span></button>  ";
+        }
+
+        if($precioHasta!=null && $precioHasta!=0){        	
+        	$filtros .= "<button type='button' class='btn btn-outline-danger close' data-dismiss='alert' aria-label='Close' style='margin: 1% 1% 0 0;' onclick='filtro_close(precioHasta)'> Valor max ".$precioHasta." <span aria-hidden='true'>&times;</span></button>  ";
+        }
+
+        if($tipoPropiedad!=null && $tipoPropiedad!=0){
+        	$DescripcionTipoPropiedad = $this->TipoPropiedadModel->getTipoPropiedad($tipoPropiedad);
+        	$filtros .= "<button type='button' class='btn btn-outline-danger close' data-dismiss='alert' aria-label='Close' style='margin: 1% 1% 0 0;' onclick='filtro_close(tipoPropiedad)'>".$DescripcionTipoPropiedad->descripcion." <span aria-hidden='true'>&times;</span></button>  ";
+        }
+
+        if($dormitoriosDesde!=null && $dormitoriosDesde!=0){
+        	$filtros .= "<button type='button' class='btn btn-outline-danger close' data-dismiss='alert' aria-label='Close' style='margin: 1% 1% 0 0;' onclick='filtro_close(dormitoriosDesde)'> Dormitorios min ".$dormitoriosDesde." <span aria-hidden='true'>&times;</span></button>  ";
+        }
+
+        if($dormitoriosHasta!=null && $dormitoriosHasta!=0){
+        	$filtros .= "<button type='button' class='btn btn-outline-danger close' data-dismiss='alert' aria-label='Close' style='margin: 1% 1% 0 0;' onclick='filtro_close(dormitoriosHasta)'> Dormitorios max ".$dormitoriosHasta." <span aria-hidden='true'>&times;</span></button>  ";
+        }
+
+        if($ambientesDesde!=null && $ambientesDesde!=0){
+        	$filtros .= "<button type='button' class='btn btn-outline-danger close' data-dismiss='alert' aria-label='Close' style='margin: 1% 1% 0 0;' onclick='filtro_close(ambientesDesde)'> Ambientes min ".$ambientesDesde." <span aria-hidden='true'>&times;</span></button>  ";
+        }
+
+        if($ambientesHasta!=null && $ambientesHasta!=0){
+        	$filtros .= "<button type='button' class='btn btn-outline-danger close' data-dismiss='alert' aria-label='Close' style='margin: 1% 1% 0 0;' onclick='filtro_close(ambientesHasta)'>Ambientes max ".$ambientesHasta." <span aria-hidden='true'>&times;</span></button>  ";
+        }
+
+        if($ubicacion!=null && $ubicacion!=0){
+        	$DescripcionUbicacion = $this->UbicacionModel->getUbicacionbyId($ubicacion);
+        	$filtros .= "<button type='button' class='btn btn-outline-danger close' data-dismiss='alert' aria-label='Close' style='margin: 1% 1% 0 0;' onclick='filtro_close(ubicacion)'>Ambientes max ".$DescripcionUbicacion->descripcion." <span aria-hidden='true'>&times;</span></button>  ";
+        }
+        return $filtros;
+	}
+	
 }
