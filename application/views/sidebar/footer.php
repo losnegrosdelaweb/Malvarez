@@ -14,45 +14,45 @@
     height: auto;
   }
    #app-messenger, #app-whatsapp{
-  position: fixed;
-  right: 0%;
-  bottom: 25px;
-  width: 60px;
-  z-index: 1000;
-  display: none;
-}
-#app-whatsapp{
-  bottom: 95px;
-  display: block;
-}
-#app-messenger i, #app-whatsapp i{
-  font-size: 63px;
-}
-#app-whatsapp i{
-  color: #1ebea5;
-}
-#app-messenger i{
-  color: #0084ff; 
-}
-
-@media screen and (max-width: 766px){
-  #fb-root{
+    position: fixed;
+    right: 0%;
+    bottom: 25px;
+    width: 60px;
+    z-index: 1000;
     display: none;
   }
-  #app-messenger{
+  #app-whatsapp{
+    bottom: 95px;
     display: block;
   }
-}
-a{
-  text-decoration: none;
-}
-.responsive {
-  width: 100%;
-  max-width: 250px;
-  height: auto;
-}
+  #app-messenger i, #app-whatsapp i{
+    font-size: 63px;
+  }
+  #app-whatsapp i{
+    color: #1ebea5;
+  }
+  #app-messenger i{
+    color: #0084ff; 
+  }
 
-  </style>
+  @media screen and (max-width: 766px){
+    #fb-root{
+      display: none;
+    }
+    #app-messenger{
+      display: block;
+    }
+  }
+  a{
+    text-decoration: none;
+  }
+  .responsive {
+    width: 100%;
+    max-width: 250px;
+    height: auto;
+  }
+
+ </style>
 
  <a id="app-whatsapp" target="_blanck" href="https://wa.me/+1135560795">
      <img src="/<?=base_url('assets/img/Whatsapp.png')?>" style="width: 100%;">
@@ -94,14 +94,14 @@ a{
         <li>
           <a class="link-secondary" href="tel:011 3556-0795"><i class="fas fa-mobile-alt" style="color: white;"></i> 011 3556-0795</a></li>
         <li>
-          <i class="far fa-envelope"></i><a class="link-secondary" href="mailto:infomalvarezsi@gmail.com"> infomalvarezsi@gmail.com</a>
+          <a class="link-secondary" href="mailto:infomalvarezsi@gmail.com"><i class="far fa-envelope" style="color: white;"></i> infomalvarezsi@gmail.com</a>
       </ul>
     </div>
     
     <div class="col-6 col-md">
       <h5>Acceso</h5>
       <ul class="list-unstyled text-small">
-        <li><i class="fas fa-user-lock"></i><a class="link-secondary" href="/./Malvarezsi/index.php/login"> Login</a></li>
+        <li><a class="link-secondary" href="/./Malvarezsi/index.php/login"><i class="fas fa-user-lock" style="color: white;"></i> Login</a></li>
       </ul>
     </div>
   </div>

@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>M.Alvarez S.I</title>
+    <title>MALVAREZ - S.I</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="Nose">
@@ -27,7 +27,7 @@
        text-align: center; 
       }
       .emprendimiento{
-       background: url('..//assets/img/emprendimientos1.jpg') no-repeat fixed center;
+       background: url('..//assets/img/img-emprendimientos.jpg') no-repeat fixed center;
        -webkit-background-size: cover;
        -moz-background-size: cover;
        -o-background-size: cover;
@@ -35,16 +35,6 @@
        height: 100%;
        width: 100% ;
      }
-     .emprendimiento2{
-       background: url('..//assets/img/emprendimientos.jpg') no-repeat fixed center;
-       -webkit-background-size: cover;
-       -moz-background-size: cover;
-       -o-background-size: cover;
-       background-size: cover;
-       height: 100%;
-       width: 100% ;
-     } 
-
       img.dest-img{
        -webkit-background-size: cover;
        -moz-background-size: cover;
@@ -101,7 +91,7 @@
 				<span class="navbar-toggler-icon"></span>
 				</button>
 				<div class="navbar-collapse collapse" id="navbarsExample07XL" style=""></div>
-				<ul class="navbar-nav" style="padding-bottom: 1%;justify-content: center;">		
+				<ul class="navbar-nav" style="padding-bottom: 1%;justify-content: center;font-weight: bold;">		
           <!--style="padding-right: 10%;-->
 				  <li class="nav-item active">
 					 <a class="nav-link" aria-current="page" href="/<?=site_url('')?>">Inicio</a>
@@ -113,7 +103,7 @@
 					 <a class="nav-link" href="/<!?=site_url('catalogo')?>">Propiedades</a>
 				  </li -->
           <li class="nav-item">
-           <a class="nav-link" href="/<?=site_url('catalogo?alquileres')?>">Alquileres</a>
+           <a class="nav-link" href="/<?=site_url('catalogo-alquileres')?>">Alquileres</a>
           </li>
           <li class="nav-item">
            <a class="nav-link" href="/<?=site_url('catalogo?ventas')?>">Ventas</a>

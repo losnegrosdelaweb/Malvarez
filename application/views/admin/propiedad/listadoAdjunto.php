@@ -13,7 +13,7 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Propiedad</h1>
+            <h1>Detalle de Propiedad</h1>
             <input type="text" name="IdPropiedad" id="IdPropiedad" hidden="hidden" value="<?=$Propiedad->id_propiedad?>">
           </div>
         </div>
@@ -31,19 +31,19 @@
                   <!--<img class="profile-user-img img-fluid img-circle" src="../../dist/img/user4-128x128.jpg" alt="User profile picture">-->
                 </div>
 
-                <h3 class="profile-username text-center">Nina Mcintire</h3>
+                <h3 class="profile-username text-center">ID: <?=$Propiedad->id_propiedad?></h3>
 
-                <p class="text-muted text-center">Software Engineer</p>
+                <p class="text-muted text-center">Estadísticas</p>
 
                 <ul class="list-group list-group-unbordered mb-3">
                   <li class="list-group-item">
-                    <b>Followers</b> <a class="float-right">1,322</a>
+                    <b>Visitas</b> <a class="float-right"><?=$Propiedad->visitas?></a>
                   </li>
                   <li class="list-group-item">
-                    <b>Following</b> <a class="float-right">543</a>
+                    <b>Consultas</b> <a class="float-right">543</a>
                   </li>
                   <li class="list-group-item">
-                    <b>Friends</b> <a class="float-right">13,287</a>
+                    <b>Fecha</b> <a class="float-right"><?=$Propiedad->fecha?></a>
                   </li>
                 </ul>
 
@@ -54,9 +54,14 @@
             <!-- /.card -->
 
             <!-- About Me Box -->
-            <div class="card card-danger">
+           
+            <!-- /.card -->
+          </div>
+          <!-- /.col -->
+          <div class="col-md-9">
+             <div class="card card-danger">
               <div class="card-header">
-                <h3 class="card-title">Descripción</h3>
+                <h3 class="card-title">Tipo <?=$Propiedad->id_tipo?> - <?=$Propiedad->ubicacion?></h3>
               </div>
               <!-- /.card-header -->
               <div class="card-body">
@@ -79,52 +84,51 @@
                   <li><b>Ambientes: </b><?=$Propiedad->ambientes?></li>
                   <li><b>Dormitorios: </b><?=$Propiedad->dormitorios?></li>
                   <li><b>baños: </b><?=$Propiedad->banos?></li>
+                </ul>
               </div>
               <!-- /.card-body -->
             </div>
-            <!-- /.card -->
           </div>
-          <!-- /.col -->
-          <div class="col-md-9">
-
+        </div>
+        <div class="row">
+          <div class="col-md">
             <div class="card card-danger card-outline">
-               <div class="card-header border-0">
-            <div class="d-flex justify-content-between">
-              <h3 class="card-title">Listado de Imagenes</h3>
-              <a href="javascript:void(0);">
-                <button type="button" class="btn btn-success btn-sm float-right" id="ModalAdjunto"><i class="fas fa-plus"></i> Nueva</button>
-              </a>
-            </div>
-          </div>
+              <div class="card-header border-0">
+                <div class="d-flex justify-content-between">
+                  <h3 class="card-title">Listado de Imagenes</h3>
+                  <a href="javascript:void(0);">
+                    <button type="button" class="btn btn-success btn-sm float-right" id="ModalAdjunto"><i class="fas fa-plus"></i> Nueva</button>
+                  </a>
+                </div>
+              </div>
               <div class="card-body">
-              <table class="table" id="listadoAdjuntos">
-              <thead>
-                <tr>
-                  <th scope="col">Tipo</th>
-                  <th scope="col">Imagen</th>
-                  <th scope="col">Acciones</th>                  
-                </tr>
-              </thead>
-              <tbody>
-                <?php foreach ($Adjuntos as $key => $value) {
-                  echo "<tr><td>A</td>";
-                  echo '<td><img class="rounded" src="data:image/jpeg;base64,'.$value->base64.'" style="width: 9%;"></td>';
-                 ?>
-                  <td>
-                    <a type="button" class="btn btn-danger btn-sm" href="<?=base_url('../../borrarImagen/').$Propiedad->id_propiedad?>/<?=$value->id_imagenes?>">
-                      <i class="fas fa-trash-alt"></i>
-                    </a>
-                  </td>
-                </tr>  
-                <?php } ?>              
-              </tbody>
-            </table>                
+                <table class="table" id="listadoAdjuntos">
+                  <thead>
+                    <tr>
+                      <th scope="col">Imágen</th>
+                      <th scope="col">Acciones</th>                  
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                    <?php foreach ($Adjuntos as $key => $value) {
+                      echo '<td><img class="rounded" src="data:image/jpeg;base64,'.$value->base64.'" style="width: 9%;"></td>';
+                     ?>
+                      <td>
+                        <a type="button" class="btn btn-danger btn-sm" href="<?=base_url('../../borrarImagen/').$Propiedad->id_propiedad?>/<?=$value->id_imagenes?>">
+                          <i class="fas fa-trash-alt"></i>
+                        </a>
+                      </td>
+                    </tr>  
+                    <?php } ?>              
+                  </tbody>
+                </table>                
+              </div>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-  </div>
-</section>
+    </section>
 </div>
   <script type="text/javascript">
     $(document).ready(function () {

@@ -12,7 +12,7 @@
     
   </head>
   <body> 
-  <main class="bg-light emprendimiento2">
+  <main class="bg-light emprendimiento">
   <div class="container">
   <div class="content-wrapper ">
     <!-- Content Header (Page header) -->

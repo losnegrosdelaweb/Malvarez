@@ -8,7 +8,7 @@
         <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
-        <a href="/<?=site_url('')?>" class="nav-link">Inicio</a>
+        <a href="/<?=site_url('')?>" class="nav-link">Volver a https://malvarezsi.com/</a>
       </li>
 <!--
       <li class="nav-item d-none d-sm-inline-block">
@@ -43,7 +43,7 @@
       
       </li>-->
 
-      <!-- Messages Dropdown Menu -->
+      <!-- Messages Dropdown Menu >
       <li class="nav-item dropdown">
         <a class="nav-link" data-toggle="dropdown" href="#">
           <i class="far fa-comments"></i>
@@ -51,7 +51,7 @@
         </a>
         <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
           <a href="#" class="dropdown-item">
-            <!-- Message Start -->
+            <-- Message Start >
             <div class="media">
               <img src="/<?=base_url('dist/img/user1-128x128.jpg')?>" alt="User Avatar" class="img-size-50 mr-3 img-circle">
               <div class="media-body">
@@ -63,11 +63,11 @@
                 <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
               </div>
             </div>
-            <!-- Message End -->
+            <-- Message End >
           </a>
           <div class="dropdown-divider"></div>
           <a href="#" class="dropdown-item">
-            <!-- Message Start -->
+            <-- Message Start >
             <div class="media">
               <img src="/<?=base_url('dist/img/user8-128x128.jpg')?>" alt="User Avatar" class="img-size-50 img-circle mr-3">
               <div class="media-body">
@@ -79,11 +79,11 @@
                 <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
               </div>
             </div>
-            <!-- Message End -->
+            <-- Message End >
           </a>
           <div class="dropdown-divider"></div>
           <a href="#" class="dropdown-item">
-            <!-- Message Start -->
+            <-- Message Start >
             <div class="media">
               <img src="/<?=base_url('dist/img/user3-128x128.jpg')?>" alt="User Avatar" class="img-size-50 img-circle mr-3">
               <div class="media-body">
@@ -95,7 +95,7 @@
                 <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
               </div>
             </div>
-            <!-- Message End -->
+            <- Message End ->
           </a>
           <div class="dropdown-divider"></div>
           <a href="#" class="dropdown-item dropdown-footer">See All Messages</a>
@@ -105,7 +105,7 @@
 
 
 
-      <!-- Notifications Dropdown Menu -->
+      <-- Notifications Dropdown Menu ->
       <li class="nav-item dropdown">
         <a class="nav-link" data-toggle="dropdown" href="#">
           <i class="far fa-bell"></i>
@@ -131,7 +131,7 @@
           <div class="dropdown-divider"></div>
           <a href="#" class="dropdown-item dropdown-footer">See All Notifications</a>
         </div>
-      </li>
+      </li-->
     </ul>
   </nav>
   <!-- /.navbar -->

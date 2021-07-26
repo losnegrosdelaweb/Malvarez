@@ -7,7 +7,8 @@ class Login extends CI_Controller {
 	{
 		$this->session->sess_destroy();
 		$this->load->view('sidebar/menu');
-		$this->load->view('login/login');		
+		$this->load->view('login/login');
+		$this->load->view('sidebar/footer');	
 	}
 
 	public function validarLogin()

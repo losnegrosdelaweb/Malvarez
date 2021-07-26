@@ -16,35 +16,47 @@ class PropiedadModel extends CI_Model {
         return $query->result();
 	}
 
-	public function getPropiedadFiltro($departamento, $ciudad, $estado, $tipoPropiedad, $dormitorios, $palabraClave, $orden)
+	public function getPropiedadFiltro($moneda, $precioDesde, $precioHasta, $tipoPropiedad, $dormitoriosDesde, $dormitoriosHasta, $ambientesDesde, $ambientesHasta, $ubicacion)
 	{
-		/*
-		if($departamento!=null && $departamento!=0){
-        	$this->db->where('activo', $departamento);
-        }*/
+        if($moneda!=null && $moneda!=0){
+        	$this->db->where('id_moneda', $moneda);
+        }
 
-        if($ciudad!=null && $ciudad!=0){
-        	$this->db->where('id_ciudad', $ciudad);
+        if($precioDesde!=null && $precioDesde!=0){
+        	$this->db->where('precio >=', $precioDesde);
         }
-        /*
-        if($estado!=null && $estado!=0){
-        	$this->db->where('activo', $estado);
-        }*/
+
+        if($precioHasta!=null && $precioHasta!=0){        	
+        	$this->db->where('precio <=', $precioHasta);
+        }
+
         if($tipoPropiedad!=null && $tipoPropiedad!=0){
-        	$this->db->where('Id_tipo', $tipoPropiedad);
+        	$this->db->where('id_tipo', $tipoPropiedad);
         }
-        /*
-        if($palabraClave!=null && $palabraClave!=0){
-        	$this->db->where('activo', 1);
+
+
+        if($dormitoriosDesde!=null && $dormitoriosDesde!=0){
+        	$this->db->where('dormitorios >=', $dormitoriosDesde);
         }
-        if($palabraClave!=null && $palabraClave!=0){
-        	$this->db->where('activo', 1);
-        }        
-        if($orden!=null && $orden!=0){
-        	$this->db->where('activo', 1);
-        }*/
+
+        if($dormitoriosHasta!=null && $dormitoriosHasta!=0){
+        	$this->db->where('dormitorios <=', $dormitoriosHasta);
+        }
+
+        if($ambientesDesde!=null && $ambientesDesde!=0){
+        	$this->db->where('ambientes >=',$ambientesDesde);
+        }
+
+        if($ambientesHasta!=null && $ambientesHasta!=0){
+        	$this->db->where('ambientes <=', $ambientesHasta);
+        }
+
+        if($ubicacion!=null && $ubicacion!=0){
+        	$this->db->where('id_ubicacion', $ubicacion);
+        }
 
         $query = $this->db->get('propiedades');
+        //var_dump($this->db->last_query());
         return $query->result();
 	}
 
