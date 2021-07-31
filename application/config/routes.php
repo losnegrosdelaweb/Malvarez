@@ -70,6 +70,8 @@ $route['detpropiedad/(:num)'] = 'detpropiedad/$1';
 $route['emprendimientos'] = 'emprendimientos';
 
 
+//Nosotros
+$route['nosotros'] = 'nosotros';
 
 /* Admin */
 

@@ -97,7 +97,7 @@
 					 <a class="nav-link" aria-current="page" href="/<?=site_url('')?>">Inicio</a>
 				  </li>
           <li class="nav-item">
-           <a class="nav-link" href="/<?=site_url('mantenimiento')?>">Nosotros</a>
+           <a class="nav-link" href="/<?=site_url('nosotros')?>">Nosotros</a>
           </li>
 				  <!-- li class="nav-item">
 					 <a class="nav-link" href="/<!?=site_url('catalogo')?>">Propiedades</a>
