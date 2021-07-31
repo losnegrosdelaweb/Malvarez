@@ -83,7 +83,7 @@
               <li><a href="https://www.facebook.com/MAlvarez-Servicios-Inmobiliarios-105021768004660">
                   <img src="https://static.tokkobroker.com/tfw/img/r-facebook.svg?20210602200718" width="40" height="40">
                 </a>              
-                <a href="https://www.facebook.com/MAlvarez-Servicios-Inmobiliarios-105021768004660">
+                <a href="https://www.instagram.com/malvarezinmobiliaria/?hl=es">
                   <img src="https://static.tokkobroker.com/tfw/img/r-instagram.svg?20210602200718" width="40" height="40">
                 </a></li>
       </ul>
