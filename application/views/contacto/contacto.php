@@ -13,6 +13,9 @@
     .status {
       color: red;
     }
+    .statusok {
+      color: red;
+    }
     </style>
 <main class="bg-light">
 <div class="container">
@@ -33,7 +36,7 @@
             </div>
           </div>
           <div class="col-7">
-            <form id="contactoForm" action="/<?=site_url('validarContacto')?>" method="POST">
+            <form id="contactoForm" method="POST">
               <div class="form-group">
                 <label for="inputName">Nombre / Apellido *</label>
                 <input type="text" id="inputName" class="form-control">
@@ -55,6 +58,7 @@
                 <textarea id="inputMessage" class="form-control" rows="4"></textarea>
               </div>
               <div class="status"></div>
+              <div class="statusok"></div>
               <div class="form-group" style="float: right;">
                 <input type="submit" class="btn btn-primary" value="Enviar" onclick="validateForm();">
               </div>
@@ -64,15 +68,6 @@
       </div>
     </section>
 <!--Section: Contact v.2-->
-   <!-- SCRIPTS -->
-    <!-- JQuery -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <!-- Bootstrap tooltips -->
-    <script type="text/javascript" src="js/popper.min.js"></script>
-    <!-- Bootstrap core JavaScript -->
-    <script type="text/javascript" src="js/bootstrap.js"></script>
-    <!-- MDB core JavaScript -->
-    <script type="text/javascript" src="js/mdb.js"></script>
     <!--Custom scripts-->
     <script>
 
@@ -104,7 +99,7 @@ function validateForm() {
          document.querySelector('.status').innerHTML = "Mensaje no puede quedar vacío.";
          return false;
      }
-      document.getElementById('status').innerHTML = "Sending...";
+      document.querySelector('statusok').innerHTML = "Enviando...";
      
 }
     </script>

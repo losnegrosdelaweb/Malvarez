@@ -46,7 +46,7 @@
 			<main class="container text-light">
 				<div class="d-flex align-items-center p-3 my-3 bg-purple rounded shadow-sm" style="background-color: #131414!important;" >
 					<div class="lh-1">
-						<h1 class="h6 mb-0 lh-1" style="font-size: x-large;" >Alquileres</h1>
+						<h1 class="h6 mb-0 lh-1" style="font-size: x-large;" >Propiedades</h1>
 						<!--<small>Since 2011</small>-->
 					</div>
 				</div>
