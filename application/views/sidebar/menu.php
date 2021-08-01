@@ -115,7 +115,7 @@
            <a class="nav-link" href="/<?=site_url('mantenimiento')?>">Mundo Inmobiliario</a>
           </li>
           <li class="nav-item">
-           <a class="nav-link" href="/<?=site_url('mantenimiento')?>">Contacto</a>
+           <a class="nav-link" href="/<?=site_url('contacto')?>">Contacto</a>
           </li>
           </ul>
 				  <!--
