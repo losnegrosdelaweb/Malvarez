@@ -54,7 +54,7 @@
 
  </style>
 
- <a id="app-whatsapp" target="_blanck" href="https://wa.me/+1135560795">
+ <a id="app-whatsapp" target="_blanck" href="https://wa.me/+5491135560795">
      <img src="/<?=base_url('assets/img/Whatsapp.png')?>" style="width: 100%;">
      <!--<i class="fab fa-whatsapp"></i>-->
 </a>
@@ -73,7 +73,7 @@
       <ul class="list-unstyled text-small">
         <li class="link-secondary">MAT. 7420 CUCICBA</li>
         <li class="link-secondary">Alvarez Miriam E.</li>
-        <li class="link-secondary">Bienes raíces · Abogado de bienes raíces · Servicio de escritura.</li>
+        <li class="link-secondary">Bienes Raíces · Estudio Jurídico · Asesoramiento legal y notarial</li>
       </ul>
     </div>
 
@@ -83,7 +83,7 @@
               <li><a href="https://www.facebook.com/MAlvarez-Servicios-Inmobiliarios-105021768004660">
                   <img src="https://static.tokkobroker.com/tfw/img/r-facebook.svg?20210602200718" width="40" height="40">
                 </a>              
-                <a href="https://www.facebook.com/MAlvarez-Servicios-Inmobiliarios-105021768004660">
+                <a href="https://www.instagram.com/malvarezinmobiliaria/?hl=es">
                   <img src="https://static.tokkobroker.com/tfw/img/r-instagram.svg?20210602200718" width="40" height="40">
                 </a></li>
       </ul>
@@ -92,7 +92,9 @@
       <h5>Contactos</h5>
       <ul class="list-unstyled text-small">
         <li>
-          <a class="link-secondary" href="tel:011 3556-0795"><i class="fas fa-mobile-alt" style="color: white;"></i> 011 3556-0795</a></li>
+          <a class="link-secondary" href="https://wa.me/+5491135560795"><i class="fas fa-mobile-alt" style="color: white;"></i> 11 3556-0795</a></li>
+        <li>
+          <a class="link-secondary" href="https://wa.me/+5491158052424"><i class="fas fa-mobile-alt" style="color: white;"></i> 11 5805-2424</a></li>
         <li>
           <a class="link-secondary" href="mailto:infomalvarezsi@gmail.com"><i class="far fa-envelope" style="color: white;"></i> infomalvarezsi@gmail.com</a>
       </ul>
