@@ -7,14 +7,17 @@ class Propiedad extends CI_Controller {
 	{
 		$this->load->model('TipoPropiedadModel');
 		$this->load->model('PropiedadModel');
+		$this->load->model('UbicacionModel');
 		$listadoTipoPropiedad = $this->TipoPropiedadModel->getTiposPropiedades(true);		
-		$listadoPropiedad = $this->PropiedadModel->getPropiedades(true);
+		$listadoPropiedad = $this->PropiedadModel->getPropiedadesUbicacion(true);
+		$listadoUbicaciones = $this->UbicacionModel->getUbicaciones(true);
 		$listadoDepartamento = $this->PropiedadModel->getDepartamentos();
 		//$listadoPropiedad = $this->PropiedadModel->getPropiedades(true);
 		//var_dump($listadoDepartamento);die;
 		$data['listadoTipoPropiedad'] = $listadoTipoPropiedad;
 		$data['listadoPropiedad'] = $listadoPropiedad;
 		$data['listadoDepartamento'] = $listadoDepartamento;
+		$data['listadoUbicaciones'] = $listadoUbicaciones;
 
 		$this->load->view('admin/header');
 		$this->load->view('admin/sidebar');		
@@ -53,8 +56,8 @@ class Propiedad extends CI_Controller {
 			$Id = isset($_POST['id']) ? $_POST['id'] : NULL;
 			$data = array(				
         		'id_tipo' => $_POST['TipoPropiedad'],
-				'id_barrio' => $_POST['Barrio'],
-				'ubicacion' => $_POST['Ubicacion'],
+				//'id_barrio' => $_POST['Barrio'],
+				'id_ubicacion' => $_POST['Ubicacion'],
 				'ambientes' => $_POST['Ambientes'],
 				'dormitorios' => $_POST['Dormitorios'],
 				'banos' => $_POST['Bano'],

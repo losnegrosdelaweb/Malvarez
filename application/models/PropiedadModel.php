@@ -110,5 +110,22 @@ class PropiedadModel extends CI_Model {
         $query = $this->db->get('images');
         return $query->result();
 	}
+	public function getPropiedadesUbicacion($filtroActivo = false)
+	{
+	    /*
+		if($filtroActivo){
+        	$this->db->where('activo', 1);
+        }*/
+        /*
+        $this->db->get('propiedades');
+        $query = $this->db->join('ubicacion', 'propiedades.id_ubicacion = ubicacion.id_ubicacion');
+        return $query->result();*/
+        
+        $this->db->from('propiedades');
+        $this->db->join('ubicacion', 'propiedades.id_ubicacion = ubicacion.id_ubicacion');
+        $query = $this->db->get();
+        return $query->result();
+	}
+	
 
 }
