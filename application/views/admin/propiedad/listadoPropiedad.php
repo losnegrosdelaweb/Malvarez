@@ -26,7 +26,7 @@
                 <tr>
                   <th scope="col">Tipo Propiedad</th>
                   <th scope="col">Barrio</th>
-                  <th scope="col">Ubicación</th>
+                  <!--<th scope="col">Ubicación</th>-->
                   <th scope="col">Condicion</th>
                   <th scope="col" class="text-center">Modificar</th>
                   <th scope="col" class="text-center">Detalles</th>
@@ -36,11 +36,15 @@
               <tbody>
                 
                   <?php
+                  
                     foreach ($listadoPropiedad as $key => $value) {
+                        /*echo "<pre>";
+                        var_dump($value);
+                        echo "</pre>";*/
                       echo "<tr>";
                       echo "<td>".$value->id_propiedad."</td>";
-                      echo "<td>".$value->id_ciudad."</td>";
-                      echo "<td>".$value->ubicacion."</td>";
+                      //echo "<td>".$value->id_ciudad."</td>";
+                      echo "<td>".$value->descripcion."</td>";
                       echo "<td>".$value->condicion."</td>";
                       echo '<td class="text-center"><button type="button" class="btn btn-warning btn-sm">
                               <i class="fas fa-pen"></i>

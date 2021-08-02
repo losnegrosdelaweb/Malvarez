@@ -22,15 +22,17 @@
             <div class="col-4">
               <div class="form-group">
                   <label>Tipo Propiedad</label>
-                  <select class="form-control select2 select2-danger select2-hidden-accessible" data-dropdown-css-class="select2-danger" style="width: 100%;" data-select2-id="1" tabindex="-1" aria-hidden="true">
+                  <select class="form-control select2 select2-danger select2-hidden-accessible" data-dropdown-css-class="select2-danger" name="TipoPropiedad" style="width: 100%;" data-select2-id="1" tabindex="-1" aria-hidden="true">
                      <?php
                       foreach ($listadoTipoPropiedad as $key => $TipoPropiedades) {
-                        echo '<option class="red-input" value="'.$TipoPropiedades->Id.'">'.$TipoPropiedades->Descripcion.'</option>';
+                        echo '<option class="red-input" value="'.$TipoPropiedades->id_tipo_propiedad.'">'.$TipoPropiedades->descripcion.'</option>';
                       }
                     ?>
                   </select>                  
               </div>             
             </div>
+            <!--
+            
             <div class="col-4">   
               <div class="form-group">
                     <label>Departamento</label>
@@ -55,10 +57,21 @@
                     </select>                  
                 </div>             
             </div>
-          </div>
+            -->
+            <div class="col-4">   
+              <div class="form-group">
+                    <label>Ubicacion</label>
+                    <select class="form-control select2 select2-danger select2-hidden-accessible" id="ubicacion" data-dropdown-css-class="select2-danger" style="width: 100%;" data-select2-id="3" tabindex="-1" aria-hidden="true" name="Ubicacion">
+                       <?php
+                        foreach ($listadoUbicaciones as $key => $ubicacion) {
+                          echo '<option class="red-input" value="'.$ubicacion->id_ubicacion.'">'.$ubicacion->descripcion.'</option>';
+                        }
+                      ?>
+                    </select>                  
+                </div>             
+            </div>
 
-
-
+</div>
           <div class="row">  
             <div class="col-2" style="padding-right: 30px">
               <div class="form-group">
