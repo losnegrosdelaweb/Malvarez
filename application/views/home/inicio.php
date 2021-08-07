@@ -88,7 +88,7 @@ a{
         <div class="col-lg-6 col-sm-12">
 
 			  <div class="card shadow-sm">				
-				<div id="carouselPropiedadesDestacadas1" class="carousel slide">
+				<div id="carouselPropiedadesDestacadas1" class="carousel slide" data-ride="carousel">
 				  <ol class="carousel-indicators">
 					<li data-bs-target="#carouselPropiedadesDestacadas1" data-bs-slide-to="0" class="active"></li>
 					<li data-bs-target="#carouselPropiedadesDestacadas1" data-bs-slide-to="1"></li>

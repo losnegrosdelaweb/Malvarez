@@ -86,146 +86,58 @@
 
 </head>
 <body>
-  
-
-
 <header>
 
-<div class="d-none d-sm-none d-md-block">
-<!-- Menu Para Celular-->
-<nav class="navbar navbar-expand-lg navbar-dark" aria-label="Ninth navbar example">
-    <div class="container-xl">
-    <div class="row" style="width: 100%; justify-content: center;">
-    <div class="row" style="text-align: -webkit-center;margin-top: 15px;margin-bottom: 15px;">
-      <a href="/<?=site_url('')?>"><img id="logo" style="width: 325px;" src="/<?=base_url('')?>/assets/img/logo-head.png"></a>
-    </div>
-    <hr>
-    <div class="row"> 
-        <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample07XL" aria-controls="navbarsExample07XL" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="navbar-collapse collapse" id="navbarsExample07XL" style=""></div>
-        <ul class="navbar-nav" style="padding-bottom: 1%;justify-content: center;font-weight: bold;">   
-         
+<div class="container-xl">
+<div class="row" style="width: 100%; justify-content: center;">
 
-          <li class="nav-item active">
-           <a class="nav-link" aria-current="page" href="/<?=site_url('')?>">Inicio</a>
-          </li>
-          <li class="nav-item">
-           <a class="nav-link" href="/<?=site_url('nosotros')?>">Nosotros</a>
-          </li>
-          <li class="nav-item">
-           <a class="nav-link" href="/<?=site_url('catalogo-alquileres')?>">Alquileres</a>
-          </li>
-          <li class="nav-item">
-           <a class="nav-link" href="/<?=site_url('catalogo?ventas')?>">Ventas</a>
-          </li>
-          <li class="nav-item">
-           <a class="nav-link" href="/<?=site_url('emprendimientos')?>">Emprendimientos</a>
-          </li>
-          <li class="nav-item">
-           <a class="nav-link" href="/<?=site_url('mantenimiento')?>">Mundo Inmobiliario</a>
-          </li>
-          <li class="nav-item">
-           <a class="nav-link" href="/<?=site_url('contacto')?>">Contacto</a>
-          </li>
-          </ul>   
-        </div>
-    </div>
-      </div>
-  </nav>
-
-</div>
-<div class="d-block d-sm-block d-md-none">
-
-
-<!-- Menu Para Web-->
-<nav class="navbar navbar-expand-lg navbar-light bg-light" style="padding-bottom: 1%;">
- 
-    <img class="mr-auto mt-2 mt-lg-0 d-lg-none" id="logo" style="width: 30%;" src="/<?=base_url('')?>/assets/img/logo-head.png">
-  
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button> 
-  <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
-    <ul class="navbar-nav mr-auto mt-2 mt-lg-0" style="padding-left: 3%;">
-      <li class="nav-item active">
-         <a class="nav-link" aria-current="page" href="/<?=site_url('')?>">Inicio</a>
-        </li>
-        <li class="nav-item">
-         <a class="nav-link" href="/<?=site_url('nosotros')?>">Nosotros</a>
-        </li>
-        <li class="nav-item">
-         <a class="nav-link" href="/<?=site_url('catalogo-alquileres')?>">Alquileres</a>
-        </li>
-        <li class="nav-item">
-         <a class="nav-link" href="/<?=site_url('catalogo?ventas')?>">Ventas</a>
-        </li>
-        <li class="nav-item">
-         <a class="nav-link" href="/<?=site_url('emprendimientos')?>">Emprendimientos</a>
-        </li>
-        <li class="nav-item">
-         <a class="nav-link" href="/<?=site_url('mantenimiento')?>">Mundo Inmobiliario</a>
-        </li>
-        <li class="nav-item">
-         <a class="nav-link" href="/<?=site_url('contacto')?>">Contacto</a>
-        </li>
-    </ul> 
+  <div class="row d-none d-sm-none d-md-block" style="text-align: -webkit-center;margin-top: 15px;margin-bottom: 15px;">
+    <a href="/./Malvarezsi/index.php"><img id="logo" style="width: 325px;" src="/./Malvarezsi//assets/img/logo-head.png"></a>
   </div>
-</nav>
 
+  <hr>
+  <div class="row"> 
+    <nav class="navbar navbar-expand-lg navbar-light " style="padding-bottom: 1%;">      
+     
+      <img class="d-block d-sm-block d-md-none" id="logo" style="width: 30%;" src="/<?=base_url('')?>/assets/img/logo-head.png">
+     
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button> 
+      <div class="collapse navbar-collapse" id="navbarTogglerDemo01" style="justify-content: center;">
+        <ul class="navbar-nav" style="padding-bottom: 1%;justify-content: center;font-weight: bold;">   
+          <li class="nav-item active">
+             <a class="nav-link" aria-current="page" href="/<?=site_url('')?>">Inicio</a>
+            </li>
+            <li class="nav-item">
+             <a class="nav-link" href="/<?=site_url('nosotros')?>">Nosotros</a>
+            </li>
+            <li class="nav-item">
+             <a class="nav-link" href="/<?=site_url('catalogo-alquileres')?>">Alquileres</a>
+            </li>
+            <li class="nav-item">
+             <a class="nav-link" href="/<?=site_url('catalogo?ventas')?>">Ventas</a>
+            </li>
+            <li class="nav-item">
+             <a class="nav-link" href="/<?=site_url('emprendimientos')?>">Emprendimientos</a>
+            </li>
+            <li class="nav-item">
+             <a class="nav-link" href="/<?=site_url('mantenimiento')?>">Mundo Inmobiliario</a>
+            </li>
+            <li class="nav-item">
+             <a class="nav-link" href="/<?=site_url('contacto')?>">Contacto</a>
+            </li>
+        </ul> 
+      </div>
+    </nav>
+  </div>
 </div>
-
+</div>
+<!--
+</div>
+-->
 
 </header>
-
-
-
-
-
-<!--
-
-  <nav class="navbar navbar-expand-lg navbar-dark" aria-label="Ninth navbar example">
-    <div class="container-xl">
-	  <div class="row" style="width: 100%; justify-content: center;">
-		<div class="row" style="text-align: -webkit-center;margin-top: 15px;margin-bottom: 15px;">
-      <a href="/<?=site_url('')?>"><img id="logo" style="width: 325px;" src="/<?=base_url('')?>/assets/img/logo-head.png"></a>
-		</div>
-		<hr>
-		<div class="row">	
-				<button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample07XL" aria-controls="navbarsExample07XL" aria-expanded="false" aria-label="Toggle navigation">
-				<span class="navbar-toggler-icon"></span>
-				</button>
-				<div class="navbar-collapse collapse" id="navbarsExample07XL" style=""></div>
-				<ul class="navbar-nav" style="padding-bottom: 1%;justify-content: center;font-weight: bold;">		
-         
-
-				  <li class="nav-item active">
-					 <a class="nav-link" aria-current="page" href="/<?=site_url('')?>">Inicio</a>
-				  </li>
-          <li class="nav-item">
-           <a class="nav-link" href="/<?=site_url('nosotros')?>">Nosotros</a>
-          </li>
-          <li class="nav-item">
-           <a class="nav-link" href="/<?=site_url('catalogo-alquileres')?>">Alquileres</a>
-          </li>
-          <li class="nav-item">
-           <a class="nav-link" href="/<?=site_url('catalogo?ventas')?>">Ventas</a>
-          </li>
-          <li class="nav-item">
-           <a class="nav-link" href="/<?=site_url('emprendimientos')?>">Emprendimientos</a>
-          </li>
-          <li class="nav-item">
-           <a class="nav-link" href="/<?=site_url('mantenimiento')?>">Mundo Inmobiliario</a>
-          </li>
-          <li class="nav-item">
-           <a class="nav-link" href="/<?=site_url('contacto')?>">Contacto</a>
-          </li>
-          </ul>		
-				</div>
-		</div>
-      </div>
-  </nav>-->
 </body>    
     </div>
 
@@ -233,10 +145,10 @@
 
 
 <script src="/<?=base_url('plugins/jquery/jquery.min.js')?>"></script>
-<!--
-<script src="/<?=base_url('')?>/assets/js/bootstrap.min.js"></script>
--->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 
+<script src="/<?=base_url('')?>/assets/js/bootstrap.min.js"></script>
+<!--
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+-->
 
 <script src="/<?=base_url('plugins/select2/js/select2.full.js')?>"></script>
