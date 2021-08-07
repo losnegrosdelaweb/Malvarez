@@ -20,6 +20,11 @@
   }
 
 }
+
+a{
+	color: black;
+}
+
 </style>
 <main id="MainContainerMobile">
   <div class="position-relative overflow-hidden p-3 p-md-5 text-center portada">
@@ -85,7 +90,9 @@
         <div class="col-lg-6 col-sm-12">
 
 			  <div class="card shadow-sm">				
-				<div id="carouselPropiedadesDestacadas1" class="carousel slide">
+
+				<div id="carouselPropiedadesDestacadas1" class="carousel slide" data-ride="carousel">
+
 				  <ol class="carousel-indicators">
 					<li data-bs-target="#carouselPropiedadesDestacadas1" data-bs-slide-to="0" class="active"></li>
 					<li data-bs-target="#carouselPropiedadesDestacadas1" data-bs-slide-to="1"></li>
@@ -125,8 +132,10 @@
 	          <span style="padding-right: 5%;"><i class="fas fa-bed"></i> 2 dorm.</span>
         	</p>
           <p class="card-text mb-auto"> </p>
-           <h4 class="mb-0">BOULOGNE SUR MER 1590. Entre Illia y Pedriel</h4>
-          <div class="mb-1 text-muted">Villa Maipu, General San Martín</div>
+
+           <a href="/<?=site_url('detpropiedad')?>"><h4 class="mb-0">BOULOGNE SUR MER 1590. Entre Illia y Pedriel</h4>
+          <div class="mb-1 text-muted">Villa Maipu, General San Martín</div></a>
+
           <!--<a href="#">Continue reading</a>-->
           <div class="d-grid gap-2 d-md-flex justify-content-md-end">
 					  <button class="btn btn-primary me-md-2" type="button">Contactar</button>
@@ -172,17 +181,22 @@
 			</div>
         <div class="col p-4 d-flex flex-column position-static">
           <!--<strong class="d-inline-block mb-2 text-primary">World</strong>-->
-          <h3 class="mb-0">$ 60.000</h3>
-          <br>
-          <!--<div class="mb-1 text-muted">Nov 12</div>-->
-        	<p>
-	          <span style="padding-right: 5%;"><i class="fas fa-ruler-combined"> </i> 80 m²</span>
-	          <span style="padding-right: 5%;"><i class="fas fa-door-open"></i> 3 amb.</span>
-	          <span style="padding-right: 5%;"><i class="fas fa-bed"></i> 2 dorm.</span>
-        	</p>
-          <p class="card-text mb-auto"> </p>
-           <h4 class="mb-0">Laprida al 2145</h4>
-          <div class="mb-1 text-muted">Florida, Vicente López</div>
+
+          
+          	<h3 class="mb-0">$ 60.000</h3>
+	          <br>
+	          <!--<div class="mb-1 text-muted">Nov 12</div>-->
+	        	<p>
+		          <span style="padding-right: 5%;"><i class="fas fa-ruler-combined"> </i> 80 m²</span>
+		          <span style="padding-right: 5%;"><i class="fas fa-door-open"></i> 3 amb.</span>
+		          <span style="padding-right: 5%;"><i class="fas fa-bed"></i> 2 dorm.</span>
+	        	</p>
+
+	          <p class="card-text mb-auto"> </p>
+	           <a href="/<?=site_url('detpropiedad')?>"><h4 class="mb-0">Laprida al 2145</h4>
+	          <div class="mb-1 text-muted">Florida, Vicente López</div></a>
+        	
+
           <div class="d-grid gap-2 d-md-flex justify-content-md-end">
 					  <button class="btn btn-primary me-md-2" type="button">Contactar</button>
 					</div>

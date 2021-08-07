@@ -27,23 +27,49 @@
 	  .form-control {
 		appearance: auto;
 	  }
+	  .bg-light {
+      min-height: 450px;
+    }
+    .fontStyle {
+      background-color: #181919db!important;
+      border-radius: 15px;
+    }
+    .badge-venta {
+    color: rgb(255, 255, 255);
+    background-color: rgb(220, 53, 69);
+    border-radius: 0rem;
+		}
+		.badge-oper {
+    color: rgb(255, 255, 255);
+    background-color: rgb(0, 0, 0);
+    border-radius: 0rem;
+		}
+		.detalles {
+    color: rgb(255, 255, 255);
+    background-color: rgb(56, 56, 56);
+  	}
     </style>
     
   </head>
   <body>    
 
-<main>
+<main class="bg-light">
   <div class="container">
 	<div class="content-wrapper">
     <!-- Content Header (Page header) -->
+    <section class="content-header" style="padding-top: 20px;">
+          <h6 class="fontStyle fw-normal" style="padding: 0.5%; width: fit-content;"><a href="javascript: history.go(-1)" data-toggle="tooltip" title="" data-placement="top" data-original-title="Volver" style="color: white;"><i class="fas fa-arrow-left"></i> Volver</a></h6>
+		</section>
     <section class="content-header">
       <div class="container-fluid">
-		  <div class="col-sm-6"><h1>
-            <a href="" data-toggle="tooltip" title="" data-placement="top" data-original-title="Volver"><i class="fas fa-arrow-left"></i></a>
-            Grand Bourg</h1>
+		  <div class="col-sm-6"><h1> Dirección junto a la altura 9999</h1>
           </div>
-      </div><!-- /.container-fluid -->
-    </section>
+      </div><!-- /.container-fluid -->     
+      	<div class="row bg-grey py-2 px-3">
+           <div class="col-1 badge badge-oper"><h5>VENTA</h5></div>
+           <div class="col-1 badge badge-venta" style="width: auto;"><h5>USD999.000</h5></div>
+        </div>              
+		</section>
 
     <!-- Main content -->
     <section class="content">
@@ -88,10 +114,47 @@
 				</div>           
 		
 			<div class="col-12 col-sm-6">
-              <h3 class="my-3">LOWA - $80.00</h3>
+				<div class="card card-primary">
+              <div class="card-header detalles">
+                <h3 class="card-title">Detalles de la Propieadad</h3>
+              </div>
+              <!-- /.card-header -->
+              <div class="card-body">
+                <strong><i class="fas fa-book mr-1"></i> Tipo propiedad</strong>
+
+                <p class="text">
+                  PH
+                </p>
+
+                <hr>
+
+                <strong><i class="fas fa-map-marker-alt mr-1"></i> Barrio</strong>
+
+                <p class="text">Malibu, California</p>
+
+                <hr>
+
+                <strong><i class="fas fa-pencil-alt mr-1"></i> Superficies</strong>
+
+                <ul class="text">
+                  <li class="tag tag-danger">Cubierta: 50 m²</li>
+                  <li class="tag tag-success">Semicubierta: 3 m²</li>
+                  <li class="tag tag-success">Descubierta: 2 m²</li>
+                  <li class="tag tag-info">Total construido: 55 m²</li>
+                </ul>
+
+                <hr>
+
+                <strong><i class="far fa-file-alt mr-1"></i> Ambientes</strong>
+
+                <p class="text">2</p>
+              </div>
+              <!-- /.card-body -->
+            </div>
+              <!--h3 class="my-3">Descripción de la Propiedad</h3>
               <p>Raw denim you probably haven't heard of them jean shorts Austin. Nesciunt tofu stumptown aliqua butcher retro keffiyeh dreamcatcher synth. Cosby sweater eu banh mi, qui irure terr.</p>
 
-				<input type="text" class="form-control" id="id" name="id" hidden="">
+				<input type="text" class="form-control" id="id" name="id" hidden=""-->
 					  <!--div class="row"> 
 						<div class="col-4">
 						  <div class="form-group">
@@ -113,7 +176,7 @@
 						</div>
 					  </div-->
 					  
-					  <div class="row">  
+					  <!--div class="row">  
 						<div class="col-2" style="padding-right: 30px">
 						  <div class="form-group">
 							<label for="ambientes">Ambientes</label>
@@ -188,14 +251,14 @@
 							<input type="text" class="form-control" id="Estado" name="Estado" placeholder="Estado" readonly>
 						  
 						  </div>
-						</div>
+						</div-->
 						<!--div class="col-4">
 						  <div class="form-group">
 							<label for="descripcion">Descripción</label>
 							<input type="text" class="form-control" id="Descripcion" name="Descripcion" placeholder="Descripción">
 						  </div>
-						</div-->
-					  </div>
+						</div>
+					  </div-->
 				</div>
 				</div>
 				<div class="row">
@@ -207,7 +270,34 @@
 					  </div>
 					</nav>
 					<div class="tab-content p-3" id="nav-tabContent">
-					  <div class="tab-pane fade show active" id="product-desc" role="tabpanel" aria-labelledby="product-desc-tab"> Descripción </div>
+					  <div class="tab-pane fade show active" id="product-desc" role="tabpanel" aria-labelledby="product-desc-tab"> VENTA DEPARTAMENTO 3 AMBIENTES EN NÚÑEZ<br>
+
+Impecable y muy luminoso Departamento al contrafrente, reciclado a nuevo.<br>
+Ubicado muy cerca de Av. Cabildo y a la estación Congreso de Tucumán del subte Línea D.<br>
+
+Living Comedor con acceso a Balcón corrido.<br>
+Cocina.<br>
+Entrada de servicio.<br>
+Dormitorio principal con Placard y salida al Balcón.<br>
+2° Dormitorio con Placard.<br>
+Lavadero con circulación tanto a Cocina como 2° Dormitorio.<br>
+Baño completo.<br>
+Toilette.<br>
+
+Aberturas nuevas con Blindex.<br>
+Pisos de madera.<br>
+
+Apto Mascotas.<br>
+
+Apto Crédito.<br>
+
+Para más información contáctenos: online@ruizpropiedades.com<br>
+
+Sucursal Núñez: 4702-1721<br>
+Sucursal Olivos: 4797-4422<br>
+Sucursal Villa Adelina: 4763-1003<br>
+Sucursal Carapachay: 4756-5099<br>
+Sucursal Florida: 4795-0663 </div>
 					</div>
 				</div>
 				</div>				

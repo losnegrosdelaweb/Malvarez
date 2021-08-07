@@ -1,5 +1,5 @@
     <!-- Main content -->
-    <section class="container">
+    <section class="container" style="min-width: 650px;">
       <div class="error-page">
         <h2 class="headline text-warning">EN CONSTRUCCIÓN</h2>
 

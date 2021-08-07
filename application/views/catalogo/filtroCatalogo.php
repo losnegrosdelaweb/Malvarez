@@ -33,6 +33,12 @@
       width: 419px!important;
     }
 
+     @media (max-width:768px){ 
+		  /*
+		  .FiltroMobile{
+		        display: none;
+		  }*/
+	}
  </style>   
    
   </head>
@@ -42,15 +48,26 @@
 
 <main>
 	<div class="row" style="background-color: #f8f9fa!important;">
-		<div class="col-3" style="padding-left: 2%;">
-			<main class="container text-light">
-				<div class="d-flex align-items-center p-3 my-3 bg-purple rounded shadow-sm" style="background-color: #131414!important;" >
-					<div class="lh-1">
+		<div class="col-md-3 col-sm-10" style="padding-left: 2%;">
+			<main class="container text-light navbar-toggleable-sm">
+				
+					<div class="d-flex align-items-center p-3 my-3 bg-purple rounded shadow-sm d-none d-sm-none d-md-block" style="background-color: #131414!important;" >
+					<div class="lh-1">						
 						<h1 class="h6 mb-0 lh-1" style="font-size: x-large;" >Propiedades</h1>
-						<!--<small>Since 2011</small>-->
 					</div>
 				</div>
-				<div class="my-3 p-3 bg-body rounded shadow-sm text-light" style="background-color: #000000eb!important">
+
+				<!--Boron desplegable para filtros-->
+
+				<nav class="navbar navbar-dark bg-dark navbar-expand-sm" style="background-color:#000000eb!important;margin-top: 2%;">
+			    <button class="btn navbar-toggler text-light" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation" style="margin: 1%;width: 100%;">
+			      <i class="far fa-arrow-alt-circle-down"></i> Propiedades - Filtro
+			    </button>
+			 
+			
+				
+				<div class="collapse navbar-collapse" id="navbarToggleExternalContent">
+				<div class="my-3 p-3 bg-body rounded shadow-sm text-light FiltroMobile" style="background-color: #000000eb!important">
 					<h6 class="border-bottom pb-2 mb-0">Filtros</h6>
 					<div class="d-flex pt-3">
 						<div class="col-sm-10">
@@ -163,9 +180,11 @@
 						</div>
 					</div>
 				</div>
+</div>
+</nav>
 			</main>
 		</div>
-		<div class="col-8">
+		<div class="col-md-8 col-sm-10">
 			<div id="divContenedorCatalogo">
 				<?= $vista ?>
 			</div>
@@ -324,6 +343,7 @@ function filtro_close(id){
 		$('#divContenedorCatalogo').empty();
 	  $( "#divContenedorCatalogo" ).append(loading);
 	}
+
 </script> 
 
 
