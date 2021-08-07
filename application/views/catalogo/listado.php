@@ -38,7 +38,7 @@
           </div>
           </div>
         </div>
-        <div class="col-md-7 col-sm-12 p-3 d-flex flex-column position-static">
+        <div class="col-md-8 col-sm-12 p-3 d-flex flex-column position-static">
           <?php 
               if($itemCatalogo['propiedad']->precio != NULL)
               {

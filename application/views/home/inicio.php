@@ -85,8 +85,8 @@ a{
  
 <div class="row mb-2">
 	<div class="col-lg-1"></div>
-		<div class="col-lg-5 col-sm-12">
-      <div class="row border rounded  " style="padding-left: 0px;">
+		<div class="col-lg-5 col-sm-12" style="padding-bottom: 5%;">
+      <div class="row border rounded  " style="padding-left: 0px;height: 100%;">
         <div class="col-lg-6 col-sm-12">
 
 			  <div class="card shadow-sm">				
@@ -121,7 +121,7 @@ a{
 			  </div>
 
 			</div>
-        <div class="col p-4 d-flex flex-column position-static">
+        <div class="col-lg-6 col-sm-12">
           <!--<strong class="d-inline-block mb-2 text-primary">World</strong>-->
           <h3 class="mb-0">$ 24.000</h3>
           <div class="mb-1 text-muted">+ $ 12.000 Expensas</div>
@@ -137,18 +137,25 @@ a{
           <div class="mb-1 text-muted">Villa Maipu, General San Martín</div></a>
 
           <!--<a href="#">Continue reading</a>-->
+          <!--
           <div class="d-grid gap-2 d-md-flex justify-content-md-end">
 					  <button class="btn btn-primary me-md-2" type="button">Contactar</button>
 					</div>
+				-->
         </div>
+        <div class="col-lg-12 col-sm-12">
+         	<div class="d-grid gap-2 d-md-flex justify-content-md-end">
+					  <button class="btn btn-primary me-md-2" type="button">Contactar</button>
+					</div>
+         </div>
       </div>
     </div>
 
 
 
-		<div class="col-lg-5 col-sm-12">
+		<div class="col-lg-5 col-sm-12" style="padding-bottom: 5%;">
 			<div class="col-lg-1"></div>
-      <div class="row border rounded " style="padding-left: 0px;">
+      <div class="row border rounded " style="padding-left: 0px;height: 100%;">
         <div class="col-lg-6 col-sm-12">
 			  <div class="card shadow-sm">				
 				<div id="carouselPropiedadesDestacadas2" class="carousel slide">
@@ -179,7 +186,7 @@ a{
 				</div>
 			  </div>
 			</div>
-        <div class="col p-4 d-flex flex-column position-static">
+        <div class="col-lg-6 col-sm-12">
           <!--<strong class="d-inline-block mb-2 text-primary">World</strong>-->
 
           
@@ -194,13 +201,18 @@ a{
 
 	          <p class="card-text mb-auto"> </p>
 	           <a href="/<?=site_url('detpropiedad')?>"><h4 class="mb-0">Laprida al 2145</h4>
-	          <div class="mb-1 text-muted">Florida, Vicente López</div></a>
-        	
-
+	          <div class="mb-1 text-muted">Florida, Vicente López</div></a>        	
+				<!--
           <div class="d-grid gap-2 d-md-flex justify-content-md-end">
 					  <button class="btn btn-primary me-md-2" type="button">Contactar</button>
 					</div>
+				-->
         </div>
+         <div class="col-lg-12 col-sm-12">
+         	<div class="d-grid gap-2 d-md-flex justify-content-md-end">
+					  <button class="btn btn-primary me-md-2" type="button">Contactar</button>
+					</div>
+         </div>
       </div>
     </div>
   </div>
