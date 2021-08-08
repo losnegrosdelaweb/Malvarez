@@ -5,20 +5,27 @@ class Login extends CI_Controller {
 	
 	public function index()
 	{
-		$this->session->sess_destroy();
-		$this->load->view('sidebar/menu');
-		$this->load->view('login/login');
-		$this->load->view('sidebar/footer');	
+		if($this->session->userdata("login")){
+			$this->load->model('ConsultaModel');
+			$listadoConsulta = $this->ConsultaModel->getConsultas();
+			$datos['listadoConsulta'] = $listadoConsulta;
+			$this->load->view('admin/header');
+			$this->load->view('admin/sidebar');		
+			$this->load->view('admin/menu');
+			$this->load->view('admin/dashboard',$datos);
+			$this->load->view('admin/footer');
+		}else{
+			$this->load->view('sidebar/menu');
+			$this->load->view('login/login');
+			$this->load->view('sidebar/footer');	
+		}
+		
 	}
 
 	public function validarLogin()
-	{		
+	{				
 		$this->load->model('LoginModel');	
-		/*	
-		$email = isset($this->input->post("email")) ? $this->input->post("email") : NULL;
-		$clave = isset($this->input->post("clave")) ? $this->input->post("clave") : NULL;
-		*/
-
+		
 		$email = isset($_POST['email']) ? $_POST['email'] : NULL;
 		$clave = isset($_POST['clave']) ? $_POST['clave'] : NULL;
 		

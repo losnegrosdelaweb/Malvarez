@@ -2,7 +2,14 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Propiedad extends CI_Controller {
-	
+
+	public function __construct()
+	{
+		parent::__construct();
+		if(!$this->session->userdata("login")){
+			redirect("../../../");
+		}
+	}
 	public function index()
 	{
 		$this->load->model('TipoPropiedadModel');
@@ -33,10 +40,9 @@ class Propiedad extends CI_Controller {
 		$this->load->model('PropiedadModel');		
 		$this->load->model('AdjuntoModel');
 
-		$Propiedad = $this->PropiedadModel->getPropiedadbyId($id);
+		$Propiedad = $this->PropiedadModel->getPropiedadbyIdUbicacion($id);
 		$Adjuntos = $this->AdjuntoModel->getImagesAllByIdPropiedad($id);
-
-		$data['Propiedad'] = $Propiedad;
+		$data['Propiedad'] = $Propiedad[0];
 		$data['Adjuntos'] = $Adjuntos;
 
 		$this->load->view('admin/header');

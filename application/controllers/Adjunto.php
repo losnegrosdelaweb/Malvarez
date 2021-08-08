@@ -7,9 +7,6 @@ class Adjunto extends CI_Controller {
 	public function __construct()
 	{
 		parent::__construct();
-		if(!$this->session->userdata("login")){
-			redirect("../../../");
-		}
 		$this->load->model('AdjuntoModel');
 
 		//$this->load->library('ImageResize');
@@ -55,6 +52,12 @@ class Adjunto extends CI_Controller {
       imagejpeg($tmp,$ruta.$nombreN,$calidad);
   }
 
+/*
+	public function SubirImagen($id)
+	{
+		return "aaaaaa";
+	}*/
+
 
 	public function SubirImagen($id)
 	{
@@ -96,7 +99,7 @@ class Adjunto extends CI_Controller {
 		                $alto=1024;                    
 		            }
 		            $calidad=50;
-
+								//var_dump("aaaaaaaaaaaaaaa");die;
 		            $this->resizeImagen($directorio.'/', $foto, $ancho, $alto, $calidad, $resFoto, $extension);
 		            
 		            //abrir el archivo de la imagen reducida generada para insertarla en la BD
@@ -107,12 +110,13 @@ class Adjunto extends CI_Controller {
 		              $data = base64_encode ($data);
 		              unlink($directorio.'/'.$foto);
 		              unlink($directorio.'/'.$resFoto);
+
 		              /*CONSULTA PARA GUARDAR EL BLOB EN LA BD*/
 		              $datos = array(				
-							'id_propiedad' => $id,
-							'base64' => $data,
-							'activo' => 1
-						);
+									'id_propiedad' => $id,
+									'base64' => $data,
+									'activo' => 1
+								);
 
 				        $this->AdjuntoModel->postImage($datos);	
 		            }
@@ -124,6 +128,7 @@ class Adjunto extends CI_Controller {
 	public function DeleteAdjunto($id_propiedad, $id_imagen)
 	{
 		$this->AdjuntoModel->deleteAdjunto($id_imagen);
+
 		redirect('/../../../../adjuntoListado/'.$id_propiedad, 'refresh');
 	}
 }
