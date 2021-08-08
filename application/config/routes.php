@@ -83,6 +83,8 @@ $route['tipoPropiedad'] = 'tipoPropiedad';
 $route['insertPropiedad'] = 'tipoPropiedad/postTipoPropiedad';
 $route['getTipoPropiedad/(:num)'] = 'tipoPropiedad/getTipoPropiedad/$1';
 $route['putEstadoTipoPropiedad/(:num)'] = 'tipoPropiedad/putEnabledDisabledTipoPropiedad/$1';
+$route['cerrarSesion'] = 'admin/CerrarSesion';
+
 
 //Ubicaciones
 $route['ubicacion'] = 'ubicacion';

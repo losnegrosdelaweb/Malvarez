@@ -66,6 +66,16 @@ class PropiedadModel extends CI_Model {
         return $query->result()[0];
 	}
 
+	public function getPropiedadbyIdUbicacion($id)
+	{        
+        $this->db->from('propiedades');
+        $this->db->where('id_propiedad', $id);
+        $this->db->join('ubicacion', 'propiedades.id_ubicacion = ubicacion.id_ubicacion');
+        $query = $this->db->get();
+
+        return $query->result();
+	}
+
 	public function postPropiedad($data)
 	{
         $this->db->insert('propiedades', $data);

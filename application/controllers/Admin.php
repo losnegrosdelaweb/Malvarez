@@ -23,6 +23,12 @@ class Admin extends CI_Controller {
 		$this->load->view('admin/footer');
 	}
 
+	public function CerrarSesion()
+	{
+		$this->session->sess_destroy();
+		redirect("../../../");
+	}
+
 
 
 }

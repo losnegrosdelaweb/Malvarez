@@ -73,9 +73,8 @@
   
 
 $(".guardarProducto").click(function(){ 
-  console.log(arrayFiles);
-  console.log(arrayFiles.length);
   if(arrayFiles != ""){
+
     if(arrayFiles.length > 0){
       var listaMultimedia = [];
       var finalFor = 0;
@@ -86,10 +85,9 @@ $(".guardarProducto").click(function(){
         datosMultimedia.append("orden", i);     
 
         var IdProp = $("#IdPropiedad").val();
-        console.log(datosMultimedia);
 
         $.ajax({         
-          url: "<?=site_url('../../../ajuntoImagen/')?>"+IdProp,
+         url: "<?=site_url('../../../ajuntoImagen/')?>"+IdProp.trim(),
           method: 'POST',
           data: datosMultimedia,
           cache: false,
@@ -98,7 +96,6 @@ $(".guardarProducto").click(function(){
 
           success: function(respuesta){
             location.reload();
-            //console.log(respuesta);
             /*
             listaMultimedia.push({'foto': respuesta});
             multimediaFisica = JSON.stringify(listaMultimedia);

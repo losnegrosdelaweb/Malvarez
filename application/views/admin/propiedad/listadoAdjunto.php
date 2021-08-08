@@ -14,7 +14,7 @@
         <div class="row mb-2">
           <div class="col-sm-6">
             <h1>Detalle de Propiedad</h1>
-            <input type="text" name="IdPropiedad" id="IdPropiedad" hidden="hidden" value="<?=$Propiedad->id_propiedad?>">
+            <input type="text" name="IdPropiedad" id="IdPropiedad" hidden="hidden" value=" <?=$Propiedad->id_propiedad?> ">
           </div>
         </div>
       </div><!-- /.container-fluid -->
@@ -61,7 +61,7 @@
           <div class="col-md-9">
              <div class="card card-danger">
               <div class="card-header">
-                <h3 class="card-title">Tipo <?=$Propiedad->id_tipo?> - <?=$Propiedad->ubicacion?></h3>
+                <h3 class="card-title">Tipo <?=$Propiedad->id_tipo?> - <?=$Propiedad->descripcion?></h3>
               </div>
               <!-- /.card-header -->
               <div class="card-body">
@@ -75,7 +75,7 @@
 
                 <strong><i class="fas fa-map-marker-alt mr-1"></i> Ubicación</strong>
 
-                <p class="text-muted"><?=$Propiedad->ubicacion?></p>
+                <p class="text-muted"><?=$Propiedad->descripcion?></p>
 
                 <hr>
 
@@ -160,14 +160,15 @@ Dropzone.options.FormUpload = {
   dictRemoveFile: "Eliminar",
   init: function(){
     //funcion para subir las imagenes
-    this.on("addedfile", function(file){
-      console.log(file);
+    this.on("addedfile", function(file){      
       arrayFiles.push(file);
+      //console.log(arrayFiles);
     })
     //funcion para eliminar las imagenes
     this.on("removedfile", function(file){
       var index = arrayFiles.indexOf(file);
       arrayFiles.splice(index, 1);
+     // console.log(arrayFiles);
     });
   }
 }
