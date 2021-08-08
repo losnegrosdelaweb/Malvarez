@@ -81,13 +81,15 @@ class Adjunto extends CI_Controller {
 		            $directorio = base_url()."../assets/adjuntos";
 		            //$directorio = dirname(__FILE__); // directorio de tu elección
 		            // almacenar imagen en el servidor
+
 		            move_uploaded_file($_FILES['file']['tmp_name'], $directorio.'/'.$foto);
+
 		            //$minFoto = 'min_'.$foto;
 		            //$resFoto = 'PDB_'.$_POST['dni'].'_'.$_POST['cod_unidad'].'.'.$extension;
 		            $resFoto = 'aaaa.'.$extension;
 		            
 		            //tamaño en bits de la imagen cargada
-		            $tam_archivo = filesize($directorio.'/'.$foto);
+		            //$tam_archivo = filesize($directorio.'/'.$foto);
 		            //ancho y alto de la imagen cargada
 		            $tam_ancho_alto = getimagesize($directorio.'/'.$foto);
 
