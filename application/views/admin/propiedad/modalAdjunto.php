@@ -95,7 +95,7 @@ $(".guardarProducto").click(function(){
           processData: false,
 
           success: function(respuesta){
-            //location.reload();
+            location.reload();
             /*
             listaMultimedia.push({'foto': respuesta});
             multimediaFisica = JSON.stringify(listaMultimedia);
