@@ -97,7 +97,7 @@
         <li>
           <a class="link-secondary" href="https://wa.me/+5491158052424"><i class="fas fa-mobile-alt" style="color: white;"></i> 11 5805-2424</a></li>
         <li>
-          <a class="link-secondary" href="mailto:infomalvarezsi@gmail.com"><i class="far fa-envelope" style="color: white;"></i> infomalvarezsi@gmail.com</a>
+          <a class="link-secondary" href="mailto:info@malvarezsi.com"><i class="far fa-envelope" style="color: white;"></i> info@malvarezsi.com</a>
       </ul>
     </div>
 

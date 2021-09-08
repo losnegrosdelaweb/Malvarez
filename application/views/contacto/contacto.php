@@ -31,7 +31,7 @@
             <div>
               <h2>M.ALVAREZ</h2><br><div style="color: red;font-size: x-large;">SERVICIOS INMOBILIARIOS</div><br><br>
               <p class="lead mb-5">Tel: (+54 9) 11-3556-0795 / 11-5805-2424<br><br>
-                infomalvarezsi@gmail.com
+                info@malvarezsi.com
               </p>
             </div>
           </div>
