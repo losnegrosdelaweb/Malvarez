@@ -112,7 +112,9 @@ function edit(id){
       console.log(respuesta)
       $('#id').val(id);
       $("#TipoPropiedad").val(respuesta.id_tipo).trigger('change');
+      $("#Ciudad").val(respuesta.id_ciudad).trigger('change');
       $("#ubicacion").val(respuesta.id_ubicacion).trigger('change');
+      $("#Operacion").val(respuesta.id_operacion).trigger('change');
       $('#Ambientes').val(respuesta.ambientes);
       $('#Dormitorios').val(respuesta.dormitorios);
       $('#Bano').val(respuesta.banos);
@@ -126,8 +128,7 @@ function edit(id){
       $('#Estado').val(respuesta.condicion);
       $('#Descripcion').val(respuesta.descripcion);
       $('#Precio').val(respuesta.precio);
-
-
+      $('#Direccion').val(respuesta.direccion);      
 
       $('#exampleModal').modal('show');
     },

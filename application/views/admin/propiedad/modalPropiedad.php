@@ -19,10 +19,22 @@
       <form action="<?=site_url('../../postPropiedad')?>" method="POST" class="needs-validation" novalidate>
         <input type="text" class="form-control limpiar" id="id" name="id" hidden="">
           <div class="row">
+             <div class="col-4">
+              <div class="form-group">
+                  <label>Operación</label>
+                  <select class="form-control select2 select2-danger select2-hidden-accessible" data-dropdown-css-class="select2-danger" id="Operacion" name="Operacion" style="width: 100%;" data-select2-id="1" tabindex="-1" aria-hidden="true">
+                     <?php
+                      foreach ($listadoOperacion as $key => $Operacion) {
+                        echo '<option class="red-input" value="'.$Operacion->id.'">'.$Operacion->descripcion.'</option>';
+                      }
+                    ?>
+                  </select>                  
+              </div>             
+            </div>
             <div class="col-4">
               <div class="form-group">
                   <label>Tipo Propiedad</label>
-                  <select class="form-control select2 select2-danger select2-hidden-accessible" data-dropdown-css-class="select2-danger" id="TipoPropiedad" name="TipoPropiedad" style="width: 100%;" data-select2-id="1" tabindex="-1" aria-hidden="true">
+                  <select class="form-control select2 select2-danger select2-hidden-accessible" data-dropdown-css-class="select2-danger" id="TipoPropiedad" name="TipoPropiedad" style="width: 100%;" data-select2-id="2" tabindex="-1" aria-hidden="true">
                      <?php
                       foreach ($listadoTipoPropiedad as $key => $TipoPropiedades) {
                         echo '<option class="red-input" value="'.$TipoPropiedades->id_tipo_propiedad.'">'.$TipoPropiedades->descripcion.'</option>';
@@ -70,7 +82,28 @@
                     </select>                  
                 </div>             
             </div>
-            <div class="col-2" style="padding-right: 30px">
+           
+        </div>
+        <div class="row">  
+          <div class="col-4">
+              <div class="form-group">
+                  <label>Localidad</label>
+                  <select class="form-control select2 select2-danger select2-hidden-accessible" data-dropdown-css-class="select2-danger" id="Ciudad" name="Ciudad" style="width: 100%;" data-select2-id="4" tabindex="-1" aria-hidden="true">
+                     <?php
+                      foreach ($listadoCiudad as $key => $Ciudad) {
+                        echo '<option class="red-input" value="'.$Ciudad->id_ciudad.'">'.$Ciudad->descripcion.'</option>';
+                      }
+                    ?>
+                  </select>                  
+              </div>    
+          </div>   
+          <div class="col-4" style="padding-right: 30px">
+              <div class="form-group">
+                <label for="ambientes">Dirección</label>
+                <input type="text" class="form-control limpiar" id="Direccion" name="Direccion">
+              </div>
+            </div>
+           <div class="col-2" style="padding-right: 30px">
               <div class="form-group">
                 <label for="ambientes">Ambientes</label>
                 <input type="number" class="form-control limpiar" id="Ambientes" name="Ambientes" placeholder="0" min="0">

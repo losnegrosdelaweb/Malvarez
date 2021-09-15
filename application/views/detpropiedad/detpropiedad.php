@@ -64,7 +64,7 @@
 		</section>
     <section class="content-header">
       <div class="container-fluid">
-		  <div class="col-sm-6"><h1> Dirección junto a la altura 9999</h1>
+		  <div class="col-sm-6"><h1> <?=$Propiedad->direccion?></h1>
           </div>
       </div><!-- /.container-fluid -->     
       	<div class="row bg-grey py-2 px-3">
@@ -139,6 +139,11 @@
 
                 <hr>
 
+ 								<strong><i class="fas fa-map-marker-alt mr-1"></i> Localidad</strong>
+
+                <p class="text"><?=$Propiedad->ciudad?></p>
+
+                <hr>
                 <strong><i class="fas fa-pencil-alt mr-1"></i> Superficies</strong>
 
                 <ul class="text">

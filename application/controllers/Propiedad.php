@@ -20,23 +20,15 @@ class Propiedad extends CI_Controller {
 		$listadoTipoPropiedad = $this->TipoPropiedadModel->getTiposPropiedades(true);
 		$listadoUbicaciones = $this->UbicacionModel->getUbicaciones(true);
 		$listadoMonedas = $this->PropiedadModel->getMonedas();
+		$listadoOperacion = $this->PropiedadModel->getOperacion();
+		$listadoCiudad = $this->PropiedadModel->getCiudad();
 		
 		$data['listadoPropiedad'] = $listadoPropiedad;
 		$data['listadoTipoPropiedad'] = $listadoTipoPropiedad;
 		$data['listadoUbicaciones'] = $listadoUbicaciones;
 		$data['listadoMonedas'] = $listadoMonedas;
-		/*
-		$listadoTipoPropiedad = $this->TipoPropiedadModel->getTiposPropiedades(true);		
-		$listadoPropiedad = $this->PropiedadModel->getPropiedadesUbicacion(true);
-		$listadoUbicaciones = $this->UbicacionModel->getUbicaciones(true);
-		$listadoDepartamento = $this->PropiedadModel->getDepartamentos();
-		//$listadoPropiedad = $this->PropiedadModel->getPropiedades(true);
-		//var_dump($listadoDepartamento);die;
-		$data['listadoTipoPropiedad'] = $listadoTipoPropiedad;
-		$data['listadoPropiedad'] = $listadoPropiedad;
-		$data['listadoDepartamento'] = $listadoDepartamento;
-		$data['listadoUbicaciones'] = $listadoUbicaciones;
-		*/
+		$data['listadoOperacion'] = $listadoOperacion;
+		$data['listadoCiudad'] = $listadoCiudad;
 
 		$this->load->view('admin/header');
 		$this->load->view('admin/sidebar');		
@@ -90,6 +82,9 @@ class Propiedad extends CI_Controller {
 				'condicion' => $_POST['Estado'],
 				'precio' => $_POST['Precio'],
 				'descripcion' => $_POST['Descripcion'],
+				'direccion' => $_POST['Direccion'],
+				'id_operacion' => $_POST['Operacion'],
+				'id_ciudad' => $_POST['Ciudad'],
 				//'fecha' => $_POST['Descripcion'],
 			);
 

@@ -38,6 +38,8 @@ class PropiedadModel extends CI_Model {
         	propiedades.dormitorios,
         	propiedades.banos,
         	propiedades.descripcion,
+        	propiedades.direccion,
+        	ciudad.descripcion AS ciudad,
         	moneda.descripcion AS moneda,
         	moneda.signo AS signo_moneda');
         $this->db->where('propiedades.id_propiedad', $id);
@@ -45,6 +47,7 @@ class PropiedadModel extends CI_Model {
         $this->db->join('ubicacion', 'propiedades.id_ubicacion = ubicacion.id_ubicacion');
         $this->db->join('tipospropiedades', 'propiedades.id_tipo = tipospropiedades.id_tipo_propiedad');
         $this->db->join('moneda', 'propiedades.id_moneda = moneda.id');
+        $this->db->join('ciudad', 'propiedades.id_ciudad = ciudad.id_ciudad');
         $query = $this->db->get();
         return $query->result();
 	}
@@ -193,6 +196,20 @@ class PropiedadModel extends CI_Model {
         return $query->result();
 	}
 
+	public function getOperacion()
+	{
+        $query = $this->db->get('operacion');
+        return $query->result();
+	}
+
+	public function getCiudad()
+	{
+        $query = $this->db->get('ciudad');
+        return $query->result();
+	}
+
+	
+
 	public function getPropiedadCompletaDestacadas($filtroActivo = false)
 	{
 		if($filtroActivo){
@@ -211,13 +228,16 @@ class PropiedadModel extends CI_Model {
         	propiedades.dormitorios,
         	propiedades.banos,
         	propiedades.descripcion,
-        	moneda.descripcion AS moneda,
+        	propiedades.direccion,
+        	moneda.descripcion AS moneda,        	
+        	ciudad.descripcion AS ciudad,
         	moneda.signo AS signo_moneda');
         $this->db->where('propiedades.destacada', 1);
         $this->db->from('propiedades');
         $this->db->join('ubicacion', 'propiedades.id_ubicacion = ubicacion.id_ubicacion');
         $this->db->join('tipospropiedades', 'propiedades.id_tipo = tipospropiedades.id_tipo_propiedad');
-        $this->db->join('moneda', 'propiedades.id_moneda = moneda.id');
+        $this->db->join('moneda', 'propiedades.id_moneda = moneda.id');        
+        $this->db->join('ciudad', 'propiedades.id_ciudad = ciudad.id_ciudad');
         $query = $this->db->get();
         return $query->result();
 	}
