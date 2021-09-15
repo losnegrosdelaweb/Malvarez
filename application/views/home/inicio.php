@@ -1,6 +1,5 @@
 <!doctype html>
 
-
 <style type="text/css">
 	
 @media (min-width:768px){
@@ -83,139 +82,99 @@ a{
   <h2 class="display-5" style="padding: 30px;">Propiedades Destacadas</h2>
 </div>
  
-<div class="row mb-2">
-	<div class="col-lg-1"></div>
-		<div class="col-lg-5 col-sm-12" style="padding-bottom: 5%;">
-      <div class="row border rounded  " style="padding-left: 0px;height: 100%;">
-        <div class="col-lg-6 col-sm-12">
+<!-- Destacadas -->
 
-			  <div class="card shadow-sm">				
+<div class="album py-5 bg-light">
+  <div class="container" style="padding-right: 0px;">
+    <div class="row row-cols-1 row-cols-sm-2 g-3">
+        <?php foreach ($catalogo as $key => $itemCatalogo) { ?>
+          <div class="row container border rounded " style="padding-left: 0px;width: 100%;height: 100%;margin-bottom: 2%;background-color: white;">
 
-				<div id="carouselPropiedadesDestacadas1" class="carousel slide" data-ride="carousel">
+          <div class="col-md-4 col-sm-12">
+          <div class="card shadow-sm">        
+          <div  id="carouselExampleIndicators-<?=$itemCatalogo['propiedad']->id_propiedad?>" class="carousel slide"  data-bs-ride="carousel" style="width: 100%;height: 100%;">
 
-				  <ol class="carousel-indicators">
-					<li data-bs-target="#carouselPropiedadesDestacadas1" data-bs-slide-to="0" class="active"></li>
-					<li data-bs-target="#carouselPropiedadesDestacadas1" data-bs-slide-to="1"></li>
-					<li data-bs-target="#carouselPropiedadesDestacadas1" data-bs-slide-to="2"></li>
-				  </ol>
-				  <div class="carousel-inner">
-					<div class="carousel-item active">
-					  <img src="assets/img/ph1.jpg" class="d-block w-100" alt="...">
-					</div>
-					<div class="carousel-item">
-					  <img src="assets/img/ph1.jpg" class="d-block w-100" alt="...">
-					</div>
-					<div class="carousel-item">
-					  <img src="assets/img/casa2.jpg" class="d-block w-100" alt="...">
-					</div>
-				  </div>
-				  <a class="carousel-control-prev" href="#carouselPropiedadesDestacadas1" role="button" data-bs-slide="prev">
-					<span class="carousel-control-prev-icon" aria-hidden="true"></span>
-					<span class="visually-hidden">Previous</span>
-				  </a>
-				  <a class="carousel-control-next" href="#carouselPropiedadesDestacadas1" role="button" data-bs-slide="next">
-					<span class="carousel-control-next-icon" aria-hidden="true"></span>
-					<span class="visually-hidden">Next</span>
-				  </a>
-				</div>
-			  </div>
+            <div class="carousel-inner">
+              <?php
+                  $cont=0;
+                  foreach ($itemCatalogo['imagenes'] as $key => $value) {                
+                    if($cont==0){
+                      echo '<div class="carousel-item active">';
+                      }else{
+                        echo '<div class="carousel-item">';
+                      }
+                      echo '<img src="data:image/jpeg;base64,'.$value->base64.'" class="d-block w-100 listado-Carrusel" alt="..." style="width: 100%!important;
+    height: 100%!important;max-height: 235px;-webkit-writing-mode: vertical-lr;">
+                          </div>';
+                    $cont++;
+                  }
+              ?>
+            </div>
 
-			</div>
-        <div class="col-lg-6 col-sm-12">
-          <!--<strong class="d-inline-block mb-2 text-primary">World</strong>-->
-          <h3 class="mb-0">$ 24.000</h3>
-          <div class="mb-1 text-muted">+ $ 12.000 Expensas</div>
+            <a class="carousel-control-prev" href="#carouselExampleIndicators-<?=$itemCatalogo['propiedad']->id_propiedad?>" role="button" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#carouselExampleIndicators-<?=$itemCatalogo['propiedad']->id_propiedad?>" role="button" data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Next</span>
+            </a>
+
+
+          </div>
+          </div>
+        </div>
+        <div class="col-md-8 col-sm-12 p-3 d-flex flex-column position-static">
+          <?php 
+              if($itemCatalogo['propiedad']->precio != NULL)
+              {
+                  echo '<h3 class="mb-0">'.$itemCatalogo['propiedad']->signo_moneda.' '.$itemCatalogo['propiedad']->precio.'</h3>';
+                
+              }    
+
+              if($itemCatalogo['propiedad']->expensas != NULL)
+              {
+                echo '<div class="mb-1 text-muted">+ '.$itemCatalogo['propiedad']->signo_moneda.' '.$itemCatalogo['propiedad']->expensas.' Expensas</div>';
+              }              
+            ?>
+          
           <br>
           <p>
-	          <span style="padding-right: 5%;"><i class="fas fa-ruler-combined"> </i> 80 m²</span>
-	          <span style="padding-right: 5%;"><i class="fas fa-door-open"></i> 3 amb.</span>
-	          <span style="padding-right: 5%;"><i class="fas fa-bed"></i> 2 dorm.</span>
-        	</p>
+            <span style="padding-right: 5%;"><i class="fas fa-ruler-combined"> </i> 80 m²</span>
+            <?php 
+              if($itemCatalogo['propiedad']->ambientes != "0" && $itemCatalogo['propiedad']->ambientes != NULL)
+              {
+                echo '<span style="padding-right: 5%;"><i class="fas fa-door-open"></i> '.$itemCatalogo['propiedad']->ambientes.' amb.</span> ';
+              }       
+
+              if($itemCatalogo['propiedad']->dormitorios != "0" && $itemCatalogo['propiedad']->dormitorios != NULL)
+              {
+                echo '<span style="padding-right: 5%;"><i class="fas fa-bed"></i> '.$itemCatalogo['propiedad']->dormitorios.' dorm.</span> ';
+              }              
+            ?>
+          </p>
           <p class="card-text mb-auto"> </p>
-
-           <a href="/<?=site_url('detpropiedad')?>"><h4 class="mb-0">BOULOGNE SUR MER 1590. Entre Illia y Pedriel</h4>
-          <div class="mb-1 text-muted">Villa Maipu, General San Martín</div></a>
-
+           <a href="/<?=site_url('detpropiedad/'.$itemCatalogo['propiedad']->id_propiedad)?>"><h4 class="mb-0">BOULOGNE SUR MER 1590. Entre Illia y Pedriel</h4></a>
+          <div class="mb-1 text-muted">Villa Maipu, General San Martín</div>
           <!--<a href="#">Continue reading</a>-->
-          <!--
           <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-					  <button class="btn btn-primary me-md-2" type="button">Contactar</button>
-					</div>
-				-->
+            <a href="/<?=site_url('detpropiedad/'.$itemCatalogo['propiedad']->id_propiedad)?>" class="btn btn-primary me-md-2" type="button">Contactar</a>
+          </div>
         </div>
-        <div class="col-lg-12 col-sm-12">
-         	<div class="d-grid gap-2 d-md-flex justify-content-md-end">
-					  <button class="btn btn-primary me-md-2" type="button">Contactar</button>
-					</div>
-         </div>
-      </div>
     </div>
+      <?php } ?>
 
-
-
-		<div class="col-lg-5 col-sm-12" style="padding-bottom: 5%;">
-			<div class="col-lg-1"></div>
-      <div class="row border rounded " style="padding-left: 0px;height: 100%;">
-        <div class="col-lg-6 col-sm-12">
-			  <div class="card shadow-sm">				
-				<div id="carouselPropiedadesDestacadas2" class="carousel slide">
-				  <ol class="carousel-indicators">
-					<li data-bs-target="#carouselPropiedadesDestacadas2" data-bs-slide-to="0" class="active"></li>
-					<li data-bs-target="#carouselPropiedadesDestacadas2" data-bs-slide-to="1"></li>
-					<li data-bs-target="#carouselPropiedadesDestacadas2" data-bs-slide-to="2"></li>
-				  </ol>
-				  <div class="carousel-inner">
-					<div class="carousel-item active">
-					  <img src="assets/img/casa1.jpg" class="d-block w-100" alt="...">
-					</div>
-					<div class="carousel-item">
-					  <img src="assets/img/ph1.jpg" class="d-block w-100" alt="...">
-					</div>
-					<div class="carousel-item">
-					  <img src="assets/img/casa2.jpg" class="d-block w-100" alt="...">
-					</div>
-				  </div>
-				  <a class="carousel-control-prev" href="#carouselPropiedadesDestacadas2" role="button" data-bs-slide="prev">
-					<span class="carousel-control-prev-icon" aria-hidden="true"></span>
-					<span class="visually-hidden">Previous</span>
-				  </a>
-				  <a class="carousel-control-next" href="#carouselPropiedadesDestacadas2" role="button" data-bs-slide="next">
-					<span class="carousel-control-next-icon" aria-hidden="true"></span>
-					<span class="visually-hidden">Next</span>
-				  </a>
-				</div>
-			  </div>
-			</div>
-        <div class="col-lg-6 col-sm-12">
-          <!--<strong class="d-inline-block mb-2 text-primary">World</strong>-->
-
-          
-          	<h3 class="mb-0">$ 60.000</h3>
-	          <br>
-	          <!--<div class="mb-1 text-muted">Nov 12</div>-->
-	        	<p>
-		          <span style="padding-right: 5%;"><i class="fas fa-ruler-combined"> </i> 80 m²</span>
-		          <span style="padding-right: 5%;"><i class="fas fa-door-open"></i> 3 amb.</span>
-		          <span style="padding-right: 5%;"><i class="fas fa-bed"></i> 2 dorm.</span>
-	        	</p>
-
-	          <p class="card-text mb-auto"> </p>
-	           <a href="/<?=site_url('detpropiedad')?>"><h4 class="mb-0">Laprida al 2145</h4>
-	          <div class="mb-1 text-muted">Florida, Vicente López</div></a>        	
-				<!--
-          <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-					  <button class="btn btn-primary me-md-2" type="button">Contactar</button>
-					</div>
-				-->
-        </div>
-         <div class="col-lg-12 col-sm-12">
-         	<div class="d-grid gap-2 d-md-flex justify-content-md-end">
-					  <button class="btn btn-primary me-md-2" type="button">Contactar</button>
-					</div>
-         </div>
       </div>
     </div>
   </div>
+<!-- FIN-Destacadas -->
+
+
+
+
+
+
+
 
 <br>
 <br>

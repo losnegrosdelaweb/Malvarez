@@ -1,9 +1,3 @@
-
-
-<style type="text/css">
-
-</style>
-
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">  
   <div class="modal-dialog modal-s" role="document">
     <div class="modal-content">
@@ -14,18 +8,12 @@
         </button>
       </div>
       <form action="<?=site_url('../../postUbicacion')?>" method="POST" class="needs-validation" novalidate>
-      <div class="modal-body">   
-
-      
-        <input type="text" class="form-control" id="id" name="id" hidden="">       
-
-          
-              <div class="form-group">
-                <label for="ambientes">Descripción</label>
-                <input type="text" class="form-control" id="descripcion" name="descripcion" placeholder="CABA">             
-            </div>
-          
-      
+      <div class="modal-body"> 
+        <input type="text" class="form-control" id="id" name="id" hidden="">   
+          <div class="form-group">
+            <label for="ambientes">Descripción</label>
+            <input type="text" class="form-control" id="descripcion" name="descripcion" placeholder="CABA">             
+        </div>
      </div>
      <div class="modal-footer">
         <button type="submit" class="btn btn-primary">Guardar</button>

@@ -16,6 +16,56 @@ class PropiedadModel extends CI_Model {
         return $query->result();
 	}
 
+	public function getImagenes($id)
+	{
+        $this->db->where('id_propiedad', $id);        
+        $query = $this->db->get('images');
+        return $query->result();
+	}
+
+	public function getPropiedadCompletaById($id)
+	{
+        $this->db->select('propiedades.id_propiedad, 
+        	ubicacion.descripcion AS ubicacion, 
+        	tipospropiedades.descripcion AS tipoPropiedad, 
+        	propiedades.condicion, 
+        	propiedades.activo,
+        	propiedades.visitas,
+        	propiedades.fecha,
+        	propiedades.expensas,
+        	propiedades.precio,
+        	propiedades.ambientes,
+        	propiedades.dormitorios,
+        	propiedades.banos,
+        	propiedades.descripcion,
+        	moneda.descripcion AS moneda,
+        	moneda.signo AS signo_moneda');
+        $this->db->where('propiedades.id_propiedad', $id);
+        $this->db->from('propiedades');
+        $this->db->join('ubicacion', 'propiedades.id_ubicacion = ubicacion.id_ubicacion');
+        $this->db->join('tipospropiedades', 'propiedades.id_tipo = tipospropiedades.id_tipo_propiedad');
+        $this->db->join('moneda', 'propiedades.id_moneda = moneda.id');
+        $query = $this->db->get();
+        return $query->result();
+	}
+
+	public function getPropiedadesCompletas($filtroActivo = false)
+	{        
+		if($filtroActivo){
+        	$this->db->where('propiedades.activo', 1);
+        }
+        $this->db->select('propiedades.id_propiedad, 
+        	ubicacion.descripcion AS ubicacion, 
+        	tipospropiedades.descripcion AS tipoPropiedad, 
+        	propiedades.condicion, 
+        	propiedades.activo');
+        $this->db->from('propiedades');
+        $this->db->join('ubicacion', 'propiedades.id_ubicacion = ubicacion.id_ubicacion');
+        $this->db->join('tipospropiedades', 'propiedades.id_tipo = tipospropiedades.id_tipo_propiedad');
+        $query = $this->db->get();
+        return $query->result();
+	}
+
 	public function getPropiedadFiltro($moneda, $precioDesde, $precioHasta, $tipoPropiedad, $dormitoriosDesde, $dormitoriosHasta, $ambientesDesde, $ambientesHasta, $ubicacion)
 	{
         if($moneda!=null && $moneda!=0){
@@ -133,6 +183,41 @@ class PropiedadModel extends CI_Model {
         
         $this->db->from('propiedades');
         $this->db->join('ubicacion', 'propiedades.id_ubicacion = ubicacion.id_ubicacion');
+        $query = $this->db->get();
+        return $query->result();
+	}
+
+	public function getMonedas()
+	{
+        $query = $this->db->get('moneda');
+        return $query->result();
+	}
+
+	public function getPropiedadCompletaDestacadas($filtroActivo = false)
+	{
+		if($filtroActivo){
+        	$this->db->where('propiedades.activo', 1);
+        }
+        $this->db->select('propiedades.id_propiedad, 
+        	ubicacion.descripcion AS ubicacion, 
+        	tipospropiedades.descripcion AS tipoPropiedad, 
+        	propiedades.condicion, 
+        	propiedades.activo,
+        	propiedades.visitas,
+        	propiedades.fecha,
+        	propiedades.expensas,
+        	propiedades.precio,
+        	propiedades.ambientes,
+        	propiedades.dormitorios,
+        	propiedades.banos,
+        	propiedades.descripcion,
+        	moneda.descripcion AS moneda,
+        	moneda.signo AS signo_moneda');
+        $this->db->where('propiedades.destacada', 1);
+        $this->db->from('propiedades');
+        $this->db->join('ubicacion', 'propiedades.id_ubicacion = ubicacion.id_ubicacion');
+        $this->db->join('tipospropiedades', 'propiedades.id_tipo = tipospropiedades.id_tipo_propiedad');
+        $this->db->join('moneda', 'propiedades.id_moneda = moneda.id');
         $query = $this->db->get();
         return $query->result();
 	}

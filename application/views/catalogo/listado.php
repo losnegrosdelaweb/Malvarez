@@ -71,11 +71,11 @@
             ?>
           </p>
           <p class="card-text mb-auto"> </p>
-           <h4 class="mb-0">BOULOGNE SUR MER 1590. Entre Illia y Pedriel</h4>
+          <a href="/<?=site_url('detpropiedad/'.$itemCatalogo['propiedad']->id_propiedad)?>"><h4 class="mb-0">BOULOGNE SUR MER 1590. Entre Illia y Pedriel</h4></a>
           <div class="mb-1 text-muted">Villa Maipu, General San Martín</div>
           <!--<a href="#">Continue reading</a>-->
           <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-            <button class="btn btn-primary me-md-2" type="button">Contactar</button>
+           <a href="/<?=site_url('detpropiedad/'.$itemCatalogo['propiedad']->id_propiedad)?>" class="btn btn-primary me-md-2" type="button">Contactar</a>
           </div>
         </div>
     </div>

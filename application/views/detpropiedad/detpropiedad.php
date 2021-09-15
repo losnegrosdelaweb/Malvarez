@@ -53,6 +53,8 @@
   </head>
   <body>    
 
+
+
 <main class="bg-light">
   <div class="container">
 	<div class="content-wrapper">
@@ -67,7 +69,7 @@
       </div><!-- /.container-fluid -->     
       	<div class="row bg-grey py-2 px-3">
            <div class="col-1 badge badge-oper"><h5>VENTA</h5></div>
-           <div class="col-1 badge badge-venta" style="width: auto;"><h5>USD999.000</h5></div>
+           <div class="col-1 badge badge-venta" style="width: auto;"><h5><?=$Propiedad->signo_moneda?><?=$Propiedad->precio?></h5></div>
         </div>              
 		</section>
 
@@ -82,34 +84,37 @@
 		  <div class="row">
 				<div class="col-12 col-sm-6">
 				  <div class="col">
-			<div class="card shadow-sm">        
-			<div id="carouselExampleIndicators" class="carousel slide" style="width: 100%;">
-			  <ol class="carousel-indicators">
-			  <li data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"></li>
-			  <li data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"></li>
-			  <li data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"></li>
-			  </ol>
-			  <div class="carousel-inner">
-			  <div class="carousel-item active">
-				<img src="<?=base_url('../../assets/img/casa1.jpg')?>" class="d-block w-100" alt="...">
-			  </div>
-			  <div class="carousel-item">
-				<img src="<?=base_url('../../assets/img/ph1.jpg')?>" class="d-block w-100" alt="...">
-			  </div>
-			  <div class="carousel-item">
-				<img src="<?=base_url('../../assets/img/casa2.jpg')?>" class="d-block w-100" alt="...">
-			  </div>
-			  </div>
-			  <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-bs-slide="prev">
-			  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-			  <span class="visually-hidden">Previous</span>
-			  </a>
-			  <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-bs-slide="next">
-			  <span class="carousel-control-next-icon" aria-hidden="true"></span>
-			  <span class="visually-hidden">Next</span>
-			  </a>
-			</div>
-		   </div>
+          <div class="card shadow-sm">        
+          <div  id="carouselExampleIndicators" class="carousel slide"  data-bs-ride="carousel" style="width: 100%;height: 100%;">
+
+            <div class="carousel-inner">
+              <?php
+                  $cont=0;
+                  foreach ($catalogo as $key => $value) {             
+                    if($cont==0){
+                      echo '<div class="carousel-item active">';
+                      }else{
+                        echo '<div class="carousel-item">';
+                      }
+                      echo '<img src="data:image/jpeg;base64,'.$value->base64.'" class="d-block listado-Carrusel" alt="..." style=";-webkit-writing-mode: vertical-lr;">
+                          </div>';
+                    $cont++;
+                  }
+              ?>
+            </div>
+
+            <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Next</span>
+            </a>
+
+
+          </div>
+          </div>
 		  </div>
 				</div>           
 		
@@ -123,14 +128,14 @@
                 <strong><i class="fas fa-book mr-1"></i> Tipo propiedad</strong>
 
                 <p class="text">
-                  PH
+                  <?=$Propiedad->tipoPropiedad?>
                 </p>
 
                 <hr>
 
-                <strong><i class="fas fa-map-marker-alt mr-1"></i> Barrio</strong>
+                <strong><i class="fas fa-map-marker-alt mr-1"></i> Ubicación</strong>
 
-                <p class="text">Malibu, California</p>
+                <p class="text"><?=$Propiedad->ubicacion?></p>
 
                 <hr>
 
@@ -145,9 +150,12 @@
 
                 <hr>
 
-                <strong><i class="far fa-file-alt mr-1"></i> Ambientes</strong>
-
-                <p class="text">2</p>
+              <strong><i class="far fa-file-alt mr-1"></i> Detalles</strong>
+                <ul class="text-muted">
+                  <li><b>Ambientes: </b><?=$Propiedad->ambientes?></li>
+                  <li><b>Dormitorios: </b><?=$Propiedad->dormitorios?></li>
+                  <li><b>baños: </b><?=$Propiedad->banos?></li>
+                </ul>
               </div>
               <!-- /.card-body -->
             </div>

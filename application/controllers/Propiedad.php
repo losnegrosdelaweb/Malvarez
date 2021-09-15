@@ -15,6 +15,17 @@ class Propiedad extends CI_Controller {
 		$this->load->model('TipoPropiedadModel');
 		$this->load->model('PropiedadModel');
 		$this->load->model('UbicacionModel');
+
+		$listadoPropiedad = $this->PropiedadModel->getPropiedadesCompletas(false);		
+		$listadoTipoPropiedad = $this->TipoPropiedadModel->getTiposPropiedades(true);
+		$listadoUbicaciones = $this->UbicacionModel->getUbicaciones(true);
+		$listadoMonedas = $this->PropiedadModel->getMonedas();
+		
+		$data['listadoPropiedad'] = $listadoPropiedad;
+		$data['listadoTipoPropiedad'] = $listadoTipoPropiedad;
+		$data['listadoUbicaciones'] = $listadoUbicaciones;
+		$data['listadoMonedas'] = $listadoMonedas;
+		/*
 		$listadoTipoPropiedad = $this->TipoPropiedadModel->getTiposPropiedades(true);		
 		$listadoPropiedad = $this->PropiedadModel->getPropiedadesUbicacion(true);
 		$listadoUbicaciones = $this->UbicacionModel->getUbicaciones(true);
@@ -25,6 +36,7 @@ class Propiedad extends CI_Controller {
 		$data['listadoPropiedad'] = $listadoPropiedad;
 		$data['listadoDepartamento'] = $listadoDepartamento;
 		$data['listadoUbicaciones'] = $listadoUbicaciones;
+		*/
 
 		$this->load->view('admin/header');
 		$this->load->view('admin/sidebar');		
@@ -40,7 +52,8 @@ class Propiedad extends CI_Controller {
 		$this->load->model('PropiedadModel');		
 		$this->load->model('AdjuntoModel');
 
-		$Propiedad = $this->PropiedadModel->getPropiedadbyIdUbicacion($id);
+		//$Propiedad = $this->PropiedadModel->getPropiedadbyIdUbicacion($id);
+		$Propiedad = $this->PropiedadModel->getPropiedadCompletaById($id);	
 		$Adjuntos = $this->AdjuntoModel->getImagesAllByIdPropiedad($id);
 		$data['Propiedad'] = $Propiedad[0];
 		$data['Adjuntos'] = $Adjuntos;
@@ -59,10 +72,10 @@ class Propiedad extends CI_Controller {
 		$this->load->model('PropiedadModel');
 
 		if(isset($_POST)){
-			$Id = isset($_POST['id']) ? $_POST['id'] : NULL;
+			$id = isset($_POST['id']) ? $_POST['id'] : NULL;
 			$data = array(				
         		'id_tipo' => $_POST['TipoPropiedad'],
-				//'id_barrio' => $_POST['Barrio'],
+				'id_moneda' => $_POST['Moneda'],
 				'id_ubicacion' => $_POST['Ubicacion'],
 				'ambientes' => $_POST['Ambientes'],
 				'dormitorios' => $_POST['Dormitorios'],
@@ -75,10 +88,12 @@ class Propiedad extends CI_Controller {
 				'orientacion' => $_POST['Orientacion'],
 				'disposicion	' => $_POST['Disposicion'],
 				'condicion' => $_POST['Estado'],
+				'precio' => $_POST['Precio'],
+				'descripcion' => $_POST['Descripcion'],
 				//'fecha' => $_POST['Descripcion'],
 			);
 
-			if($Id!=NULL)
+			if($id!=NULL)
 			{
 				$this->PropiedadModel->putPropiedad($id, $data);		
 			}else{
@@ -102,6 +117,34 @@ class Propiedad extends CI_Controller {
 		}
 		echo json_encode($lista);	
 	}
+
+	public function getPropiedad($id){
+		$this->load->model('PropiedadModel');
+		$Propiedad=NULL;
+		if($id!=NULL){			
+			$Propiedad = $this->PropiedadModel->getPropiedadbyId($id);			
+		}
+		//var_dump($Propiedad);die;
+		echo json_encode($Propiedad);
+	}	
+
+	public function putEnabledDisabledPropiedad($id){
+		
+		$this->load->model('PropiedadModel');
+		$activo = isset($_POST['activo']) ? $_POST['activo'] : NULL;
+		if($activo!=NULL){
+			if($activo==1){
+				$this->PropiedadModel->disabledPropiedad($id);	
+			}elseif($activo==0){
+				$this->PropiedadModel->enabledPropiedad($id);	
+			}
+			echo true;
+		}
+		echo false;
+		
+	}
+
+
 
 
 }
