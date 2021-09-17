@@ -41,13 +41,15 @@ class PropiedadModel extends CI_Model {
         	propiedades.direccion,
         	ciudad.descripcion AS ciudad,
         	moneda.descripcion AS moneda,
-        	moneda.signo AS signo_moneda');
+        	moneda.signo AS signo_moneda,
+        	operacion.descripcion AS descOper');
         $this->db->where('propiedades.id_propiedad', $id);
         $this->db->from('propiedades');
         $this->db->join('ubicacion', 'propiedades.id_ubicacion = ubicacion.id_ubicacion');
         $this->db->join('tipospropiedades', 'propiedades.id_tipo = tipospropiedades.id_tipo_propiedad');
         $this->db->join('moneda', 'propiedades.id_moneda = moneda.id');
         $this->db->join('ciudad', 'propiedades.id_ciudad = ciudad.id_ciudad');
+        $this->db->join('operacion', 'propiedades.id_operacion = operacion.id');
         $query = $this->db->get();
         return $query->result();
 	}

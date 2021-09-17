@@ -40,7 +40,7 @@
 		  }*/
 	}
  </style>   
-   
+
   </head>
   <body>    
 
@@ -63,9 +63,7 @@
 			    <button class="btn navbar-toggler text-light" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation" style="margin: 1%;width: 100%;">
 			      <i class="far fa-arrow-alt-circle-down"></i> Propiedades - Filtro
 			    </button>
-			 
-			
-				
+
 				<div class="collapse navbar-collapse" id="navbarToggleExternalContent">
 				<div class="my-3 p-3 bg-body rounded shadow-sm text-light FiltroMobile" style="background-color: #000000eb!important">
 					<h6 class="border-bottom pb-2 mb-0">Filtros</h6>
@@ -130,7 +128,7 @@
 						</div>
 				   </div>
 
-					<div class="d-flex pt-3">     
+					<!--div class="d-flex pt-3">     
 						<div class="row g-3 align-items-center">
 						  <div class="col-auto" style="margin-top: 5%;">
 						    <label for="inputPassword6" class="col-form-label">Dormitorios:</label>
@@ -144,7 +142,7 @@
 								<input type="number" id="dormitoriosHasta" class="form-control" min="0" max="15">
 							</div>
 						</div>
-					</div>  
+					</div-->  
 
 					<div class="d-flex pt-3">     
 						<div class="row g-3 align-items-center">

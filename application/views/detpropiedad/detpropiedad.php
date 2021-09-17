@@ -34,14 +34,24 @@
       background-color: #181919db!important;
       border-radius: 15px;
     }
-    .badge-venta {
+    .badge-precio {
     color: rgb(255, 255, 255);
     background-color: rgb(220, 53, 69);
+    border-radius: 0rem;
+		}
+		.badge-exp {
+    color: rgb(255, 255, 255);
+    background-color: rgb(53, 81, 220);
     border-radius: 0rem;
 		}
 		.badge-oper {
     color: rgb(255, 255, 255);
     background-color: rgb(0, 0, 0);
+    border-radius: 0rem;
+		}
+		.badge-oper-exp {
+    color: rgb(255, 255, 255);
+    background-color: rgb(72, 72, 72);
     border-radius: 0rem;
 		}
 		.detalles {
@@ -68,9 +78,13 @@
           </div>
       </div><!-- /.container-fluid -->     
       	<div class="row bg-grey py-2 px-3">
-           <div class="col-1 badge badge-oper"><h5>VENTA</h5></div>
-           <div class="col-1 badge badge-venta" style="width: auto;"><h5><?=$Propiedad->signo_moneda?><?=$Propiedad->precio?></h5></div>
-        </div>              
+           <div class="col-1 badge badge-oper"><h5><?=$Propiedad->descOper?></h5></div>
+           <div class="col-1 badge badge-precio" style="width: auto;"><h5><?=$Propiedad->signo_moneda?><?=$Propiedad->precio?></h5></div>
+
+           <div class="col-1 badge badge-oper-exp"><h5>Expensas</h5></div>
+           <div class="col-1 badge badge-exp" style="width: auto;"><h5>$<?=$Propiedad->expensas?></h5></div>
+
+        </div>             
 		</section>
 
     <!-- Main content -->
@@ -133,15 +147,11 @@
 
                 <hr>
 
-                <strong><i class="fas fa-map-marker-alt mr-1"></i> Ubicación</strong>
+                <strong><i class="fas fa-map-marker-alt mr-1"></i> Ubicación • Localidad</strong>
 
-                <p class="text"><?=$Propiedad->ubicacion?></p>
+                <p class="text"><?=$Propiedad->ubicacion?> • <?=$Propiedad->ciudad?></p>
 
-                <hr>
 
- 								<strong><i class="fas fa-map-marker-alt mr-1"></i> Localidad</strong>
-
-                <p class="text"><?=$Propiedad->ciudad?></p>
 
                 <hr>
                 <strong><i class="fas fa-pencil-alt mr-1"></i> Superficies</strong>
@@ -154,7 +164,6 @@
                 </ul>
 
                 <hr>
-
               <strong><i class="far fa-file-alt mr-1"></i> Detalles</strong>
                 <ul class="text-muted">
                   <li><b>Ambientes: </b><?=$Propiedad->ambientes?></li>
