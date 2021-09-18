@@ -81,9 +81,13 @@
            <div class="col-1 badge badge-oper"><h5><?=$Propiedad->descOper?></h5></div>
            <div class="col-1 badge badge-precio" style="width: auto;"><h5><?=$Propiedad->signo_moneda?><?=$Propiedad->precio?></h5></div>
 
-           <div class="col-1 badge badge-oper-exp"><h5>Expensas</h5></div>
-           <div class="col-1 badge badge-exp" style="width: auto;"><h5>$<?=$Propiedad->expensas?></h5></div>
-
+           	<?php
+             if($Propiedad->expensas != NULL)
+              {
+                echo '<div class="col-1 badge badge-oper-exp"><h5>Expensas</h5></div>';
+                echo '<div class="col-1 badge badge-exp" style="width: auto;"><h5>$'.$Propiedad->expensas.'</h5></div>';
+              }              
+            ?>
         </div>             
 		</section>
 
@@ -148,7 +152,7 @@
                 <hr>
 
                 <strong><i class="fas fa-map-marker-alt mr-1"></i> Ubicación • Localidad</strong>
-
+ 
                 <p class="text"><?=$Propiedad->ubicacion?> • <?=$Propiedad->ciudad?></p>
 
 

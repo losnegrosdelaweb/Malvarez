@@ -52,7 +52,7 @@
               if($itemCatalogo['propiedad']->expensas != NULL)
               {
                 echo '<div class="mb-1 text-muted">+ $ '.$itemCatalogo['propiedad']->expensas.' Expensas</div>';
-              }              
+              }            
             ?>
           
           <br>
@@ -72,7 +72,7 @@
           </p>
           <p class="card-text mb-auto"> </p>
           <a href="/<?=site_url('detpropiedad/'.$itemCatalogo['propiedad']->id_propiedad)?>"><h4 class="mb-0"><?=$itemCatalogo['propiedad']->direccion?></h4></a>
-          <div class="mb-1 text-muted"><?=$itemCatalogo['propiedad']->ciudad?>,<?=$itemCatalogo['propiedad']->ubicacion?></div>
+          <div class="mb-1 text-muted"><?=$itemCatalogo['propiedad']->ciudad?>, <?=$itemCatalogo['propiedad']->ubicacion?></div>
           <!--<a href="#">Continue reading</a>-->
           <div class="d-grid gap-2 d-md-flex justify-content-md-end">
            <a href="/<?=site_url('detpropiedad/'.$itemCatalogo['propiedad']->id_propiedad)?>" class="btn btn-primary me-md-2" type="button">Contactar</a>

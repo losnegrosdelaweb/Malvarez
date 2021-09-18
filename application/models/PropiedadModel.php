@@ -7,12 +7,27 @@ class PropiedadModel extends CI_Model {
 	    $this->load->database();
 	}
 
-	public function getPropiedades($filtroActivo = false)
+	/*public function getPropiedades($filtroActivo = false)
 	{
 		if($filtroActivo){
         	$this->db->where('activo', 1);
         }
         $query = $this->db->get('propiedades');
+
+        return $query->result();
+	}*/
+
+	public function getPropiedades($filtroActivo = false)
+	{
+		if($filtroActivo){
+        	$this->db->where('activo', 1);
+        }
+        $this->db->select('propiedades.*,ubicacion.descripcion AS ubicacion,ciudad.descripcion AS ciudad');
+        $this->db->from('propiedades');
+        $this->db->join('ubicacion', 'propiedades.id_ubicacion = ubicacion.id_ubicacion');
+        $this->db->join('ciudad', 'propiedades.id_ciudad = ciudad.id_ciudad');
+        $query = $this->db->get();
+        
         return $query->result();
 	}
 
