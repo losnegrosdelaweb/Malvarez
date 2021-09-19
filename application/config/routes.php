@@ -75,6 +75,7 @@ $route['nosotros'] = 'nosotros';
 //Contacto
 $route['contacto'] = 'contacto';
 $route['validarContacto'] = 'contacto/validarContacto';
+$route['contactoMail'] = 'contacto/enviarMail';
 
 /* Admin */
 

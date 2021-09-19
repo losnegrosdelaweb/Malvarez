@@ -25,4 +25,24 @@ class Contacto extends CI_Controller {
 	    echo "The email message was sent.";
 	}
 
+	public function enviarMail()
+	{	
+		if(isset($_POST)){
+			$name = $_POST['inputName'];
+			$email = $_POST['inputEmail'];
+			$tel = $_POST['Tel'];
+			$asunto = $_POST['asunto'];
+			$mensaje = $_POST['mensaje'];
+			$header = "From: jorgecutuli@gmail.com". "\r\n";
+			$header .= "Reply-To: jorgecutuli@gmail.com". "\r\n";
+			$header .= "X-Mailer: PHP/". phpversion();
+			$email = mail($email, $asunto, $mensaje, $header);
+
+			if($email){
+				echo "<h4>!Mail enviado exitosamente¡</h4>";
+			}
+		}
+	}
+
+
 }
