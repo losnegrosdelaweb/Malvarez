@@ -54,6 +54,9 @@ class PropiedadModel extends CI_Model {
         	propiedades.banos,
         	propiedades.descripcion,
         	propiedades.direccion,
+        	propiedades.suptotal,
+        	propiedades.supcub,
+        	propiedades.supdesc,
         	ciudad.descripcion AS ciudad,
         	moneda.descripcion AS moneda,
         	moneda.signo AS signo_moneda,
@@ -124,8 +127,12 @@ class PropiedadModel extends CI_Model {
         if($ubicacion!=null && $ubicacion!=0){
         	$this->db->where('id_ubicacion', $ubicacion);
         }
-
-        $query = $this->db->get('propiedades');
+         $this->db->select('propiedades.*,ubicacion.descripcion AS ubicacion,ciudad.descripcion AS ciudad');
+        $this->db->from('propiedades');
+        $this->db->join('ubicacion', 'propiedades.id_ubicacion = ubicacion.id_ubicacion');
+        $this->db->join('ciudad', 'propiedades.id_ciudad = ciudad.id_ciudad');
+        //$query = $this->db->get('propiedades');
+        $query = $this->db->get();
         //var_dump($this->db->last_query());
         return $query->result();
 	}
@@ -246,6 +253,7 @@ class PropiedadModel extends CI_Model {
         	propiedades.banos,
         	propiedades.descripcion,
         	propiedades.direccion,
+        	propiedades.suptotal,
         	moneda.descripcion AS moneda,        	
         	ciudad.descripcion AS ciudad,
         	moneda.signo AS signo_moneda');

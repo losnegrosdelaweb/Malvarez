@@ -86,9 +86,9 @@
               {
                 echo '<div class="col-1 badge badge-oper-exp"><h5>Expensas</h5></div>';
                 echo '<div class="col-1 badge badge-exp" style="width: auto;"><h5>$'.$Propiedad->expensas.'</h5></div>';
-              }              
+              }
             ?>
-        </div>             
+        </div>
 		</section>
 
     <!-- Main content -->
@@ -145,34 +145,60 @@
               <div class="card-body">
                 <strong><i class="fas fa-book mr-1"></i> Tipo propiedad</strong>
 
-                <p class="text">
+                <ul class="text"><li><p class="text">
                   <?=$Propiedad->tipoPropiedad?>
-                </p>
+                </p></li></ul>
 
                 <hr>
 
                 <strong><i class="fas fa-map-marker-alt mr-1"></i> Ubicación • Localidad</strong>
  
-                <p class="text"><?=$Propiedad->ubicacion?> • <?=$Propiedad->ciudad?></p>
+                <ul class="text"><li><p class="text"><?=$Propiedad->ubicacion?> • <?=$Propiedad->ciudad?></p></li></ul>
 
 
-
+                <!--i class="fas fa-pencil-alt mr-1"></i-->
                 <hr>
-                <strong><i class="fas fa-pencil-alt mr-1"></i> Superficies</strong>
+                <strong><i class="fas fa-ruler-combined"></i> Superficies</strong>
 
                 <ul class="text">
-                  <li class="tag tag-danger">Cubierta: 50 m²</li>
-                  <li class="tag tag-success">Semicubierta: 3 m²</li>
-                  <li class="tag tag-success">Descubierta: 2 m²</li>
-                  <li class="tag tag-info">Total construido: 55 m²</li>
+                  <li class="tag tag-danger">Cubierta: 
+                  	<?php 
+				              if($Propiedad->supcub != NULL)
+				              {
+				                echo $Propiedad->supcub.' m²';
+				              } else {
+				              	echo ' N/A';
+				              }
+			              ?>
+                  </li>
+                  <li class="tag tag-success">Descubierta: 
+                  	<?php 
+				              if($Propiedad->supdesc != NULL)
+				              {
+				                echo $Propiedad->supdesc.' m²';
+				              } else {
+				              	echo ' N/A';
+				              }
+			              ?>
+                  </li>
+                  <li class="tag tag-info">Total construido: 
+                  	<?php 
+				              if($Propiedad->suptotal != NULL)
+				              {
+				                echo $Propiedad->suptotal.' m²';
+				              } else {
+				              	echo ' N/A';
+				              }
+			              ?>
+                  </li>
                 </ul>
 
                 <hr>
               <strong><i class="far fa-file-alt mr-1"></i> Detalles</strong>
-                <ul class="text-muted">
-                  <li><b>Ambientes: </b><?=$Propiedad->ambientes?></li>
-                  <li><b>Dormitorios: </b><?=$Propiedad->dormitorios?></li>
-                  <li><b>baños: </b><?=$Propiedad->banos?></li>
+                <ul class="text">
+                  <li>Ambientes: <?=$Propiedad->ambientes?></li>
+                  <li>Dormitorios: <?=$Propiedad->dormitorios?></li>
+                  <li>Baños: <?=$Propiedad->banos?></li>
                 </ul>
               </div>
               <!-- /.card-body -->
@@ -296,34 +322,16 @@
 					  </div>
 					</nav>
 					<div class="tab-content p-3" id="nav-tabContent">
-					  <div class="tab-pane fade show active" id="product-desc" role="tabpanel" aria-labelledby="product-desc-tab"> VENTA DEPARTAMENTO 3 AMBIENTES EN NÚÑEZ<br>
-
-Impecable y muy luminoso Departamento al contrafrente, reciclado a nuevo.<br>
-Ubicado muy cerca de Av. Cabildo y a la estación Congreso de Tucumán del subte Línea D.<br>
-
-Living Comedor con acceso a Balcón corrido.<br>
-Cocina.<br>
-Entrada de servicio.<br>
-Dormitorio principal con Placard y salida al Balcón.<br>
-2° Dormitorio con Placard.<br>
-Lavadero con circulación tanto a Cocina como 2° Dormitorio.<br>
-Baño completo.<br>
-Toilette.<br>
-
-Aberturas nuevas con Blindex.<br>
-Pisos de madera.<br>
-
-Apto Mascotas.<br>
-
-Apto Crédito.<br>
-
-Para más información contáctenos: online@ruizpropiedades.com<br>
-
-Sucursal Núñez: 4702-1721<br>
-Sucursal Olivos: 4797-4422<br>
-Sucursal Villa Adelina: 4763-1003<br>
-Sucursal Carapachay: 4756-5099<br>
-Sucursal Florida: 4795-0663 </div>
+					  <div class="tab-pane fade show active" id="product-desc" role="tabpanel" aria-labelledby="product-desc-tab">
+					   <?php 
+              if($Propiedad->descripcion != NULL)
+              {
+                echo $Propiedad->descripcion;
+              } else {
+              	echo ' N/A';
+              }
+             ?>
+						</div>
 					</div>
 				</div>
 				</div>				

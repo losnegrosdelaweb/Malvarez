@@ -140,8 +140,11 @@ a{
           
           <br>
           <p>
-            <span style="padding-right: 5%;"><i class="fas fa-ruler-combined"> </i> 80 m²</span>
             <?php 
+              if($itemCatalogo['propiedad']->suptotal != NULL)
+              {
+                echo '<span style="padding-right: 5%;"><i class="fas fa-ruler-combined"> </i>'.$itemCatalogo['propiedad']->suptotal.' m²</span>';
+              }
               if($itemCatalogo['propiedad']->ambientes != "0" && $itemCatalogo['propiedad']->ambientes != NULL)
               {
                 echo '<span style="padding-right: 5%;"><i class="fas fa-door-open"></i> '.$itemCatalogo['propiedad']->ambientes.' amb.</span> ';
