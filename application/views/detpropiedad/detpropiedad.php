@@ -34,14 +34,24 @@
       background-color: #181919db!important;
       border-radius: 15px;
     }
-    .badge-venta {
+    .badge-precio {
     color: rgb(255, 255, 255);
     background-color: rgb(220, 53, 69);
+    border-radius: 0rem;
+		}
+		.badge-exp {
+    color: rgb(255, 255, 255);
+    background-color: rgb(53, 81, 220);
     border-radius: 0rem;
 		}
 		.badge-oper {
     color: rgb(255, 255, 255);
     background-color: rgb(0, 0, 0);
+    border-radius: 0rem;
+		}
+		.badge-oper-exp {
+    color: rgb(255, 255, 255);
+    background-color: rgb(72, 72, 72);
     border-radius: 0rem;
 		}
 		.detalles {
@@ -53,6 +63,8 @@
   </head>
   <body>    
 
+
+
 <main class="bg-light">
   <div class="container">
 	<div class="content-wrapper">
@@ -62,13 +74,21 @@
 		</section>
     <section class="content-header">
       <div class="container-fluid">
-		  <div class="col-sm-6"><h1> Dirección junto a la altura 9999</h1>
+		  <div class="col-sm-6"><h1> <?=$Propiedad->direccion?></h1>
           </div>
       </div><!-- /.container-fluid -->     
       	<div class="row bg-grey py-2 px-3">
-           <div class="col-1 badge badge-oper"><h5>VENTA</h5></div>
-           <div class="col-1 badge badge-venta" style="width: auto;"><h5>USD999.000</h5></div>
-        </div>              
+           <div class="col-1 badge badge-oper"><h5><?=$Propiedad->descOper?></h5></div>
+           <div class="col-1 badge badge-precio" style="width: auto;"><h5><?=$Propiedad->signo_moneda?><?=$Propiedad->precio?></h5></div>
+
+           	<?php
+             if($Propiedad->expensas != NULL)
+              {
+                echo '<div class="col-1 badge badge-oper-exp"><h5>Expensas</h5></div>';
+                echo '<div class="col-1 badge badge-exp" style="width: auto;"><h5>$'.$Propiedad->expensas.'</h5></div>';
+              }
+            ?>
+        </div>
 		</section>
 
     <!-- Main content -->
@@ -82,34 +102,37 @@
 		  <div class="row">
 				<div class="col-12 col-sm-6">
 				  <div class="col">
-			<div class="card shadow-sm">        
-			<div id="carouselExampleIndicators" class="carousel slide" style="width: 100%;">
-			  <ol class="carousel-indicators">
-			  <li data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"></li>
-			  <li data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"></li>
-			  <li data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"></li>
-			  </ol>
-			  <div class="carousel-inner">
-			  <div class="carousel-item active">
-				<img src="<?=base_url('../../assets/img/casa1.jpg')?>" class="d-block w-100" alt="...">
-			  </div>
-			  <div class="carousel-item">
-				<img src="<?=base_url('../../assets/img/ph1.jpg')?>" class="d-block w-100" alt="...">
-			  </div>
-			  <div class="carousel-item">
-				<img src="<?=base_url('../../assets/img/casa2.jpg')?>" class="d-block w-100" alt="...">
-			  </div>
-			  </div>
-			  <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-bs-slide="prev">
-			  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-			  <span class="visually-hidden">Previous</span>
-			  </a>
-			  <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-bs-slide="next">
-			  <span class="carousel-control-next-icon" aria-hidden="true"></span>
-			  <span class="visually-hidden">Next</span>
-			  </a>
-			</div>
-		   </div>
+          <div class="card shadow-sm">        
+          <div  id="carouselExampleIndicators" class="carousel slide"  data-bs-ride="carousel" style="width: 100%;height: 100%;">
+
+            <div class="carousel-inner">
+              <?php
+                  $cont=0;
+                  foreach ($catalogo as $key => $value) {             
+                    if($cont==0){
+                      echo '<div class="carousel-item active">';
+                      }else{
+                        echo '<div class="carousel-item">';
+                      }
+                      echo '<img src="data:image/jpeg;base64,'.$value->base64.'" class="d-block listado-Carrusel" alt="..." style=";-webkit-writing-mode: vertical-lr;">
+                          </div>';
+                    $cont++;
+                  }
+              ?>
+            </div>
+
+            <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Next</span>
+            </a>
+
+
+          </div>
+          </div>
 		  </div>
 				</div>           
 		
@@ -122,32 +145,61 @@
               <div class="card-body">
                 <strong><i class="fas fa-book mr-1"></i> Tipo propiedad</strong>
 
-                <p class="text">
-                  PH
-                </p>
+                <ul class="text"><li><p class="text">
+                  <?=$Propiedad->tipoPropiedad?>
+                </p></li></ul>
 
                 <hr>
 
-                <strong><i class="fas fa-map-marker-alt mr-1"></i> Barrio</strong>
+                <strong><i class="fas fa-map-marker-alt mr-1"></i> Ubicación • Localidad</strong>
+ 
+                <ul class="text"><li><p class="text"><?=$Propiedad->ubicacion?> • <?=$Propiedad->ciudad?></p></li></ul>
 
-                <p class="text">Malibu, California</p>
 
+                <!--i class="fas fa-pencil-alt mr-1"></i-->
                 <hr>
-
-                <strong><i class="fas fa-pencil-alt mr-1"></i> Superficies</strong>
+                <strong><i class="fas fa-ruler-combined"></i> Superficies</strong>
 
                 <ul class="text">
-                  <li class="tag tag-danger">Cubierta: 50 m²</li>
-                  <li class="tag tag-success">Semicubierta: 3 m²</li>
-                  <li class="tag tag-success">Descubierta: 2 m²</li>
-                  <li class="tag tag-info">Total construido: 55 m²</li>
+                  <li class="tag tag-danger">Cubierta: 
+                  	<?php 
+				              if($Propiedad->supcub != NULL)
+				              {
+				                echo $Propiedad->supcub.' m²';
+				              } else {
+				              	echo ' N/A';
+				              }
+			              ?>
+                  </li>
+                  <li class="tag tag-success">Descubierta: 
+                  	<?php 
+				              if($Propiedad->supdesc != NULL)
+				              {
+				                echo $Propiedad->supdesc.' m²';
+				              } else {
+				              	echo ' N/A';
+				              }
+			              ?>
+                  </li>
+                  <li class="tag tag-info">Total construido: 
+                  	<?php 
+				              if($Propiedad->suptotal != NULL)
+				              {
+				                echo $Propiedad->suptotal.' m²';
+				              } else {
+				              	echo ' N/A';
+				              }
+			              ?>
+                  </li>
                 </ul>
 
                 <hr>
-
-                <strong><i class="far fa-file-alt mr-1"></i> Ambientes</strong>
-
-                <p class="text">2</p>
+              <strong><i class="far fa-file-alt mr-1"></i> Detalles</strong>
+                <ul class="text">
+                  <li>Ambientes: <?=$Propiedad->ambientes?></li>
+                  <li>Dormitorios: <?=$Propiedad->dormitorios?></li>
+                  <li>Baños: <?=$Propiedad->banos?></li>
+                </ul>
               </div>
               <!-- /.card-body -->
             </div>
@@ -270,34 +322,16 @@
 					  </div>
 					</nav>
 					<div class="tab-content p-3" id="nav-tabContent">
-					  <div class="tab-pane fade show active" id="product-desc" role="tabpanel" aria-labelledby="product-desc-tab"> VENTA DEPARTAMENTO 3 AMBIENTES EN NÚÑEZ<br>
-
-Impecable y muy luminoso Departamento al contrafrente, reciclado a nuevo.<br>
-Ubicado muy cerca de Av. Cabildo y a la estación Congreso de Tucumán del subte Línea D.<br>
-
-Living Comedor con acceso a Balcón corrido.<br>
-Cocina.<br>
-Entrada de servicio.<br>
-Dormitorio principal con Placard y salida al Balcón.<br>
-2° Dormitorio con Placard.<br>
-Lavadero con circulación tanto a Cocina como 2° Dormitorio.<br>
-Baño completo.<br>
-Toilette.<br>
-
-Aberturas nuevas con Blindex.<br>
-Pisos de madera.<br>
-
-Apto Mascotas.<br>
-
-Apto Crédito.<br>
-
-Para más información contáctenos: online@ruizpropiedades.com<br>
-
-Sucursal Núñez: 4702-1721<br>
-Sucursal Olivos: 4797-4422<br>
-Sucursal Villa Adelina: 4763-1003<br>
-Sucursal Carapachay: 4756-5099<br>
-Sucursal Florida: 4795-0663 </div>
+					  <div class="tab-pane fade show active" id="product-desc" role="tabpanel" aria-labelledby="product-desc-tab">
+					   <?php 
+              if($Propiedad->descripcion != NULL)
+              {
+                echo $Propiedad->descripcion;
+              } else {
+              	echo ' N/A';
+              }
+             ?>
+						</div>
 					</div>
 				</div>
 				</div>				

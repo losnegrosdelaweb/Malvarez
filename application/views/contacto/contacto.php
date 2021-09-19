@@ -31,19 +31,19 @@
             <div>
               <h2>M.ALVAREZ</h2><br><div style="color: red;font-size: x-large;">SERVICIOS INMOBILIARIOS</div><br><br>
               <p class="lead mb-5">Tel: (+54 9) 11-3556-0795 / 11-5805-2424<br><br>
-                infomalvarezsi@gmail.com
+                info@malvarezsi.com
               </p>
             </div>
           </div>
           <div class="col-7">
-            <form id="contactoForm" method="POST">
+            <form id="contactoForm" method="POST" action="<?=site_url('../../contactoMail')?>">
               <div class="form-group">
                 <label for="inputName">Nombre / Apellido *</label>
-                <input type="text" id="inputName" class="form-control">
+                <input type="text" id="inputName" name="inputName" class="form-control">
               </div>
               <div class="form-group">
                 <label for="inputEmail">E-Mail *</label>
-                <input type="email" id="inputEmail" class="form-control" placeholder="usuario@ejemplo.com">
+                <input type="email" id="inputEmail" name="inputEmail" class="form-control" placeholder="usuario@ejemplo.com">
               </div>
               <div class="form-group">
                 <label for="tel">Teléfono</label>
@@ -51,11 +51,11 @@
               </div>
               <div class="form-group">
                 <label for="inputSubject">Asunto *</label>
-                <input type="text" id="inputSubject" class="form-control">
+                <input type="text" id="inputSubject" name="asunto" class="form-control">
               </div>
               <div class="form-group">
                 <label for="inputMessage">Mensaje *</label>
-                <textarea id="inputMessage" class="form-control" rows="4"></textarea>
+                <textarea id="inputMessage" class="form-control" name="mensaje" rows="4"></textarea>
               </div>
               <div class="status"></div>
               <div class="statusok"></div>

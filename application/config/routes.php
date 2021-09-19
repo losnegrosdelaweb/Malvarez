@@ -64,7 +64,7 @@ $route['catalogo-alquileres'] = 'catalogo/indexAlquileres';
 $route['login'] = 'login';
 $route['validar'] = 'login/validarLogin';
 
-$route['detpropiedad/(:num)'] = 'detpropiedad/$1';
+$route['detpropiedad/(:num)'] = 'detpropiedad/index/$1';
 
 //Emprendimientos
 $route['emprendimientos'] = 'emprendimientos';
@@ -75,6 +75,7 @@ $route['nosotros'] = 'nosotros';
 //Contacto
 $route['contacto'] = 'contacto';
 $route['validarContacto'] = 'contacto/validarContacto';
+$route['contactoMail'] = 'contacto/enviarMail';
 
 /* Admin */
 
@@ -89,6 +90,8 @@ $route['cerrarSesion'] = 'admin/CerrarSesion';
 //Ubicaciones
 $route['ubicacion'] = 'ubicacion';
 $route['postUbicacion'] = 'ubicacion/postUbicacion';
+$route['getUbicacion/(:num)'] = 'ubicacion/getUbicacion/$1';
+$route['putEstadoUbicacion/(:num)'] = 'ubicacion/putEnabledDisabledUbicacion/$1';
 
 //Usuarios
 $route['users'] = 'usuario';
@@ -108,6 +111,8 @@ $route['mantenimiento'] = 'mantenimiento';
 $route['propiedad'] = 'propiedad';
 $route['postPropiedad'] = 'propiedad/postPropiedad';
 $route['buscarCiudades/(:num)'] = 'propiedad/getCiudades/$1';
+$route['getPropiedad/(:num)'] = 'propiedad/getPropiedad/$1';
+$route['putEstadoPropiedad/(:num)'] = 'propiedad/putEnabledDisabledPropiedad/$1';
 
 //Consultas
 $route['consulta'] = 'consulta';

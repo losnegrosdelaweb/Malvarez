@@ -36,29 +36,45 @@
               <tbody>
                 
                   <?php
-                  
                     foreach ($listadoPropiedad as $key => $value) {
-                        /*echo "<pre>";
-                        var_dump($value);
-                        echo "</pre>";*/
-                      echo "<tr>";
-                      echo "<td>".$value->id_propiedad."</td>";
-                      //echo "<td>".$value->id_ciudad."</td>";
-                      echo "<td>".$value->descripcion."</td>";
-                      echo "<td>".$value->condicion."</td>";
-                      echo '<td class="text-center"><button type="button" class="btn btn-warning btn-sm">
-                              <i class="fas fa-pen"></i>
-                            </button></td>';                            
-                      
-                      echo '<td class="text-center"><a type="button" class="btn btn-success btn-sm" href="'.site_url('../../adjuntoListado/'.$value->id_propiedad).'">
-                              <i class="fas fa-file-upload"></i>
-                            </a></td>';
+                      if($value->activo==1)
+                      {
+                        $style = "color: black;";
+                      }elseif($value->activo==0)
+                      {
+                        $style = "color: darkgray;";
+                      }
+                      echo "<tr style=\"".$style."\">";
 
-                      echo '<td class="text-center"><button type="button" class="btn btn-danger btn-sm" onclick="">
-                              <i class="fas fa-trash-alt"></i>
-                            </button>';
-                      echo "</td></tr> ";
+                      echo "<td>".$value->ubicacion."</td>";
+                      echo "<td>".$value->tipoPropiedad."</td>";
+                      echo "<td>".$value->condicion."</td>";  
 
+                      echo '<td><center>            
+                        <button type="button" onclick="edit('.$value->id_propiedad.')" class="btn btn-warning btn-sm pop" data-toggle="popover">
+                        <i class="fas fa-pen"></i></button>
+                        &nbsp;</center></td>';
+
+
+                       echo '<td class="text-center"><a type="button" class="btn btn-success btn-sm" href="'.site_url('../../adjuntoListado/'.$value->id_propiedad).'">
+                            <i class="fas fa-file-upload"></i>
+                          </a></td>';
+
+                     echo '<td><center>';
+                        if($value->activo==1)
+                        {
+                          echo '<button type="button" class="btn btn-danger btn-sm" onclick="delet('.$value->id_propiedad.','.$value->activo.')">
+                                  <i class="fas fa-trash-alt"></i>
+                                </button>';
+                        }
+                        elseif($value->activo==0)
+                        {
+                          echo '<button type="button" class="btn btn-success btn-sm" onclick="delet('.$value->id_propiedad.','.$value->activo.')">
+                                  <i class="fas fa-check"></i>
+                                </button>';
+                        }
+                        echo '</td>';
+                        echo '</tr>';
                     }
                   ?>                               
               </tbody>
@@ -81,11 +97,63 @@ $(document).ready(function () {
 
 
 $('#modalAddPropiedad').click(function(){
-  //alert("asda");
+   $('.limpiar').val("");
     $('#exampleModal').modal('show');
 })
 
 
+
+function edit(id){
+  $.ajax({
+    url: '<?=site_url()?>/../../getPropiedad/'+id,
+    type: "GET",
+    dataType: "json",
+    success: function(respuesta) {
+      console.log(respuesta)
+      $('#id').val(id);
+      $("#TipoPropiedad").val(respuesta.id_tipo).trigger('change');
+      $("#Ciudad").val(respuesta.id_ciudad).trigger('change');
+      $("#ubicacion").val(respuesta.id_ubicacion).trigger('change');
+      $("#Operacion").val(respuesta.id_operacion).trigger('change');
+      $('#Ambientes').val(respuesta.ambientes);
+      $('#Dormitorios').val(respuesta.dormitorios);
+      $('#Bano').val(respuesta.banos);
+      $('#Cochera').val(respuesta.cocheras);
+      $('#Pisos').val(respuesta.pisos);
+      $('#Antiguedad').val(respuesta.antiguedad);
+      $('#Situacion').val(respuesta.situacion);
+      $('#Expensas').val(respuesta.expensas);
+      $('#Orientacion').val(respuesta.orientacion);
+      $('#Disposicion').val(respuesta.disposicion);
+      $('#Estado').val(respuesta.condicion);
+      $('#Descripcion').val(respuesta.descripcion);
+      $('#Precio').val(respuesta.precio);
+      $('#Direccion').val(respuesta.direccion);      
+
+      $('#exampleModal').modal('show');
+    },
+    error: function() {
+          console.log("No se ha podido obtener la información");
+      }
+  });
+}
+
+
+function delet(id, activo){
+  $.ajax({
+    url: '<?=site_url()?>/../../putEstadoPropiedad/'+id,
+    type: "POST",
+    data: {activo : activo},
+    success: function(respuesta) {
+      if(respuesta==1){
+         location.reload();
+      }
+    },
+    error: function() {
+          console.log("No se ha podido obtener la información");
+      }
+  });
+}
 
 
 

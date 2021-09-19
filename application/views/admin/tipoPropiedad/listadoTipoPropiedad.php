@@ -32,37 +32,46 @@
               </thead>
               <tbody>                
                  <?php
-                    foreach ($listadoTipoPropiedad as $key => $value) {
-					   if($value->activo==1){
-						   $style = "color: black;";
-					   }elseif($value->activo==0){
-						   $style = "color: darkgray;";
-					   }
+                    foreach ($listadoTipoPropiedad as $key => $value) 
+                    {
+                      if($value->activo==1)
+                      {
+                        $style = "color: black;";
+                      }elseif($value->activo==0)
+                      {
+                        $style = "color: darkgray;";
+                      }
                       echo "<tr>";
                       echo "<td style=\"".$style."\">".$value->descripcion."</td>";
-					   if($value->activo==1){
-                          echo "<td style=\"".$style."\"><center>Activo</center></td>";
-                        }elseif($value->activo==0){
-                          echo "<td style=\"".$style."\"><center>Inhabilitado</center></td>";
-                        }
+					            if($value->activo==1)
+                      {
+                        echo "<td style=\"".$style."\"><center>Activo</center></td>";
+                      }
+                      elseif($value->activo==0)
+                      {
+                        echo "<td style=\"".$style."\"><center>Inhabilitado</center></td>";
+                      }
                       echo '<td><center>					  
                         <button type="button" onclick="edit('.$value->id_tipo_propiedad.')" class="btn btn-warning btn-sm pop" data-toggle="popover" data-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus.">
                           <i class="fas fa-pen"></i>
                         </button>
                         &nbsp;';
-						echo '</center></td>';
-						echo '<td><center>';
-                        if($value->activo==1){
+        						echo '</center></td>';
+        						echo '<td><center>';
+                        if($value->activo==1)
+                        {
                           echo '<button type="button" class="btn btn-danger btn-sm" onclick="delet('.$value->id_tipo_propiedad.','.$value->activo.')">
                                   <i class="fas fa-trash-alt"></i>
                                 </button>';
-                        }elseif($value->activo==0){
+                        }
+                        elseif($value->activo==0)
+                        {
                           echo '<button type="button" class="btn btn-success btn-sm" onclick="delet('.$value->id_tipo_propiedad.','.$value->activo.')">
                                   <i class="fas fa-check"></i>
                                 </button>';
                         }
                         echo '</td>';
-						echo '</tr>';
+						            echo '</tr>';
                     }
                   ?>                 
               </tbody>

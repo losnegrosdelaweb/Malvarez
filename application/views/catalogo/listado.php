@@ -52,13 +52,17 @@
               if($itemCatalogo['propiedad']->expensas != NULL)
               {
                 echo '<div class="mb-1 text-muted">+ $ '.$itemCatalogo['propiedad']->expensas.' Expensas</div>';
-              }              
+              }            
             ?>
           
           <br>
           <p>
-            <span style="padding-right: 5%;"><i class="fas fa-ruler-combined"> </i> 80 m²</span>
+            
             <?php 
+              if($itemCatalogo['propiedad']->suptotal != NULL)
+              {
+                echo '<span style="padding-right: 5%;"><i class="fas fa-ruler-combined"> </i>'.$itemCatalogo['propiedad']->suptotal.' m²</span>';
+              }
               if($itemCatalogo['propiedad']->ambientes != "0" && $itemCatalogo['propiedad']->ambientes != NULL)
               {
                 echo '<span style="padding-right: 5%;"><i class="fas fa-door-open"></i> '.$itemCatalogo['propiedad']->ambientes.' amb.</span> ';
@@ -71,11 +75,11 @@
             ?>
           </p>
           <p class="card-text mb-auto"> </p>
-           <h4 class="mb-0">BOULOGNE SUR MER 1590. Entre Illia y Pedriel</h4>
-          <div class="mb-1 text-muted">Villa Maipu, General San Martín</div>
+          <a href="/<?=site_url('detpropiedad/'.$itemCatalogo['propiedad']->id_propiedad)?>"><h4 class="mb-0"><?=$itemCatalogo['propiedad']->direccion?></h4></a>
+          <div class="mb-1 text-muted"><?=$itemCatalogo['propiedad']->ciudad?>, <?=$itemCatalogo['propiedad']->ubicacion?></div>
           <!--<a href="#">Continue reading</a>-->
           <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-            <button class="btn btn-primary me-md-2" type="button">Contactar</button>
+           <a href="/<?=site_url('detpropiedad/'.$itemCatalogo['propiedad']->id_propiedad)?>" class="btn btn-primary me-md-2" type="button">Contactar</a>
           </div>
         </div>
     </div>

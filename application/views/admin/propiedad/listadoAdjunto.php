@@ -45,6 +45,15 @@
                   <li class="list-group-item">
                     <b>Fecha</b> <a class="float-right"><?=$Propiedad->fecha?></a>
                   </li>
+                   <li class="list-group-item">
+                    <b>Moneda</b> <a class="float-right"> <?=$Propiedad->moneda?></a>
+                  </li>
+                  <li class="list-group-item">
+                    <b>Expensas</b> <a class="float-right"> <?=$Propiedad->signo_moneda?> <?=$Propiedad->expensas?></a>
+                  </li>
+                  <li class="list-group-item">
+                    <b>Precio</b> <a class="float-right"><?=$Propiedad->signo_moneda?> <?=$Propiedad->precio?></a>
+                  </li>
                 </ul>
 
                 <!--<a href="#" class="btn btn-primary btn-block"><b>Follow</b></a>-->
@@ -61,21 +70,22 @@
           <div class="col-md-9">
              <div class="card card-danger">
               <div class="card-header">
-                <h3 class="card-title">Tipo <?=$Propiedad->id_tipo?> - <?=$Propiedad->descripcion?></h3>
+                <h3 class="card-title">Tipo <?=$Propiedad->tipoPropiedad?></h3>
               </div>
               <!-- /.card-header -->
               <div class="card-body">
-                <strong><i class="fas fa-book mr-1"></i> Education</strong>
+                <strong><i class="fas fa-book mr-1"></i> Descripción</strong>
 
-                <p class="text-muted">
-                  B.S. in Computer Science from the University of Tennessee at Knoxville
+                <p class="text-muted">                  
+                  <?=$Propiedad->descripcion?>
+                  <!--B.S. in Computer Science from the University of Tennessee at Knoxville-->
                 </p>
 
                 <hr>
 
                 <strong><i class="fas fa-map-marker-alt mr-1"></i> Ubicación</strong>
 
-                <p class="text-muted"><?=$Propiedad->descripcion?></p>
+                <p class="text-muted"><?=$Propiedad->ubicacion?></p>
 
                 <hr>
 
