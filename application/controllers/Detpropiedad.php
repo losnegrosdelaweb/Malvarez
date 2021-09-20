@@ -37,6 +37,7 @@ class DetPropiedad extends CI_Controller {
 		if(isset($_POST)){
 
 			$Propiedad = $this->PropiedadModel->getPropiedadCompletaById($_POST['id']);
+			var_dump($Propiedad[0]->direccion);die;
 			$nombre = $_POST['nombre'];
 			$email = $_POST['Email'];
 			$tel = $_POST['Tel'];
@@ -46,12 +47,12 @@ class DetPropiedad extends CI_Controller {
 			$header .= "Reply-To: ".$mailAlvarezReply. "\r\n";
 			$header .= "X-Mailer: PHP/". phpversion();
 
-			$cuerpo = "<h4>Consulta de Propiedad</h4>\r\n";
+			$cuerpo = "Consulta de Propiedad\r\n";
 			$cuerpo .= "Nombre:". $nombre. " \r\n";
 			$cuerpo .= "Email:". $email. " \r\n";
 			$cuerpo .= "Telefono:". $tel. " \r\n";
-			$cuerpo .= "Ubicación:". $Propiedad[0]['ubicacion'].", ".$Propiedad[0]['direccion']. " \r\n";
-			$cuerpo .= "Tipo Propiedad:". $Propiedad[0]['descOper'].", ".$Propiedad[0]['tipoPropiedad']. " \r\n";			
+			$cuerpo .= "Ubicación:". $Propiedad[0]->ubicacion.", ".$Propiedad[0]->direccion. " \r\n";
+			$cuerpo .= "Tipo Propiedad:". $Propiedad[0]->descOper.", ".$Propiedad[0]->tipoPropiedad. " \r\n";			
 
 			$cuerpo .= $mensaje. " \r\n";			
 			$email = mail($email, $asunto, $cuerpo, $header);
@@ -60,7 +61,7 @@ class DetPropiedad extends CI_Controller {
 				$bandera = true;
 				$data = array(				
 					'id_propiedad' => $_POST['id'],
-					'fecha' => $Propiedad[0]['tipoPropiedad'],
+					'fecha' => $Propiedad[0]->tipoPropiedad,
 					'nombre' => date("Y-m-d H:i:s"),
 					'tel' => $tel,
 					'email' => $email,

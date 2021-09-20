@@ -37,11 +37,10 @@ class Contacto extends CI_Controller {
 			$header = "From: jorgecutuli@gmail.com". "\r\n";
 			$header .= "Reply-To: jorgecutuli@gmail.com". "\r\n";
 			$header .= "X-Mailer: PHP/". phpversion();
-			$cuerpo = "<h4>asunto</h4>\r\n";
+			$cuerpo = "Contacto\r\n";
 			$cuerpo .= "Email:". $email. " \r\n";
 			$cuerpo .= "Telefono:". $tel. " \r\n";
 			$cuerpo .= "Asuno:". $asunto. " \r\n";
-			$cuerpo .= "email:". $email. " \r\n";
 			$cuerpo .= $mensaje. " \r\n";
 			$email = mail($email, $asunto, $cuerpo, $header);
 
