@@ -409,7 +409,7 @@
 				type: 'POST',	
 				data: {
 					id: propiedadId,
-					nombre : $("#nombre").val(),
+					nombre : $("#Nombre").val(),
 					Email:$("#Email").val(),
 					Tel:$("#Tel").val(),
 					Msj:$("#Msj").val()

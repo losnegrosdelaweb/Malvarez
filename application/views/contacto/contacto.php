@@ -108,8 +108,8 @@ function validateForm() {
           inputName : $("#inputName").val(),
           inputEmail:$("#inputEmail").val(),
           Tel:$("#Tel").val(),
-          Asunto:$("#Asunto").val(),
-          mensaje:$("#mensaje").val()
+          asunto:$("#inputSubject").val(),
+          mensaje:$("#inputMessage").val()
         },
         success: function(data){
           if(data){
