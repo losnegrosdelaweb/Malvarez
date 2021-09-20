@@ -33,7 +33,7 @@ class Home extends CI_Controller {
 	public function BuscarPropiedad()
 	{
 		if(isset($_POST)){		
-			if($_POST['operations']==1){
+			if($_POST['operations']==1){ 
 				redirect('../../catalogo', 'location');	
 			}else{
 				redirect('../../catalogo-alquileres', 'location');	
