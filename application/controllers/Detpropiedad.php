@@ -50,8 +50,8 @@ class DetPropiedad extends CI_Controller {
 			$cuerpo .= "Nombre:". $nombre. " \r\n";
 			$cuerpo .= "Email:". $email. " \r\n";
 			$cuerpo .= "Telefono:". $tel. " \r\n";
-			$cuerpo .= "Ubicación:". $Propiedad['ubicacion'].", ".$Propiedad['direccion']. " \r\n";
-			$cuerpo .= "Tipo Propiedad:". $Propiedad['descOper'].", ".$Propiedad['tipoPropiedad']. " \r\n";			
+			$cuerpo .= "Ubicación:". $Propiedad[0]['ubicacion'].", ".$Propiedad[0]['direccion']. " \r\n";
+			$cuerpo .= "Tipo Propiedad:". $Propiedad[0]['descOper'].", ".$Propiedad[0]['tipoPropiedad']. " \r\n";			
 
 			$cuerpo .= $mensaje. " \r\n";			
 			$email = mail($email, $asunto, $cuerpo, $header);
@@ -60,7 +60,7 @@ class DetPropiedad extends CI_Controller {
 				$bandera = true;
 				$data = array(				
 					'id_propiedad' => $_POST['id'],
-					'fecha' => $Propiedad['tipoPropiedad'],
+					'fecha' => $Propiedad[0]['tipoPropiedad'],
 					'nombre' => date("Y-m-d H:i:s"),
 					'tel' => $tel,
 					'email' => $email,
