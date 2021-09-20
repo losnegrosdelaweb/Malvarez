@@ -25,8 +25,9 @@ class Contacto extends CI_Controller {
 	    echo "The email message was sent.";
 	}
 
-	public function enviarMail()
+	public function postEnviarMail()
 	{	
+		$bandera = false;
 		if(isset($_POST)){
 			$name = $_POST['inputName'];
 			$email = $_POST['inputEmail'];
@@ -36,11 +37,18 @@ class Contacto extends CI_Controller {
 			$header = "From: jorgecutuli@gmail.com". "\r\n";
 			$header .= "Reply-To: jorgecutuli@gmail.com". "\r\n";
 			$header .= "X-Mailer: PHP/". phpversion();
-			$email = mail($email, $asunto, $mensaje, $header);
+			$cuerpo = "<h4>asunto</h4>\r\n";
+			$cuerpo .= "Email:". $email. " \r\n";
+			$cuerpo .= "Telefono:". $tel. " \r\n";
+			$cuerpo .= "Asuno:". $asunto. " \r\n";
+			$cuerpo .= "email:". $email. " \r\n";
+			$cuerpo .= $mensaje. " \r\n";
+			$email = mail($email, $asunto, $cuerpo, $header);
 
 			if($email){
-				echo "<h4>!Mail enviado exitosamente¡</h4>";
+				$bandera = true;
 			}
+			echo $bandera;
 		}
 	}
 

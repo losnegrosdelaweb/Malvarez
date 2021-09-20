@@ -31,6 +31,36 @@ class PropiedadModel extends CI_Model {
         return $query->result();
 	}
 
+    public function getPropiedadesVentas($filtroActivo = false)
+    {
+        if($filtroActivo){
+            $this->db->where('activo', 1);
+        }
+        $this->db->select('propiedades.*,ubicacion.descripcion AS ubicacion,ciudad.descripcion AS ciudad');
+        $this->db->from('propiedades');
+        $this->db->where('propiedades.id_operacion', 1);
+        $this->db->join('ubicacion', 'propiedades.id_ubicacion = ubicacion.id_ubicacion');
+        $this->db->join('ciudad', 'propiedades.id_ciudad = ciudad.id_ciudad');
+        $query = $this->db->get();
+        
+        return $query->result();
+    }
+
+    public function getPropiedadesAlquiler($filtroActivo = false)
+    {
+        if($filtroActivo){
+            $this->db->where('activo', 1);
+        }
+        $this->db->select('propiedades.*,ubicacion.descripcion AS ubicacion,ciudad.descripcion AS ciudad');
+        $this->db->from('propiedades');
+        $this->db->where('propiedades.id_operacion', 2);
+        $this->db->join('ubicacion', 'propiedades.id_ubicacion = ubicacion.id_ubicacion');
+        $this->db->join('ciudad', 'propiedades.id_ciudad = ciudad.id_ciudad');
+        $query = $this->db->get();
+        
+        return $query->result();
+    }
+
 	public function getImagenes($id)
 	{
         $this->db->where('id_propiedad', $id);        
@@ -89,7 +119,7 @@ class PropiedadModel extends CI_Model {
         return $query->result();
 	}
 
-	public function getPropiedadFiltro($moneda, $precioDesde, $precioHasta, $tipoPropiedad, $dormitoriosDesde, $dormitoriosHasta, $ambientesDesde, $ambientesHasta, $ubicacion)
+	public function getPropiedadFiltro($moneda, $precioDesde, $precioHasta, $tipoPropiedad, $dormitoriosDesde, $dormitoriosHasta, $ambientesDesde, $ambientesHasta, $ubicacion, $tipoCatalogo)
 	{
         if($moneda!=null && $moneda!=0){
         	$this->db->where('id_moneda', $moneda);
@@ -127,7 +157,8 @@ class PropiedadModel extends CI_Model {
         if($ubicacion!=null && $ubicacion!=0){
         	$this->db->where('id_ubicacion', $ubicacion);
         }
-         $this->db->select('propiedades.*,ubicacion.descripcion AS ubicacion,ciudad.descripcion AS ciudad');
+        $this->db->where('propiedades.id_operacion', $tipoCatalogo);
+        $this->db->select('propiedades.*,ubicacion.descripcion AS ubicacion,ciudad.descripcion AS ciudad');
         $this->db->from('propiedades');
         $this->db->join('ubicacion', 'propiedades.id_ubicacion = ubicacion.id_ubicacion');
         $this->db->join('ciudad', 'propiedades.id_ciudad = ciudad.id_ciudad');

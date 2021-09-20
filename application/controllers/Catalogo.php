@@ -11,11 +11,10 @@ class Catalogo extends CI_Controller {
 		$this->load->model('UbicacionModel');
 	}
 
-	public function index()
+	public function index()//Ventas
 	{
-
 		$array = array();
-		$listadoPropiedad = $this->PropiedadModel->getPropiedades();
+		$listadoPropiedad = $this->PropiedadModel->getPropiedadesVentas();
 		$listadoDepartamento = $this->PropiedadModel->getDepartamentos();		
 		$listadoTipoPropiedad = $this->TipoPropiedadModel->getTiposPropiedades(true);
 		$listadoUbicacion = $this->UbicacionModel->getUbicaciones(true);
@@ -34,7 +33,7 @@ class Catalogo extends CI_Controller {
 		$data['catalogo'] = $array;
 		$data['listadoDepartamento'] = $listadoDepartamento;
 		$data['listadoTipoPropiedad'] = $listadoTipoPropiedad;
-
+		$data['tipoCatalogo'] = 1;
 		
 
 		$vista['vista'] = $this->load->view('catalogo/listado', $data, true);
@@ -44,15 +43,14 @@ class Catalogo extends CI_Controller {
 		$this->load->view('sidebar/footer');
 	}
 
-	public function indexAlquileres()
+	public function indexAlquileres()//Alquiler
 	{
-		
 		$array = array();
 
 		$listadoTipoPropiedad = $this->TipoPropiedadModel->getTiposPropiedades(true);
 		$listadoUbicacion = $this->UbicacionModel->getUbicaciones(true);
 
-		$listadoPropiedad = $this->PropiedadModel->getPropiedades();	
+		$listadoPropiedad = $this->PropiedadModel->getPropiedadesAlquiler();	
 		foreach ($listadoPropiedad as $key => $value) {
 			$PropiedadCatalogo = $this->PropiedadModel->getPropiedadCatalogo($value->id_propiedad);
 			$data = array(				
@@ -65,7 +63,7 @@ class Catalogo extends CI_Controller {
 		$data['catalogo'] = $array;
 		$data['listadoTipoPropiedad'] = $listadoTipoPropiedad;
 		$data['listadoUbicacion'] = $listadoUbicacion;
-
+		$data['tipoCatalogo'] = 2;
 		
 
 		$vista['vista'] = $this->load->view('catalogo/listado', $data, true);
@@ -88,13 +86,14 @@ class Catalogo extends CI_Controller {
 			$ambientesDesde = isset($_POST['ambientesDesde']) ? $_POST['ambientesDesde'] : NULL;
 			$ambientesHasta = isset($_POST['ambientesHasta']) ? $_POST['ambientesHasta'] : NULL;
 			$ubicacion = isset($_POST['ubicacion']) ? $_POST['ubicacion'] : NULL;
+			$tipoCatalogo = isset($_POST['tipoCatalogo']) ? $_POST['tipoCatalogo'] : NULL;
 
 			$vista['FiltradoPor'] = $this->PrepararBotonesFiltro($moneda, $precioDesde, $precioHasta, $tipoPropiedad, $dormitoriosDesde, $dormitoriosHasta, $ambientesDesde, $ambientesHasta, $ubicacion);
 		}
-		//var_dump($ambientesHasta);die;
+		//var_dump($tipoCatalogo);die;
 
 		$array = array();
-		$listadoPropiedad = $this->PropiedadModel->getPropiedadFiltro($moneda, $precioDesde, $precioHasta, $tipoPropiedad, $dormitoriosDesde, $dormitoriosHasta, $ambientesDesde, $ambientesHasta, $ubicacion);		
+		$listadoPropiedad = $this->PropiedadModel->getPropiedadFiltro($moneda, $precioDesde, $precioHasta, $tipoPropiedad, $dormitoriosDesde, $dormitoriosHasta, $ambientesDesde, $ambientesHasta, $ubicacion, $tipoCatalogo);		
 
 		foreach ($listadoPropiedad as $key => $value) {
 			$PropiedadCatalogo = $this->PropiedadModel->getPropiedadCatalogo($value->id_propiedad);

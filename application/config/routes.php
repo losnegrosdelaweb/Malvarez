@@ -51,7 +51,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 */
 
 $route['default_controller'] = 'home';
-
+$route['buscadorHome'] = 'home/BuscarPropiedad';
 /* Dashboard - Administración */
 $route['dashboard'] = 'admin';
 
@@ -65,6 +65,7 @@ $route['login'] = 'login';
 $route['validar'] = 'login/validarLogin';
 
 $route['detpropiedad/(:num)'] = 'detpropiedad/index/$1';
+$route['enviarMailPropiedad'] = 'detpropiedad/postEnviarMail';
 
 //Emprendimientos
 $route['emprendimientos'] = 'emprendimientos';
@@ -75,7 +76,7 @@ $route['nosotros'] = 'nosotros';
 //Contacto
 $route['contacto'] = 'contacto';
 $route['validarContacto'] = 'contacto/validarContacto';
-$route['contactoMail'] = 'contacto/enviarMail';
+$route['contactoMail'] = 'contacto/postEnviarMail';
 
 /* Admin */
 

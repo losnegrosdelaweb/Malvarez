@@ -36,7 +36,7 @@
             </div>
           </div>
           <div class="col-7">
-            <form id="contactoForm" method="POST" action="<?=site_url('../../contactoMail')?>">
+            <form id="contactoForm" method="POST">
               <div class="form-group">
                 <label for="inputName">Nombre / Apellido *</label>
                 <input type="text" id="inputName" name="inputName" class="form-control">
@@ -60,7 +60,7 @@
               <div class="status"></div>
               <div class="statusok"></div>
               <div class="form-group" style="float: right;">
-                <input type="submit" class="btn btn-primary" value="Enviar" onclick="validateForm();">
+                <input type="button" class="btn btn-primary" value="Enviar" onclick="validateForm();">
               </div>
             </form>
           </div>
@@ -99,10 +99,53 @@ function validateForm() {
          document.querySelector('.status').innerHTML = "Mensaje no puede quedar vacío.";
          return false;
      }
-      document.querySelector('statusok').innerHTML = "Enviando...";
+     // document.querySelector('statusok').innerHTML = "Enviando...";
+
+      $.ajax({
+        url: "<?=site_url('../../contactoMail')?>",
+        type: 'POST', 
+        data: {
+          inputName : $("#inputName").val(),
+          inputEmail:$("#inputEmail").val(),
+          Tel:$("#Tel").val(),
+          Asunto:$("#Asunto").val(),
+          mensaje:$("#mensaje").val()
+        },
+        success: function(data){
+          if(data){
+            
+            Swal.fire({
+              position: 'top-end',
+              icon: 'success',
+              title: 'Se envio su Consulta.',
+              showConfirmButton: false,
+              timer: 2000
+            })
+          }else{
+            Swal.fire({
+              position: 'top-end',
+              icon: 'error',
+              title: 'Error.',
+              showConfirmButton: false,
+              timer: 2000
+            })
+          }
+        },
+        error: function(data){
+          Swal.fire({
+              position: 'top-end',
+              icon: 'error',
+              title: 'Error.',
+              showConfirmButton: false,
+              timer: 2000
+            })
+        }   
+      });
      
-}
-    </script>
+}  
+
+
+</script>
 </div>
 </div>
 </main>
