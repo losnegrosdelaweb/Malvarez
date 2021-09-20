@@ -99,6 +99,7 @@
         <div class="card-body">
           
 		  <form action="./sitio/index.php/../../postPropiedad" method="POST" class="needs-validation" novalidate="">
+		  	<input type="text" hidden="hidden" name="propiedadId" id="propiedadId" value="<?=$Propiedad->id_propiedad?>">
 		  <div class="row">
 				<div class="col-12 col-sm-6">
 				  <div class="col">
@@ -372,7 +373,7 @@
 						  </div>
 						</div>
 						<div class="mt-4" style="float: right;">
-							<div class="btn btn-primary btn-lg btn-flat">
+							<div class="btn btn-primary btn-lg btn-flat" id="BotonConsultar">
 							  
 							  <!--i class="fas fa-cart-plus fa-lg mr-2"></i-->
 							  <i class="fas fa-envelope-open-text"></i>
@@ -397,6 +398,59 @@
   </div>
  </div>
 </main>
+
+<script type="text/javascript">
+	
+
+	$("#BotonConsultar").on("click", function(){
+		let propiedadId = $("#propiedadId").val();
+		$.ajax({
+				url: "<?=site_url('../../../enviarMailPropiedad')?>",
+				type: 'POST',	
+				data: {
+					id: propiedadId,
+					nombre : $("#nombre").val(),
+					Email:$("#Email").val(),
+					Tel:$("#Tel").val(),
+					Msj:$("#Msj").val()
+				},
+				success: function(data){
+					console.log(data);
+					if(data){
+						
+						Swal.fire({
+						  position: 'top-end',
+						  icon: 'success',
+						  title: 'Se envio su Consulta.',
+						  showConfirmButton: false,
+						  timer: 2000
+						})
+					}else{
+						Swal.fire({
+						  position: 'top-end',
+						  icon: 'error',
+						  title: 'Error.',
+						  showConfirmButton: false,
+						  timer: 2000
+						})
+					}
+				},
+				error: function(data){
+
+					console.log(data);
+					Swal.fire({
+						  position: 'top-end',
+						  icon: 'error',
+						  title: 'Error.',
+						  showConfirmButton: false,
+						  timer: 2000
+						})
+				}		
+			});
+	})
+
+
+</script>
 
 
 

@@ -30,4 +30,16 @@ class Home extends CI_Controller {
 		$this->load->view('sidebar/footer');	
 	}
 
+	public function BuscarPropiedad()
+	{
+		if(isset($_POST)){		
+			if($_POST['operations']==1){
+				redirect('../../catalogo', 'location');	
+			}else{
+				redirect('../../catalogo-alquileres', 'location');	
+			}
+		}
+		
+	}
+
 }

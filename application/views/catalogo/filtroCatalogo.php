@@ -53,7 +53,16 @@
 				
 					<div class="d-flex align-items-center p-3 my-3 bg-purple rounded shadow-sm d-none d-sm-none d-md-block" style="background-color: #131414!important;" >
 					<div class="lh-1">						
-						<h1 class="h6 mb-0 lh-1" style="font-size: x-large;" >Propiedades</h1>
+						<h1 class="h6 mb-0 lh-1" style="font-size: x-large;" >
+							<?php {
+								if($tipoCatalogo==1){
+									echo "Ventas";
+								}else{
+									echo "Alquileres";
+								}
+							}?>
+								
+							</h1>
 					</div>
 				</div>
 
@@ -63,7 +72,7 @@
 			    <button class="btn navbar-toggler text-light" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation" style="margin: 1%;width: 100%;">
 			      <i class="far fa-arrow-alt-circle-down"></i> Propiedades - Filtro
 			    </button>
-
+			    <input type="text" hidden="hidden" name="tipoCatalogo" id="tipoCatalogo" value="<?=$tipoCatalogo?>">
 				<div class="collapse navbar-collapse" id="navbarToggleExternalContent">
 				<div class="my-3 p-3 bg-body rounded shadow-sm text-light FiltroMobile" style="background-color: #000000eb!important">
 					<h6 class="border-bottom pb-2 mb-0">Filtros</h6>
@@ -204,7 +213,7 @@
 		var ambientesHasta = $('#ambientesHasta').val();
 		var ubicacion = $('#ubicacion').val();
 		//var orden = $('#orden').val();
-
+		console.log($("#tipoCatalogo").val());
 		cargaLoading();
 
 		$.ajax({         
@@ -220,7 +229,8 @@
 	          	ambientesDesde : ambientesDesde, 
 	          	ambientesHasta : ambientesHasta,
 	          	ubicacion : ubicacion,
-	          	moneda: moneda
+	          	moneda: moneda,
+	          	tipoCatalogo: $("#tipoCatalogo").val()
 	          },
 
 	          success: function(respuesta){	        	
@@ -301,7 +311,6 @@ function filtro_close(id){
 		    $('#ubicacion').val('0').trigger('change.select2');
 	    break;
 	}
-
 		$.ajax({         
 	          url: "<?=site_url('../../filtrarCatalogo')?>",
 	          method: 'POST',
@@ -315,7 +324,8 @@ function filtro_close(id){
 	          	ambientesDesde : ambientesDesde, 
 	          	ambientesHasta : ambientesHasta,
 	          	ubicacion : ubicacion,
-	          	moneda: moneda
+	          	moneda: moneda,
+	          	tipoCatalogo: $("#tipoCatalogo").val()
 	          },
 
 	          success: function(respuesta){	        	

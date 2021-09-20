@@ -33,12 +33,13 @@ a{
       <p class="lead fw-normal text-white">Encontrá el inmueble que buscás con solo ingresar...</p>
 
 		<div class="d-none d-sm-none d-md-block">	<!--Web-->
+    <form action="../<?=site_url('buscadorHome')?>" method="POST">  
       <div class="input-group">
-				<select id="operations" style="background-color: #d91a1ba1" class="btn btn-danger">
+				<select id="operations" name="operations" style="background-color: #d91a1ba1" class="btn btn-danger">
 					<option data-name="Venta" value="1">Venta</option>
 					<option data-name="Alquiler" value="2">Alquiler</option>
 				</select>
-				<select id="property_types" style="background-color: #d91a1ba1" class="btn btn-danger">
+				<select id="property_types" name="property_types" style="background-color: #d91a1ba1" class="btn btn-danger">
 					<option class="red-input" value="-1" selected disabled="disabled">Tipo de Propiedad</option>
 					<option class="red-input" value="0">Todas</option>
 					<?php
@@ -48,19 +49,20 @@ a{
 					?>
 				</select>
 			<input type="text" class="form-control form-control-lg" placeholder="Buscar por ubicación, dirección o calle" aria-label="Recipient's username" aria-describedby="button-addon2">
-			<button class="btn btn-danger" type="button" id="button-addon2">Buscar</button>
+			<button class="btn btn-danger" type="submit" id="button-addon2">Buscar</button>
       </div>
+    </form>
 		</div>
 
 
 		<div class="d-block d-sm-block d-md-none">	<!--Mobile-->
 			<div class="form-group">
-				<select id="operations" style="background-color: #d91a1ba1;margin-bottom: 3%;" class="btn btn-danger">
+				<select id="operations-2" style="background-color: #d91a1ba1;margin-bottom: 3%;" class="btn btn-danger">
 					<option data-name="Venta" value="1">Venta</option>
 					<option data-name="Alquiler" value="2">Alquiler</option>
 				</select>
 
-				<select id="property_types" style="background-color: #d91a1ba1;margin-bottom: 3%;" class="btn btn-danger">
+				<select id="property_types-2" style="background-color: #d91a1ba1;margin-bottom: 3%;" class="btn btn-danger">
 					<option class="red-input" value="-1" selected disabled="disabled">Tipo de Propiedad</option>
 					<option class="red-input" value="0">Todas</option>
 					<?php
