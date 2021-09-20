@@ -37,7 +37,6 @@ class DetPropiedad extends CI_Controller {
 		if(isset($_POST)){
 
 			$Propiedad = $this->PropiedadModel->getPropiedadCompletaById($_POST['id']);
-			var_dump($Propiedad[0]->direccion);die;
 			$nombre = $_POST['nombre'];
 			$email = $_POST['Email'];
 			$tel = $_POST['Tel'];
@@ -55,14 +54,14 @@ class DetPropiedad extends CI_Controller {
 			$cuerpo .= "Tipo Propiedad:". $Propiedad[0]->descOper.", ".$Propiedad[0]->tipoPropiedad. " \r\n";			
 
 			$cuerpo .= $mensaje. " \r\n";			
-			$email = mail($email, $asunto, $cuerpo, $header);
+			$mail = mail($email, $asunto, $cuerpo, $header);
 
-			if($email){
+			if($mail){
 				$bandera = true;
 				$data = array(				
 					'id_propiedad' => $_POST['id'],
-					'fecha' => $Propiedad[0]->tipoPropiedad,
-					'nombre' => date("Y-m-d H:i:s"),
+					'nombre' => $Propiedad[0]->tipoPropiedad,
+					'fecha' => date("Y-m-d H:i:s"),
 					'tel' => $tel,
 					'email' => $email,
 					'mensaje' => $mensaje,					
