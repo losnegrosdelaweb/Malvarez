@@ -425,6 +425,10 @@
 						  showConfirmButton: false,
 						  timer: 2000
 						})
+						$("#Nombre").val("");
+            $("#Email").val("");
+            $("#Tel").val("");
+            $("#Msj").val("");
 					}else{
 						Swal.fire({
 						  position: 'top-end',

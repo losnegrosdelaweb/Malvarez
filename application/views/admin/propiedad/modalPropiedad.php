@@ -144,8 +144,8 @@
             </div>
             <div class="col-4">
               <div class="form-group">
-                <label for="disposicion">Disposición</label>
-                <input type="text" class="form-control limpiar" id="Disposicion" name="Disposicion" placeholder="Disposición">
+                <label for="orientacion">Orientación</label>
+                <input type="text" class="form-control limpiar" id="Orientacion" name="Orientacion" placeholder="Orientación">
               </div>
             </div>
 
@@ -180,8 +180,8 @@
             </div>
             <div class="col-4">
               <div class="form-group">
-                <label for="situacion">Situación</label>
-                <input type="text" class="form-control limpiar" id="Situacion" name="Situacion" placeholder="Situación">
+                <label for="estado">Estado</label>
+                <input type="text" class="form-control limpiar" id="Estado" name="Estado" placeholder="Estado">
               </div>
             </div>
             
@@ -191,25 +191,14 @@
 
 
 
-          <div class="row">    
-            <div class="col-4">
-              <div class="form-group">
-                <label for="estado">Estado</label>
-                <input type="text" class="form-control limpiar" id="Estado" name="Estado" placeholder="Estado">
-              </div>
-            </div>
-            <div class="col-4">
+          <div class="row">
+            <div class="col-12">
               <div class="form-group">
                 <label for="descripcion">Descripción</label>
-                <input type="text" class="form-control limpiar" id="Descripcion" name="Descripcion" placeholder="Descripción">
+                <!--input type="textarea" class="form-control limpiar" id="Descripcion" name="Descripcion" placeholder="Descripción"-->
+                <textarea class="form-control limpiar" rows="5" id="Descripcion" name="Descripcion" placeholder="Descripción"></textarea>                
               </div>
-            </div>
-             <div class="col-4">
-              <div class="form-group">
-                <label for="orientacion">Orientación</label>
-                <input type="text" class="form-control limpiar" id="Orientacion" name="Orientacion" placeholder="Orientación">
-              </div>
-            </div>
+            </div>            
           </div>
 
       <div class="modal-footer">

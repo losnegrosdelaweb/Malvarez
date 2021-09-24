@@ -34,8 +34,8 @@ class Contacto extends CI_Controller {
 			$tel = $_POST['Tel'];
 			$asunto = $_POST['asunto'];
 			$mensaje = $_POST['mensaje'];
-			$header = "From: jorgecutuli@gmail.com". "\r\n";
-			$header .= "Reply-To: jorgecutuli@gmail.com". "\r\n";
+			$header = "From: consultas@malvarezsi.com". "\r\n";
+			$header .= "Reply-To: mati.diamant@hotmail.com". "\r\n";
 			$header .= "X-Mailer: PHP/". phpversion();
 			$cuerpo = "Contacto\r\n";
 			$cuerpo .= "Email:". $email. " \r\n";

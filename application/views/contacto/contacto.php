@@ -121,6 +121,11 @@ function validateForm() {
               showConfirmButton: false,
               timer: 2000
             })
+            $("#inputName").val("");
+            $("#inputEmail").val("");
+            $("#Tel").val("");
+            $("#inputSubject").val("");
+            $("textarea").val("");
           }else{
             Swal.fire({
               position: 'top-end',

@@ -33,7 +33,7 @@ class DetPropiedad extends CI_Controller {
 		$bandera = false;
 
 		$mailAlvarez = "consultas@malvarezsi.com";
-		$mailAlvarezReply = "jorgecutuli@gmail.com";
+		$mailAlvarezReply = "mati.diamant@hotmail.com";
 		if(isset($_POST)){
 
 			$Propiedad = $this->PropiedadModel->getPropiedadCompletaById($_POST['id']);
