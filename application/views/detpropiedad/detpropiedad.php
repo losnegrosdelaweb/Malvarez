@@ -327,7 +327,7 @@
 					   <?php 
               if($Propiedad->descripcion != NULL)
               {
-                echo $Propiedad->descripcion;
+                echo nl2br($Propiedad->descripcion);
               } else {
               	echo ' N/A';
               }
