@@ -114,12 +114,13 @@ $route['postPropiedad'] = 'propiedad/postPropiedad';
 $route['buscarCiudades/(:num)'] = 'propiedad/getCiudades/$1';
 $route['getPropiedad/(:num)'] = 'propiedad/getPropiedad/$1';
 $route['putEstadoPropiedad/(:num)'] = 'propiedad/putEnabledDisabledPropiedad/$1';
+$route['putDestacadaPropiedad/(:num)'] = 'propiedad/putDestacadaPropiedad/$1';
 
 //Consultas
 $route['consulta'] = 'consulta';
 $route['insertConsulta'] = 'consulta/postConsulta';
 $route['getConsulta/(:num)'] = 'consulta/getConsulta/$1';
-$route['putEstadoConsulta/(:num)'] = 'consulta/putEnabledDisabledConsulta/$1';
+$route['putEstadoConsulta/(:num)'] = 'consulta/putEstadoConsulta/$1';
 
 
 $route['404_override'] = 'error404';

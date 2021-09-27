@@ -16,8 +16,8 @@ class Contacto extends CI_Controller {
 
 		ini_set( 'display_errors', 1 );
 	    error_reporting( E_ALL );
-	    $from = "info@malvarezsi.com";
-	    $to = "mati.diamant@hotmail.com";
+	    $from = "consultas@malvarezsi.com";
+	    $to = "info@malvarezsi.com";
 	    $subject = "Checking PHP mail";
 	    $message = "PHP mail works just fine";
 	    $headers = "From:" . $from;
@@ -27,6 +27,12 @@ class Contacto extends CI_Controller {
 
 	public function postEnviarMail()
 	{	
+	    
+	    $mailAlvarez = "consultas@malvarezsi.com";
+		$mailAlvarezReply = "info@malvarezsi.com";
+		$mailAlvarezReply3 = "mati.diamant@hotmail.com";
+		$mailAlvarezReply2 = "jorgecutuli@gmail.com";
+	  
 		$bandera = false;
 		if(isset($_POST)){
 			$name = $_POST['inputName'];
@@ -34,15 +40,15 @@ class Contacto extends CI_Controller {
 			$tel = $_POST['Tel'];
 			$asunto = $_POST['asunto'];
 			$mensaje = $_POST['mensaje'];
-			$header = "From: jorgecutuli@gmail.com". "\r\n";
-			$header .= "Reply-To: jorgecutuli@gmail.com". "\r\n";
+			$header = "From: ".$mailAlvarez. "\r\n";
+			$header .= "Reply-To: ".$mailAlvarezReply. "\r\n";
 			$header .= "X-Mailer: PHP/". phpversion();
 			$cuerpo = "Contacto\r\n";
 			$cuerpo .= "Email:". $email. " \r\n";
 			$cuerpo .= "Telefono:". $tel. " \r\n";
 			$cuerpo .= "Asuno:". $asunto. " \r\n";
 			$cuerpo .= $mensaje. " \r\n";
-			$email = mail($email, $asunto, $cuerpo, $header);
+			$email = mail($mailAlvarezReply, $asunto, $cuerpo, $header);
 
 			if($email){
 				$bandera = true;

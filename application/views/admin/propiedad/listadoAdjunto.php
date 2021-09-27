@@ -9,6 +9,10 @@
 -->
 <div class="content-wrapper" style="min-height: 1662.75px;">
     <!-- Content Header (Page header) -->
+    <section class="content-header" style="padding-top: 20px;">
+          <h6 class="fontStyle fw-normal" style="padding: 0.5%; width: fit-content; background-color: #181919db!important; border-radius: 15px;"><a href="javascript: history.go(-1)" data-toggle="tooltip" title="" data-placement="top" data-original-title="Volver" style="color: white;"><i class="fas fa-arrow-left"></i> Volver</a></h6>
+    </section>
+
     <section class="content-header">
       <div class="container-fluid">
         <div class="row mb-2">

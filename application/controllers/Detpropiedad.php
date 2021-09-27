@@ -33,7 +33,9 @@ class DetPropiedad extends CI_Controller {
 		$bandera = false;
 
 		$mailAlvarez = "consultas@malvarezsi.com";
-		$mailAlvarezReply = "jorgecutuli@gmail.com";
+		$mailAlvarezReply = "info@malvarezsi.com";
+		$mailAlvarezReply3 = "mati.diamant@hotmail.com";
+		$mailAlvarezReply2 = "jorgecutuli@gmail.com";
 		if(isset($_POST)){
 
 			$Propiedad = $this->PropiedadModel->getPropiedadCompletaById($_POST['id']);
@@ -54,7 +56,7 @@ class DetPropiedad extends CI_Controller {
 			$cuerpo .= "Tipo Propiedad:". $Propiedad[0]->descOper.", ".$Propiedad[0]->tipoPropiedad. " \r\n";			
 
 			$cuerpo .= $mensaje. " \r\n";			
-			$mail = mail($email, $asunto, $cuerpo, $header);
+			$mail = mail($mailAlvarezReply, $asunto, $cuerpo, $header);
 
 			if($mail){
 				$bandera = true;

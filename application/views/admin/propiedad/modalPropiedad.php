@@ -70,9 +70,20 @@
                 </div>             
             </div>
             -->
-            <div class="col-4">   
+            
+           
+        </div>
+        <hr>
+        <div class="row">
+          <div class="col-4" >
               <div class="form-group">
-                    <label>Ubicacion</label>
+                <label for="ambientes">Dirección / Título</label>
+                <input type="text" class="form-control limpiar" id="Direccion" name="Direccion">
+              </div>
+          </div>
+          <div class="col-4">   
+              <div class="form-group">
+                    <label>Ubicación</label>
                     <select class="form-control select2 select2-danger select2-hidden-accessible" id="ubicacion" data-dropdown-css-class="select2-danger" style="width: 100%;" data-select2-id="3" tabindex="-1" aria-hidden="true" name="Ubicacion">
                        <?php
                         foreach ($listadoUbicaciones as $key => $ubicacion) {
@@ -82,9 +93,6 @@
                     </select>                  
                 </div>             
             </div>
-           
-        </div>
-        <div class="row">  
           <div class="col-4">
               <div class="form-group">
                   <label>Localidad</label>
@@ -96,65 +104,11 @@
                     ?>
                   </select>                  
               </div>    
-          </div>   
-          <div class="col-4" style="padding-right: 30px">
-              <div class="form-group">
-                <label for="ambientes">Dirección</label>
-                <input type="text" class="form-control limpiar" id="Direccion" name="Direccion">
-              </div>
-            </div>
-           <div class="col-2" style="padding-right: 30px">
-              <div class="form-group">
-                <label for="ambientes">Ambientes</label>
-                <input type="number" class="form-control limpiar" id="Ambientes" name="Ambientes" placeholder="0" min="0">
-              </div>
-            </div>
-            <div class="col-2">
-              <div class="form-group">
-                <label for="dormitorios">Dormitorios</label>
-                <input type="number" class="form-control limpiar" id="Dormitorios" name="Dormitorios" placeholder="0" min="0">
-              </div>
-            </div>
-        </div>
-          <div class="row">  
-            
-            <div class="col-2">
-              <div class="form-group">
-                <label for="bano">Baños</label>
-                <input type="number" class="form-control limpiar" id="Bano" name="Bano" placeholder="0" min="0">
-              </div>
-            </div>
-            <div class="col-2" >
-              <div class="form-group">
-                <label for="cochera">Cocheras</label>
-                <input type="number" class="form-control limpiar" id="Cochera" name="Cochera" placeholder="0" min="0">
-              </div>
-            </div>
-            <div class="col-2" >
-              <div class="form-group">
-                <label for="pisos">Pisos</label>
-                <input type="number" class="form-control limpiar" id="Pisos" name="Pisos" placeholder="0" min="0">
-              </div>
-            </div>
-            <div class="col-2">
-              <div class="form-group">
-                <label for="antiguedad">Antiguedad</label>
-                <input type="number" class="form-control limpiar" id="Antiguedad" name="Antiguedad" placeholder="0" min="0">
-              </div>
-            </div>
-            <div class="col-4">
-              <div class="form-group">
-                <label for="disposicion">Disposición</label>
-                <input type="text" class="form-control limpiar" id="Disposicion" name="Disposicion" placeholder="Disposición">
-              </div>
-            </div>
-
           </div>
-
-
-
+        </div>
+        <hr>
           <div class="row">
-             <div class="col-4">
+             <div class="col-2">
               <div class="form-group">
                   <label>Moneda</label>
                   <select class="form-control select2 select2-danger select2-hidden-accessible" data-dropdown-css-class="select2-danger" id="Moneda" name="Moneda" style="width: 100%;" data-select2-id="1" tabindex="-1" aria-hidden="true">
@@ -168,48 +122,102 @@
             </div>
             <div class="col-2">
               <div class="form-group">
-                <label for="expensas">Expensas</label>
-                <input type="text" class="form-control limpiar" id="Expensas" name="Expensas" placeholder="Expensas">
+                <label for="expensas">Precio</label>
+                <input type="text" class="form-control limpiar" id="Precio" name="Precio" placeholder="Ingrese Monto">
               </div>
             </div>
-               <div class="col-2">
+            <div class="col-2">
               <div class="form-group">
-                <label for="expensas">Precio</label>
-                <input type="text" class="form-control limpiar" id="Precio" name="Precio" placeholder="Precio">
+                <label for="expensas">Expensas</label>
+                <input type="text" class="form-control limpiar" id="Expensas" name="Expensas" placeholder="Ingrese Monto">
+              </div>
+            </div>
+               
+          </div>
+          <hr>
+          <div class="row">  
+           <div class="col-2">
+              <div class="form-group">
+                <label for="suptotal">Superficie Total</label>
+                <input type="number" class="form-control limpiar" id="SupTotal" name="SupTotal" placeholder="0" min="0">
+              </div>
+            </div>
+            <div class="col-2">
+              <div class="form-group">
+                <label for="supcub">Superficie Cubierta</label>
+                <input type="number" class="form-control limpiar" id="SupCub" name="SupCub" placeholder="0" min="0">
+              </div>
+            </div>
+            <div class="col-2">
+              <div class="form-group">
+                <label for="supdesc">Superficie Descubierta</label>
+                <input type="number" class="form-control limpiar" id="SupDesc" name="SupDesc" placeholder="0" min="0">
+              </div>
+            </div>
+          </div>
+          <hr>
+        <div class="row">  
+           <div class="col-2">
+              <div class="form-group">
+                <label for="ambientes">Ambientes</label>
+                <input type="number" class="form-control limpiar" id="Ambientes" name="Ambientes" placeholder="0" min="0">
+              </div>
+            </div>
+            <div class="col-2">
+              <div class="form-group">
+                <label for="dormitorios">Dormitorios</label>
+                <input type="number" class="form-control limpiar" id="Dormitorios" name="Dormitorios" placeholder="0" min="0">
+              </div>
+            </div>
+            <div class="col-2">
+              <div class="form-group">
+                <label for="antiguedad">Antigüedad</label>
+                <input type="number" class="form-control limpiar" id="Antiguedad" name="Antiguedad" placeholder="0" min="0">
+              </div>
+            </div>
+            <div class="col-2">
+              <div class="form-group">
+                <label for="bano">Baños</label>
+                <input type="number" class="form-control limpiar" id="Bano" name="Bano" placeholder="0" min="0">
               </div>
             </div>
             <div class="col-4">
               <div class="form-group">
-                <label for="situacion">Situación</label>
-                <input type="text" class="form-control limpiar" id="Situacion" name="Situacion" placeholder="Situación">
+                <label for="orientacion">Orientación</label>
+                <input type="text" class="form-control limpiar" id="Orientacion" name="Orientacion" placeholder="">
+              </div>
+            </div>         
+        </div>
+          <div class="row">    
+            <div class="col-2" >
+              <div class="form-group">
+                <label for="cochera">Cocheras</label>
+                <input type="number" class="form-control limpiar" id="Cochera" name="Cochera" placeholder="0" min="0">
               </div>
             </div>
-            
-            
-          </div>
-
-
-
-
-          <div class="row">    
+            <div class="col-2" >
+              <div class="form-group">
+                <label for="pisos">Pisos</label>
+                <input type="number" class="form-control limpiar" id="Pisos" name="Pisos" placeholder="0" min="0">
+              </div>
+            </div>
+            <div class="col-4">
+            </div>
             <div class="col-4">
               <div class="form-group">
                 <label for="estado">Estado</label>
-                <input type="text" class="form-control limpiar" id="Estado" name="Estado" placeholder="Estado">
+                <input type="text" class="form-control limpiar" id="Estado" name="Estado" placeholder="">
               </div>
             </div>
-            <div class="col-4">
-              <div class="form-group">
+          </div>
+          <div class="row">
+            <div class="col-12">
+              <div class="form-group">  
                 <label for="descripcion">Descripción</label>
-                <input type="text" class="form-control limpiar" id="Descripcion" name="Descripcion" placeholder="Descripción">
+                <!--input type="textarea" class="form-control limpiar" id="Descripcion" name="Descripcion" placeholder="Descripción"-->
+                <textarea class="form-control limpiar" rows="5" id="Descripcion" name="Descripcion" placeholder="Descripción"></textarea>                
               </div>
-            </div>
-             <div class="col-4">
-              <div class="form-group">
-                <label for="orientacion">Orientación</label>
-                <input type="text" class="form-control limpiar" id="Orientacion" name="Orientacion" placeholder="Orientación">
-              </div>
-            </div>
+            </div>            
           </div>
 
       <div class="modal-footer">

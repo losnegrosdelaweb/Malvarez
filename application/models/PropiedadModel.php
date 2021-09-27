@@ -87,6 +87,10 @@ class PropiedadModel extends CI_Model {
         	propiedades.suptotal,
         	propiedades.supcub,
         	propiedades.supdesc,
+            propiedades.orientacion,
+            propiedades.antiguedad,
+            propiedades.cocheras,
+            propiedades.pisos,
         	ciudad.descripcion AS ciudad,
         	moneda.descripcion AS moneda,
         	moneda.signo AS signo_moneda,
@@ -107,13 +111,13 @@ class PropiedadModel extends CI_Model {
 		if($filtroActivo){
         	$this->db->where('propiedades.activo', 1);
         }
-        $this->db->select('propiedades.id_propiedad, 
+        $this->db->select('propiedades.*, 
         	ubicacion.descripcion AS ubicacion, 
-        	tipospropiedades.descripcion AS tipoPropiedad, 
-        	propiedades.condicion, 
-        	propiedades.activo');
+        	tipospropiedades.descripcion AS tipoPropiedad,
+            operacion.descripcion AS descOper');
         $this->db->from('propiedades');
         $this->db->join('ubicacion', 'propiedades.id_ubicacion = ubicacion.id_ubicacion');
+        $this->db->join('operacion', 'propiedades.id_operacion = operacion.id');
         $this->db->join('tipospropiedades', 'propiedades.id_tipo = tipospropiedades.id_tipo_propiedad');
         $query = $this->db->get();
         return $query->result();
@@ -155,7 +159,7 @@ class PropiedadModel extends CI_Model {
         }
 
         if($ubicacion!=null && $ubicacion!=0){
-        	$this->db->where('id_ubicacion', $ubicacion);
+        	$this->db->where('propiedades.id_ubicacion', $ubicacion);
         }
         $this->db->where('propiedades.id_operacion', $tipoCatalogo);
         $this->db->select('propiedades.*,ubicacion.descripcion AS ubicacion,ciudad.descripcion AS ciudad');
@@ -206,6 +210,18 @@ class PropiedadModel extends CI_Model {
         $this->db->where('id_propiedad', $id);
 		$this->db->update('propiedades', array('Activo' =>1));
 	}
+
+    public function nodestacarPropiedad($id)
+    {
+        $this->db->where('id_propiedad', $id);
+        $this->db->update('propiedades', array('destacada' =>0));
+    }
+
+    public function destacarPropiedad($id)
+    {
+        $this->db->where('id_propiedad', $id);
+        $this->db->update('propiedades', array('destacada' =>1));
+    }
 
 	public function getDepartamentos()
 	{
