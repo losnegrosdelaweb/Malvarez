@@ -140,7 +140,7 @@
 			<div class="col-12 col-sm-6">
 				<div class="card card-primary">
               <div class="card-header detalles">
-                <h3 class="card-title">Detalles de la Propieadad</h3>
+                <h3 class="card-title">Detalles de la Propiedad</h3>
               </div>
               <!-- /.card-header -->
               <div class="card-body">

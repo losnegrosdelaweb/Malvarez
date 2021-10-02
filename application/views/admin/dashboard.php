@@ -5,7 +5,7 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0">MALVAREZ - Servicios Inmboliarios</h1>
+            <h1 class="m-0">MALVAREZ - Servicios Inmobiliarios</h1>
           </div><!-- /.col -->
           <!--
           <div class="col-sm-6">
