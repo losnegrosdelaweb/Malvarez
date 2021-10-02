@@ -44,7 +44,7 @@
                     <b>Visitas</b> <a class="float-right"><?=$Propiedad->visitas?></a>
                   </li>
                   <li class="list-group-item">
-                    <b>Consultas</b> <a class="float-right">543</a>
+                    <b>Consultas</b> <a class="float-right">0</a>
                   </li>
                   <li class="list-group-item">
                     <b>Fecha</b> <a class="float-right"><?=$Propiedad->fecha?></a>
