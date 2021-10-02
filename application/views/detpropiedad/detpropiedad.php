@@ -82,7 +82,7 @@
            <div class="col-1 badge badge-precio" style="width: auto;"><h5><?=$Propiedad->signo_moneda?><?=$Propiedad->precio?></h5></div>
 
            	<?php
-             if($Propiedad->expensas != NULL)
+             if($Propiedad->expensas != NULL && $Propiedad->expensas != '0')
               {
                 echo '<div class="col-1 badge badge-oper-exp"><h5>Expensas</h5></div>';
                 echo '<div class="col-1 badge badge-exp" style="width: auto;"><h5>$'.$Propiedad->expensas.'</h5></div>';
@@ -102,8 +102,8 @@
 		  	<input type="text" hidden="hidden" name="propiedadId" id="propiedadId" value="<?=$Propiedad->id_propiedad?>">
 		  <div class="row">
 				<div class="col-12 col-sm-6">
-				  <div class="col">
-          <div class="card shadow-sm">        
+				  <div class="col" style="width: 100%;height: 100%;">
+          <div class="card shadow-sm" style="width: 100%;height: 100%;">        
           <div  id="carouselExampleIndicators" class="carousel slide"  data-bs-ride="carousel" style="width: 100%;height: 100%;">
 
             <div class="carousel-inner">
@@ -115,7 +115,7 @@
                       }else{
                         echo '<div class="carousel-item">';
                       }
-                      echo '<img src="data:image/jpeg;base64,'.$value->base64.'" class="d-block listado-Carrusel" alt="..." style=";-webkit-writing-mode: vertical-lr;">
+                      echo '<img src="data:image/jpeg;base64,'.$value->base64.'" class="img-fluid d-block listado-Carrusel" alt="..." style="width: 100%;height: 55%;-webkit-writing-mode: vertical-lr;">
                           </div>';
                     $cont++;
                   }
@@ -199,7 +199,50 @@
                 <ul class="text">
                   <li>Ambientes: <?=$Propiedad->ambientes?></li>
                   <li>Dormitorios: <?=$Propiedad->dormitorios?></li>
-                  <li>Baños: <?=$Propiedad->banos?></li>
+                  <li>Baños: <?=$Propiedad->banos?></li>                  
+                  <li>Antigüedad: 
+                  	<?php 
+				              if($Propiedad->antiguedad != NULL && $Propiedad->antiguedad != 0)
+				              {
+				                echo $Propiedad->antiguedad;
+				              } else {
+				              	echo ' N/A';
+				              }
+			              ?>
+                  </li>
+                  <li>Cocheras: 
+                  	<?php 
+				              if($Propiedad->cocheras != NULL && $Propiedad->cocheras != 0)
+				              {
+				                echo $Propiedad->cocheras;
+				              } else {
+				              	echo ' N/A';
+				              }
+			              ?>
+                  </li>
+                  <li>Pisos: 
+                  	<?php 
+				              if($Propiedad->pisos != NULL && $Propiedad->pisos != 0)
+				              {
+				                echo $Propiedad->pisos;
+				              } else {
+				              	echo ' N/A';
+				              }
+			              ?>
+                  </li>
+                  <hr>
+                  <li>Orientación: 
+                  	<?php 
+				              if($Propiedad->orientacion != NULL )
+				              {
+				                echo $Propiedad->orientacion;
+				              } else {
+				              	echo ' N/A';
+				              }
+			              ?>
+                  </li>                  
+                  <hr>
+                  <li>Estado: <?=$Propiedad->condicion?></li>
                 </ul>
               </div>
               <!-- /.card-body -->
@@ -372,6 +415,7 @@
 							<!--input type="text" class="form-control" id="Msj" name="Msj"-->
 						  </div>
 						</div>
+						
 						<div class="mt-4" style="float: right;">
 							<div class="btn btn-primary btn-lg btn-flat" id="BotonConsultar">
 							  
@@ -403,6 +447,52 @@
 	
 
 	$("#BotonConsultar").on("click", function(){
+		var x =  document.getElementById('Nombre').value;
+     if (x == "") {
+         Swal.fire({
+						  position: 'top-end',
+						  icon: 'error',
+						  title: 'Nombre no puede quedar vacío.',
+						  showConfirmButton: false,
+						  timer: 2000
+						})
+         return false;
+     }
+     var email =  document.getElementById('Email').value;
+     var tel =  document.getElementById('Tel').value;
+     if (email == "" && tel == "") {
+         Swal.fire({
+						  position: 'top-end',
+						  icon: 'error',
+						  title: 'Debe ingresar un medio de contacto.',
+						  showConfirmButton: false,
+						  timer: 2000
+						})
+         return false;
+     } else {
+         var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+         if(!re.test(email)){
+             Swal.fire({
+						  position: 'top-end',
+						  icon: 'error',
+						  title: 'El mail no posee un formato correcto.',
+						  showConfirmButton: false,
+						  timer: 2000
+						})
+						return false;
+         }
+     }
+     x =  document.getElementById('Msj').value;
+     if (x == "") {
+         Swal.fire({
+						  position: 'top-end',
+						  icon: 'error',
+						  title: 'El mensaje no puede quedar vacío.',
+						  showConfirmButton: false,
+						  timer: 2000
+						})
+         return false;
+     }
 		let propiedadId = $("#propiedadId").val();
 		$.ajax({
 				url: "<?=site_url('../../../enviarMailPropiedad')?>",
@@ -433,7 +523,7 @@
 						Swal.fire({
 						  position: 'top-end',
 						  icon: 'error',
-						  title: 'Error.',
+						  title: 'Error al enviar la consulta.',
 						  showConfirmButton: false,
 						  timer: 2000
 						})
@@ -445,7 +535,7 @@
 					Swal.fire({
 						  position: 'top-end',
 						  icon: 'error',
-						  title: 'Error.',
+						  title: 'Error al enviar la consulta.',
 						  showConfirmButton: false,
 						  timer: 2000
 						})

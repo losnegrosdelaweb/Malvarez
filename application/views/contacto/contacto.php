@@ -10,12 +10,6 @@
     .form-group {
       margin-bottom: 2%;
     }
-    .status {
-      color: red;
-    }
-    .statusok {
-      color: red;
-    }
     </style>
 <main class="bg-light">
 <div class="container">
@@ -57,8 +51,6 @@
                 <label for="inputMessage">Mensaje *</label>
                 <textarea id="inputMessage" class="form-control" name="mensaje" rows="4"></textarea>
               </div>
-              <div class="status"></div>
-              <div class="statusok"></div>
               <div class="form-group" style="float: right;">
                 <input type="button" class="btn btn-primary" value="Enviar" onclick="validateForm();">
               </div>
@@ -73,33 +65,62 @@
 
 function validateForm() {
      var x =  document.getElementById('inputName').value;
-     if (x == "") {
-         document.querySelector('.status').innerHTML = "Nombre no puede quedar vacío.";
+     if (x == "") {         
+         Swal.fire({
+              position: 'top-end',
+              icon: 'error',
+              title: 'Nombre no puede quedar vacío.',
+              showConfirmButton: false,
+              timer: 2000
+            })         
          return false;
      }
      var email =  document.getElementById('inputEmail').value;
      var tel =  document.getElementById('Tel').value;
-     if (email == "" && tel == "") {
-         document.querySelector('.status').innerHTML = "Debe ingresar un medio de contacto.";
+     if (email == "" && tel == "") {      
+         Swal.fire({
+              position: 'top-end',
+              icon: 'error',
+              title: 'Debe ingresar un medio de contacto.',
+              showConfirmButton: false,
+              timer: 2000
+            })
          return false;
      } else {
          var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-         if(!re.test(email)){
-             document.querySelector('.status').innerHTML = "Email tiene un formato inválido.";
+         if(!re.test(email)){             
+             Swal.fire({
+              position: 'top-end',
+              icon: 'error',
+              title: 'Email tiene un formato inválido.',
+              showConfirmButton: false,
+              timer: 2000
+            })             
              return false;
          }
      }
      x =  document.getElementById('inputSubject').value;
      if (x == "") {
-         document.querySelector('.status').innerHTML = "Asunto no puede quedar vacío.";
+         Swal.fire({
+              position: 'top-end',
+              icon: 'error',
+              title: 'Asunto no puede quedar vacío.',
+              showConfirmButton: false,
+              timer: 2000
+            })
          return false;
      }
      x =  document.getElementById('inputMessage').value;
      if (x == "") {
-         document.querySelector('.status').innerHTML = "Mensaje no puede quedar vacío.";
+         Swal.fire({
+              position: 'top-end',
+              icon: 'error',
+              title: 'Mensaje no puede quedar vacío.',
+              showConfirmButton: false,
+              timer: 2000
+            })
          return false;
      }
-     // document.querySelector('statusok').innerHTML = "Enviando...";
 
       $.ajax({
         url: "<?=site_url('../../contactoMail')?>",
@@ -125,12 +146,12 @@ function validateForm() {
             $("#inputEmail").val("");
             $("#Tel").val("");
             $("#inputSubject").val("");
-            $("textarea").val("");
+            $("#inputMessage").val("");
           }else{
             Swal.fire({
               position: 'top-end',
               icon: 'error',
-              title: 'Error.',
+              title: 'Error al enviar la consulta.',
               showConfirmButton: false,
               timer: 2000
             })
@@ -140,7 +161,7 @@ function validateForm() {
           Swal.fire({
               position: 'top-end',
               icon: 'error',
-              title: 'Error.',
+              title: 'Error al enviar la consulta.',
               showConfirmButton: false,
               timer: 2000
             })

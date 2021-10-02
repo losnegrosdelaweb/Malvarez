@@ -35,14 +35,14 @@ class ConsultaModel extends CI_Model {
 	{
 		$this->load->database();
         $this->db->where('id_consulta', $id);
-		$this->db->update('usuarios', array('activo' =>0));
+		$this->db->update('consultas', array('activo' =>0));
 	}
 
 	public function enabledConsulta($id)
 	{
 		$this->load->database();
         $this->db->where('id_consulta', $id);
-		$this->db->update('usuarios', array('activo' =>1));
+		$this->db->update('consultas', array('activo' =>1));
 	}
 
 

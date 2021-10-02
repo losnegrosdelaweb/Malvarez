@@ -75,17 +75,20 @@ class Propiedad extends CI_Controller {
 				'cocheras' => $_POST['Cochera'],
 				'pisos' => $_POST['Pisos'],
 				'antiguedad' => $_POST['Antiguedad'],
-				'situacion' => $_POST['Situacion'],
+				//'situacion' => $_POST['Situacion'],
 				'expensas' => $_POST['Expensas'],
 				'orientacion' => $_POST['Orientacion'],
-				'disposicion	' => $_POST['Disposicion'],
+				//'disposicion	' => $_POST['Disposicion'],
 				'condicion' => $_POST['Estado'],
 				'precio' => $_POST['Precio'],
 				'descripcion' => $_POST['Descripcion'],
 				'direccion' => $_POST['Direccion'],
 				'id_operacion' => $_POST['Operacion'],
 				'id_ciudad' => $_POST['Ciudad'],
-				//'fecha' => $_POST['Descripcion'],
+				'suptotal' => $_POST['SupTotal'],
+				'supcub' => $_POST['SupCub'],
+				'supdesc' => $_POST['SupDesc'],
+				'fecha' => date('d-m-y h:i:s'),
 			);
 
 			if($id!=NULL)
@@ -132,6 +135,22 @@ class Propiedad extends CI_Controller {
 				$this->PropiedadModel->disabledPropiedad($id);	
 			}elseif($activo==0){
 				$this->PropiedadModel->enabledPropiedad($id);	
+			}
+			echo true;
+		}
+		echo false;
+		
+	}
+
+	public function putDestacadaPropiedad($id){
+		
+		$this->load->model('PropiedadModel');
+		$destacada = isset($_POST['destacada']) ? $_POST['destacada'] : NULL;
+		if($destacada!=NULL){
+			if($destacada==1){
+				$this->PropiedadModel->nodestacarPropiedad($id);	
+			}elseif($destacada==0){
+				$this->PropiedadModel->destacarPropiedad($id);	
 			}
 			echo true;
 		}

@@ -33,6 +33,7 @@ class Catalogo extends CI_Controller {
 		$data['catalogo'] = $array;
 		$data['listadoDepartamento'] = $listadoDepartamento;
 		$data['listadoTipoPropiedad'] = $listadoTipoPropiedad;
+		$data['listadoUbicacion'] = $listadoUbicacion;
 		$data['tipoCatalogo'] = 1;
 		
 
@@ -110,7 +111,7 @@ class Catalogo extends CI_Controller {
 		if(count($data['catalogo'])>0){
 			$vista['vista'] = $this->load->view('catalogo/listado', $data, true);
 		}else{
-			$vista['vista'] = "<div class='alert alert-warning' role='alert' style='margin-top: 10%;font-size: x-large;'>No se encontró ningún Alquiler.</div>";
+			$vista['vista'] = "<div class='alert alert-warning' role='alert' style='margin-top: 10%;font-size: x-large;'>No se encontró ninguna propiedad.</div>";
 		}
 		
 		echo json_encode($vista);
@@ -152,7 +153,7 @@ class Catalogo extends CI_Controller {
 
         if($ubicacion!=null && $ubicacion!=0){
         	$DescripcionUbicacion = $this->UbicacionModel->getUbicacionbyId($ubicacion);
-        	$filtros .= "<button type='button' class='btn btn-outline-danger close' data-dismiss='alert' aria-label='Close' style='margin: 1% 1% 0 0;' onclick='filtro_close(ubicacion)'>Ambientes max ".$DescripcionUbicacion->descripcion." <span aria-hidden='true'>&times;</span></button>  ";
+        	$filtros .= "<button type='button' class='btn btn-outline-danger close' data-dismiss='alert' aria-label='Close' style='margin: 1% 1% 0 0;' onclick='filtro_close(ubicacion)'>".$DescripcionUbicacion->descripcion." <span aria-hidden='true'>&times;</span></button>  ";
         }
         return $filtros;
 	}

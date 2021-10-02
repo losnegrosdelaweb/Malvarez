@@ -28,7 +28,7 @@
             <!-- small box -->
             <div class="small-box bg-info">
               <div class="inner">
-                <h3>47</h3>
+                <h3>0</h3>
 
                 <p>Alquileres Activos</p>
               </div>
@@ -43,7 +43,7 @@
             <!-- small box -->
             <div class="small-box bg-success">
               <div class="inner">
-                <h3>53</h3>
+                <h3>0</h3>
 
                 <p>Ventas Activas</p>
               </div>
@@ -57,7 +57,7 @@
             <!-- small box -->
             <div class="small-box bg-danger">
               <div class="inner">
-                <h3>65</h3>
+                <h3>0</h3>
 
                 <p>Número de Visitas</p>
               </div>
@@ -72,7 +72,7 @@
             <!-- small box -->
             <div class="small-box bg-warning">
               <div class="inner">
-                <h3>44</h3>
+                <h3>0</h3>
 
                 <p>Consultas de Usuarios</p>
               </div>
@@ -120,23 +120,23 @@
                          }elseif($value->activo==0){
                            $style = "color: darkgray;";
                          }
-                        echo "<tr>";
-                        echo "<td style=\"".$style."\">".$value->nombre."</td>";
-                        echo "<td style=\"".$style."\">".$value->email."</td>";
-                        echo "<td style=\"".$style."\">".$value->tel."</td>";
-                        echo "<td style=\"".$style."\">".$value->fecha."</td>";
-                        echo "<td style=\"".$style."\">".$value->id_operacion."</td>";
-                        echo "<td style=\"".$style."\">".$value->mensaje."</td>";      
+                        echo "<tr style=\"".$style."\">";                        
+                        echo "<td>".$value->nombre."</td>";
+                        echo "<td>".$value->email."</td>";
+                        echo "<td>".$value->tel."</td>";
+                        echo "<td>".$value->fecha."</td>";
+                        echo "<td>".$value->id_operacion."</td>";
+                        echo "<td>".$value->mensaje."</td>";      
                                    if($value->activo==1){
-                                      echo '<td style="'.$style.'"><center><span class="badge badge-warning">Pendiente</span></center></td>';
+                                      echo '<td><center><span class="badge badge-warning">Pendiente</span></center></td>';
                                     }elseif($value->activo==0){
-                                      echo '<td style="'.$style.'""><center><span class="badge badge-success">Respondido</span></center></center></td>';
+                                      echo '<td><center><span class="badge badge-success">Contestado</span></center></center></td>';
                                     }
-                                  echo '<td><center>
-                                    <button type="button" onclick="edit('.$value->id_consulta.')" class="btn btn-info btn-sm pop" data-toggle="popover">
+                                  echo '<td><center>';
+                                    /*<button type="button" onclick="edit('.$value->id_consulta.')" class="btn btn-info btn-sm pop" data-toggle="popover">
                                       <i class="fas fa-search"></i>
                                     </button>
-                                    &nbsp;';
+                                    &nbsp;';*/
                                     if($value->activo==1){
                                       echo '<button type="button" class="btn btn-danger btn-sm" onclick="delet('.$value->id_consulta.','.$value->activo.')">
                                               <i class="fas fa-trash-alt"></i>
@@ -205,6 +205,7 @@
           }
       });
     }
+
   </script>
 
   <!-- /.content-wrapper -->

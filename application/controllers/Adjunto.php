@@ -21,6 +21,7 @@ class Adjunto extends CI_Controller {
  //redimensionar imagen
 	function resizeImagen($ruta,$nombre,$ancho,$alto,$calidad,$nombreN,$extension){
       $rutaImagenOriginal = $ruta.$nombre;
+      $extension = "jpg";
       if($extension == 'GIF' || $extension == 'gif'){
         $img_original = imagecreatefromgif($rutaImagenOriginal);
       }
@@ -51,12 +52,7 @@ class Adjunto extends CI_Controller {
       imagedestroy($img_original);
       imagejpeg($tmp,$ruta.$nombreN,$calidad);
   }
-
-/*
-	public function SubirImagen($id)
-	{
-		return "aaaaaa";
-	}*/
+  
 
 
 	public function SubirImagen($id)
@@ -66,31 +62,17 @@ class Adjunto extends CI_Controller {
 		    if($_FILES['file']['name'] != ""){ // El campo foto contiene una imagen...        
 		        // Primero, hay que validar que se trata de un JPG/GIF/PNG
 		        $allowedExts = array("jpg", "peg", "gif", "png", "JPG", "GIF", "PNG", "PEG");
-		        //$extension = "jpg";
 		        $extension = substr( $_FILES["file"]["name"],-3);
-		        if ((($_FILES["file"]["type"] == "image/gif")
-		                || ($_FILES["file"]["type"] == "image/jpeg")
-		                || ($_FILES["file"]["type"] == "image/png")
-		                || ($_FILES["file"]["type"] == "image/jpg"))
-		                && in_array($extension, $allowedExts)) {
-		            // el archivo es un JPG/GIF/PNG, entonces...
-		            
-		            $extension = substr( $_FILES["file"]["name"],-3);
-		             //$extension = end(explode('.', $_FILES['foto']['name']));
+		        if ((($_FILES["file"]["type"] == "image/gif") || ($_FILES["file"]["type"] == "image/jpeg") || ($_FILES["file"]["type"] == "image/png") || ($_FILES["file"]["type"] == "image/jpg")) && in_array($extension, $allowedExts)) 
+		        {
+                    $extension = substr( $_FILES["file"]["name"],-3);
+		             
 		            $foto = substr(md5(uniqid(rand())),0,10).".".$extension;
+//		            var_dump($foto);die;
 		            $directorio = base_url()."../assets/adjuntos";
-		            //$directorio = dirname(__FILE__); // directorio de tu elección
-		            // almacenar imagen en el servidor
-
-		            move_uploaded_file($_FILES['file']['tmp_name'], $directorio.'/'.$foto);
-
-		            //$minFoto = 'min_'.$foto;
-		            //$resFoto = 'PDB_'.$_POST['dni'].'_'.$_POST['cod_unidad'].'.'.$extension;
-		            $resFoto = 'aaaa.'.$extension;
 		            
-		            //tamaño en bits de la imagen cargada
-		            //$tam_archivo = filesize($directorio.'/'.$foto);
-		            //ancho y alto de la imagen cargada
+		            move_uploaded_file($_FILES['file']['tmp_name'], $directorio.'/'.$foto);
+		            
 		            $tam_ancho_alto = getimagesize($directorio.'/'.$foto);
 
 		            if($tam_ancho_alto[0]>$tam_ancho_alto[1]){
@@ -101,17 +83,20 @@ class Adjunto extends CI_Controller {
 		                $alto=1024;                    
 		            }
 		            $calidad=50;
-								//var_dump("aaaaaaaaaaaaaaa");die;
-		            $this->resizeImagen($directorio.'/', $foto, $ancho, $alto, $calidad, $resFoto, $extension);
+		            $resFoto = substr(md5(uniqid(rand())),0,10).".".$extension;
+		            $nuevaImagen = $this->resizeImagen($directorio.'/', $foto, $ancho, $alto, $calidad, $resFoto, $extension);
+		            
+		            chmod(dirname(__DIR__)."/../assets/adjuntos/".$resFoto, 0755);
 		            
 		            //abrir el archivo de la imagen reducida generada para insertarla en la BD
+		            
 		            $fp = fopen($directorio.'/'.$resFoto, 'r');
 		            if ($fp){
-		              $data = fread($fp, filesize($directorio.'/'.$resFoto));
+		              $data = fread($fp, filesize(dirname(__DIR__)."/../assets/adjuntos/".$resFoto));
 		              fclose($fp);
 		              $data = base64_encode ($data);
-		              unlink($directorio.'/'.$foto);
-		              unlink($directorio.'/'.$resFoto);
+		              unlink(dirname(__DIR__)."/../assets/adjuntos/".$foto);
+		              unlink(dirname(__DIR__)."/../assets/adjuntos/".$resFoto);
 
 		              /*CONSULTA PARA GUARDAR EL BLOB EN LA BD*/
 		              $datos = array(				
