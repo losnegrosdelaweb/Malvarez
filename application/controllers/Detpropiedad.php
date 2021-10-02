@@ -49,11 +49,11 @@ class DetPropiedad extends CI_Controller {
 			$header .= "X-Mailer: PHP/". phpversion();
 
 			$cuerpo = "Consulta de Propiedad\r\n";
-			$cuerpo .= "Nombre:". $nombre. " \r\n";
-			$cuerpo .= "Email:". $email. " \r\n";
-			$cuerpo .= "Telefono:". $tel. " \r\n";
-			$cuerpo .= "Ubicación:". $Propiedad[0]->ubicacion.", ".$Propiedad[0]->direccion. " \r\n";
-			$cuerpo .= "Tipo Propiedad:". $Propiedad[0]->descOper.", ".$Propiedad[0]->tipoPropiedad. " \r\n";			
+			$cuerpo .= "Nombre: ". $nombre. " \r\n";
+			$cuerpo .= "Email: ". $email. " \r\n";
+			$cuerpo .= "Telefono: ". $tel. " \r\n";
+			$cuerpo .= "Ubicación: ". $Propiedad[0]->ubicacion.", ".$Propiedad[0]->direccion. " \r\n";
+			$cuerpo .= "Tipo Propiedad: ". $Propiedad[0]->descOper.", ".$Propiedad[0]->tipoPropiedad. " \r\n";			
 
 			$cuerpo .= $mensaje. " \r\n";			
 			$mail = mail($mailAlvarezReply, $asunto, $cuerpo, $header);

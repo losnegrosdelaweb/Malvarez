@@ -44,9 +44,9 @@ class Contacto extends CI_Controller {
 			$header .= "Reply-To: ".$mailAlvarezReply. "\r\n";
 			$header .= "X-Mailer: PHP/". phpversion();
 			$cuerpo = "Contacto\r\n";
-			$cuerpo .= "Email:". $email. " \r\n";
-			$cuerpo .= "Telefono:". $tel. " \r\n";
-			$cuerpo .= "Asuno:". $asunto. " \r\n";
+			$cuerpo .= "Email: ". $email. " \r\n";
+			$cuerpo .= "Telefono: ". $tel. " \r\n";
+			$cuerpo .= "Asunto: ". $asunto. " \r\n";
 			$cuerpo .= $mensaje. " \r\n";
 			$email = mail($mailAlvarezReply, $asunto, $cuerpo, $header);
 
