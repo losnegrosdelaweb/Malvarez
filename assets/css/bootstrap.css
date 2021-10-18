@@ -6358,7 +6358,7 @@ textarea.form-control-lg {
 }
 
 .border-light {
-  border-color: #f8f9fa !important;
+  border-color: #e1e3e4;
 }
 
 .border-dark {
@@ -7144,7 +7144,7 @@ textarea.form-control-lg {
 }
 
 .text-light {
-  color: #f8f9fa !important;
+  color: #e1e3e4;
 }
 
 .text-dark {
@@ -7216,7 +7216,7 @@ textarea.form-control-lg {
 }
 
 .bg-light {
-  background-color: #f8f9fa !important;
+  background-color: #e1e3e4;
 }
 
 .bg-dark {

@@ -88,6 +88,8 @@ class Propiedad extends CI_Controller {
 				'suptotal' => $_POST['SupTotal'],
 				'supcub' => $_POST['SupCub'],
 				'supdesc' => $_POST['SupDesc'],
+				'titulo' => $_POST['Titulo'],
+				'mapa' => $_POST['Mapa'],
 				'fecha' => date('d-m-y h:i:s'),
 			);
 

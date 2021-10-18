@@ -12,8 +12,8 @@
     }
     </style>
 <main class="bg-light">
-<div class="container">
-<div class="content-wrapper ">    
+<div class="container" style="text-align: -webkit-center;">
+<div class="content-wrapper col-12 col-sm-9">    
 <section class="content-header " style="text-align: -webkit-center;padding-top: 20px;">
           <h2 class="fontStyle fw-normal" style="color: white;padding: 0.5%;">Contacto</h2>
 </section>
@@ -23,7 +23,7 @@
         <div class="card-body row">
           <div class="col-5 text-center d-flex align-items-center justify-content-center">
             <div>
-              <h2>M.ALVAREZ</h2><br><div style="color: red;font-size: x-large;">SERVICIOS INMOBILIARIOS</div><br><br>
+              <h2 style="color: red; -webkit-text-stroke: 0.5px black;">M.ALVAREZ</h2><br><div style="color: red;font-size: x-large;-webkit-text-stroke: 0.5px black;">SERVICIOS INMOBILIARIOS</div><br><br>
               <p class="lead mb-5">Tel: (+54 9) 11-3556-0795 / 11-5805-2424<br><br>
                 info@malvarezsi.com
               </p>
@@ -32,25 +32,33 @@
           <div class="col-7">
             <form id="contactoForm" method="POST">
               <div class="form-group">
-                <label for="inputName">Nombre / Apellido *</label>
-                <input type="text" id="inputName" name="inputName" class="form-control">
-              </div>
+                <div class="row">
+                <div class="col-2"><label for="inputName">Nombre*</label></div>
+                <div class="col-10"><input type="text" id="inputName" name="inputName" class="form-control"></div>
+              </div><br>
               <div class="form-group">
-                <label for="inputEmail">E-Mail *</label>
-                <input type="email" id="inputEmail" name="inputEmail" class="form-control" placeholder="usuario@ejemplo.com">
-              </div>
+                <div class="row">
+                <div class="col-2"><label for="inputEmail">E-Mail*</label></div>
+                <div class="col-10"><input type="email" id="inputEmail" name="inputEmail" class="form-control" placeholder="usuario@ejemplo.com"></div>
+              </div><br>
               <div class="form-group">
-                <label for="tel">Teléfono</label>
-                <input type="text" class="form-control" id="Tel" name="Tel">
-              </div>
+                <div class="row">
+                <div class="col-2"><label for="tel">Teléfonos</label></div>
+                <div class="col-4"><input type="text" class="form-control" id="Tel" name="Tel"></div>
+                <div class="col-2"><label for="tel"> / </label></div>
+                <div class="col-4"><input type="text" class="form-control" id="Tel2" name="Tel2"></div>
+                </div>
+              </div><br>
               <div class="form-group">
-                <label for="inputSubject">Asunto *</label>
-                <input type="text" id="inputSubject" name="asunto" class="form-control">
-              </div>
+                <div class="row">
+                <div class="col-2"><label for="inputSubject">Asunto*</label></div>
+                <div class="col-10"><input type="text" id="inputSubject" name="asunto" class="form-control"></div>
+              </div><br>
               <div class="form-group">
-                <label for="inputMessage">Mensaje *</label>
-                <textarea id="inputMessage" class="form-control" name="mensaje" rows="4"></textarea>
-              </div>
+                <div class="row">
+                <div class="col-2"><label for="inputMessage">Mensaje*</label></div>
+                <div class="col-10"><textarea id="inputMessage" class="form-control" name="mensaje" rows="4"></textarea></div>
+              </div><br>
               <div class="form-group" style="float: right;">
                 <input type="button" class="btn btn-primary" value="Enviar" onclick="validateForm();">
               </div>
@@ -77,7 +85,8 @@ function validateForm() {
      }
      var email =  document.getElementById('inputEmail').value;
      var tel =  document.getElementById('Tel').value;
-     if (email == "" && tel == "") {      
+     var tel2 =  document.getElementById('Tel2').value;
+     if (email == "" && tel == "" && tel2 == "") {      
          Swal.fire({
               position: 'top-end',
               icon: 'error',
@@ -129,6 +138,7 @@ function validateForm() {
           inputName : $("#inputName").val(),
           inputEmail:$("#inputEmail").val(),
           Tel:$("#Tel").val(),
+          Tel2:$("#Tel2").val(),
           asunto:$("#inputSubject").val(),
           mensaje:$("#inputMessage").val()
         },
@@ -145,6 +155,7 @@ function validateForm() {
             $("#inputName").val("");
             $("#inputEmail").val("");
             $("#Tel").val("");
+            $("#Tel2").val("");
             $("#inputSubject").val("");
             $("#inputMessage").val("");
           }else{

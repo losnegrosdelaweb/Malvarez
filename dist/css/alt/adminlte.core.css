@@ -6807,7 +6807,7 @@ button.bg-danger:focus {
 }
 
 .bg-light {
-  background-color: #f8f9fa !important;
+  background-color: #e1e3e4;
 }
 
 a.bg-light:hover, a.bg-light:focus,
@@ -6899,7 +6899,7 @@ button.bg-dark:focus {
 }
 
 .border-light {
-  border-color: #f8f9fa !important;
+  border-color: #e1e3e4;
 }
 
 .border-dark {
@@ -10158,7 +10158,7 @@ a.text-danger:hover, a.text-danger:focus {
 }
 
 .text-light {
-  color: #f8f9fa !important;
+  color: #e1e3e4;
 }
 
 a.text-light:hover, a.text-light:focus {
@@ -15383,7 +15383,7 @@ blockquote.quote-gray-dark h6 {
 }
 
 .bg-light {
-  background-color: #f8f9fa !important;
+  background-color: #e1e3e4;
 }
 
 .bg-light,

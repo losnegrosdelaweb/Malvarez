@@ -73,22 +73,29 @@
           <h6 class="fontStyle fw-normal" style="padding: 0.5%; width: fit-content;"><a href="javascript: history.go(-1)" data-toggle="tooltip" title="" data-placement="top" data-original-title="Volver" style="color: white;"><i class="fas fa-arrow-left"></i> Volver</a></h6>
 		</section>
     <section class="content-header">
-      <div class="container-fluid">
-		  <div class="col-sm-6"><h1> <?=$Propiedad->direccion?></h1>
-          </div>
-      </div><!-- /.container-fluid -->     
-      	<div class="row bg-grey py-2 px-3">
-           <div class="col-1 badge badge-oper"><h5><?=$Propiedad->descOper?></h5></div>
-           <div class="col-1 badge badge-precio" style="width: auto;"><h5><?=$Propiedad->signo_moneda?><?=$Propiedad->precio?></h5></div>
+      
+      	
+		 		<div class="col-sm-12"><h1> <?=$Propiedad->titulo?></h1></div>
+      <!-- /.container-fluid -->
+      	    	
+	      	<div class="row bg-grey py-2 px-3">
+	           <h5 class="fontStyle fw-normal badge-oper" style="width: min-content; padding: .375rem .75rem;">
+	           	<?=$Propiedad->descOper?></h5>
+	           	<h5 class="fw-normal badge-precio" style="width: min-content; padding: .375rem .75rem;">
+	           	<?=$Propiedad->signo_moneda?><?=$Propiedad->precio?></h5>
+	           <!--div class="col-1 badge badge-precio" style="width: auto;padding: .375rem .75rem;"><h5><?=$Propiedad->signo_moneda?><?=$Propiedad->precio?></h5></div-->
 
-           	<?php
-             if($Propiedad->expensas != NULL && $Propiedad->expensas != '0')
-              {
-                echo '<div class="col-1 badge badge-oper-exp"><h5>Expensas</h5></div>';
-                echo '<div class="col-1 badge badge-exp" style="width: auto;"><h5>$'.$Propiedad->expensas.'</h5></div>';
-              }
-            ?>
-        </div>
+	           	<?php
+	             if($Propiedad->expensas != NULL && $Propiedad->expensas != '0')
+	              {
+	                echo '<h5 class="fontStyle fw-normal badge-oper-exp" style="width: min-content; padding: .375rem .75rem;">Expensas</h5>';
+	                echo '
+	                <h5 class="fw-normal badge-exp" style="width: min-content; padding: .375rem .75rem;">$'.$Propiedad->expensas.'</h5>';
+	              }
+	            ?>
+	        </div>
+	      
+      
 		</section>
 
     <!-- Main content -->
@@ -115,7 +122,7 @@
                       }else{
                         echo '<div class="carousel-item">';
                       }
-                      echo '<img src="data:image/jpeg;base64,'.$value->base64.'" class="img-fluid d-block listado-Carrusel" alt="..." style="width: 100%;height: 55%;-webkit-writing-mode: vertical-lr;">
+                      echo '<img src="data:image/jpeg;base64,'.$value->base64.'" class="img-fluid d-block listado-Carrusel" alt="..." style="width: 100%;height: 68%;-webkit-writing-mode: vertical-lr;">
                           </div>';
                     $cont++;
                   }
@@ -144,225 +151,106 @@
               </div>
               <!-- /.card-header -->
               <div class="card-body">
+              	<strong><i class="fas fa-map-marker-alt mr-1"></i> Ubicación • Localidad</strong>
+ 
+                <ul class="text">
+                	<li><p class="text"><?=$Propiedad->direccion?>, <?=$Propiedad->ciudad?> - <?=$Propiedad->ubicacion?></p></li>
+                </ul>
+                <hr>
                 <strong><i class="fas fa-book mr-1"></i> Tipo propiedad</strong>
 
                 <ul class="text"><li><p class="text">
                   <?=$Propiedad->tipoPropiedad?>
                 </p></li></ul>
-
-                <hr>
-
-                <strong><i class="fas fa-map-marker-alt mr-1"></i> Ubicación • Localidad</strong>
- 
-                <ul class="text"><li><p class="text"><?=$Propiedad->ubicacion?> • <?=$Propiedad->ciudad?></p></li></ul>
-
-
                 <!--i class="fas fa-pencil-alt mr-1"></i-->
-                <hr>
-                <strong><i class="fas fa-ruler-combined"></i> Superficies</strong>
-
-                <ul class="text">
-                  <li class="tag tag-danger">Cubierta: 
-                  	<?php 
-				              if($Propiedad->supcub != NULL)
-				              {
-				                echo $Propiedad->supcub.' m²';
-				              } else {
-				              	echo ' N/A';
-				              }
-			              ?>
-                  </li>
-                  <li class="tag tag-success">Descubierta: 
-                  	<?php 
-				              if($Propiedad->supdesc != NULL)
-				              {
-				                echo $Propiedad->supdesc.' m²';
-				              } else {
-				              	echo ' N/A';
-				              }
-			              ?>
-                  </li>
-                  <li class="tag tag-info">Total construido: 
-                  	<?php 
-				              if($Propiedad->suptotal != NULL)
-				              {
-				                echo $Propiedad->suptotal.' m²';
-				              } else {
-				              	echo ' N/A';
-				              }
-			              ?>
-                  </li>
-                </ul>
-
-                <hr>
-              <strong><i class="far fa-file-alt mr-1"></i> Detalles</strong>
-                <ul class="text">
-                  <li>Ambientes: <?=$Propiedad->ambientes?></li>
-                  <li>Dormitorios: <?=$Propiedad->dormitorios?></li>
-                  <li>Baños: <?=$Propiedad->banos?></li>                  
-                  <li>Antigüedad: 
-                  	<?php 
-				              if($Propiedad->antiguedad != NULL && $Propiedad->antiguedad != 0)
-				              {
-				                echo $Propiedad->antiguedad;
-				              } else {
-				              	echo ' N/A';
-				              }
-			              ?>
-                  </li>
-                  <li>Cocheras: 
-                  	<?php 
-				              if($Propiedad->cocheras != NULL && $Propiedad->cocheras != 0)
-				              {
-				                echo $Propiedad->cocheras;
-				              } else {
-				              	echo ' N/A';
-				              }
-			              ?>
-                  </li>
-                  <li>Pisos: 
-                  	<?php 
-				              if($Propiedad->pisos != NULL && $Propiedad->pisos != 0)
-				              {
-				                echo $Propiedad->pisos;
-				              } else {
-				              	echo ' N/A';
-				              }
-			              ?>
-                  </li>
-                  <hr>
-                  <li>Orientación: 
-                  	<?php 
-				              if($Propiedad->orientacion != NULL )
-				              {
-				                echo $Propiedad->orientacion;
-				              } else {
-				              	echo ' N/A';
-				              }
-			              ?>
-                  </li>                  
-                  <hr>
-                  <li>Estado: <?=$Propiedad->condicion?></li>
-                </ul>
-              </div>
+                <?php
+	                if($Propiedad->supcub != NULL || $Propiedad->supdesc != NULL || $Propiedad->suptotal != NULL || $Propiedad->supcub != 0 || $Propiedad->supdesc != 0 || $Propiedad->suptotal != 0){
+		                echo '<hr>';
+		                echo '<strong><i class="fas fa-ruler-combined"></i> Superficies</strong>';		                 
+		                echo '<ul class="text">';
+		                	if($Propiedad->supcub != NULL && $Propiedad->supcub != 0)
+						          {
+		                  	echo '<li class="tag tag-danger">Cubierta: ';
+		                  	echo $Propiedad->supcub.' m²</li>';
+						          }
+					            if($Propiedad->supdesc != NULL && $Propiedad->supdesc != 0)
+						          {
+		                  	echo '<li class="tag tag-success">Descubierta: ';
+		                  	echo $Propiedad->supdesc.' m²</li>';
+						          }
+						          if($Propiedad->suptotal != NULL && $Propiedad->suptotal != 0)
+						          {
+		                  	echo '<li class="tag tag-info">Total construido: ';
+		                  	echo $Propiedad->suptotal.' m²</li>';
+						          }                  
+		                echo '</ul>';
+	              	}                
+	                if($Propiedad->ambientes != NULL || $Propiedad->dormitorios != NULL || $Propiedad->banos != NULL || $Propiedad->ambientes != 0 || $Propiedad->dormitorios != 0 || $Propiedad->banos != 0 || $Propiedad->antiguedad != NULL || $Propiedad->cocheras != NULL || $Propiedad->pisos != NULL || $Propiedad->antiguedad != 0 || $Propiedad->cocheras != 0 || $Propiedad->pisos != 0){
+	                	echo '<hr>';
+	                	echo '<strong><i class="far fa-file-alt mr-1"></i> Detalles</strong>';
+	                	echo '<div class="row">';
+		                	echo '<div class="col-6">';
+		                	echo '<ul class="text">';
+		                	if($Propiedad->ambientes != NULL && $Propiedad->ambientes != 0)
+						          {
+		                		echo '<li>Ambientes: '.$Propiedad->ambientes.'</li>';
+		                	}
+		                	if($Propiedad->dormitorios != NULL && $Propiedad->dormitorios != 0)
+						          {
+		                		echo '<li>Dormitorios: '.$Propiedad->dormitorios.'</li>';
+		                	}
+		                	if($Propiedad->banos != NULL && $Propiedad->banos != 0)
+						          {
+		                		echo '<li>Baños: '.$Propiedad->banos.'</li>';
+		                	}
+		                	echo '</ul></div>';
+		                	echo '<div class="col-6">';
+		                	echo '<ul class="text">';
+		                	if($Propiedad->antiguedad != NULL && $Propiedad->antiguedad != 0)
+						          {
+		                		echo '<li>Antigüedad: '.$Propiedad->antiguedad.'</li>';
+		                	}
+		                	if($Propiedad->cocheras != NULL && $Propiedad->cocheras != 0)
+						          {
+		                		echo '<li>Cocheras: '.$Propiedad->cocheras.'</li>';
+		                	}
+		                	if($Propiedad->pisos != NULL && $Propiedad->pisos != 0)
+						          {
+		                		echo '<li>Pisos: '.$Propiedad->pisos.'</li>';
+		                	}
+		                	echo '</ul></div></div>';
+	                }
+	                if($Propiedad->orientacion != NULL || $Propiedad->condicion != NULL){
+		                echo '<hr>';
+		                echo '<div class="row">';
+		                if($Propiedad->orientacion != NULL)
+					          {
+		                	echo '<div class="col-6">';
+		                	echo '<ul class="text">';		                
+	                		echo '<li>Orientación: '.$Propiedad->orientacion.'</li>';
+	                		echo '</ul></div>';
+	                	}
+	                	if($Propiedad->condicion != NULL){
+			                echo '<div class="col-6">';
+			                echo '<ul class="text">';
+	                		echo '<li>Estado: '.$Propiedad->condicion.'</li>';
+	                		echo '</ul></div>';
+	                	}
+	                	echo '</div>';
+		              }
+	              ?>
               <!-- /.card-body -->
             </div>
-              <!--h3 class="my-3">Descripción de la Propiedad</h3>
-              <p>Raw denim you probably haven't heard of them jean shorts Austin. Nesciunt tofu stumptown aliqua butcher retro keffiyeh dreamcatcher synth. Cosby sweater eu banh mi, qui irure terr.</p>
 
-				<input type="text" class="form-control" id="id" name="id" hidden=""-->
-					  <!--div class="row"> 
-						<div class="col-4">
-						  <div class="form-group">
-							<label for="situacion">Situación</label>
-							<input type="text" class="form-control" id="Situacion" name="Situacion" placeholder="Situación">
-						  </div>
-						</div>
-						<div class="col-4">
-						  <div class="form-group">
-							<label for="expensas">Expensas</label>
-							<input type="text" class="form-control" id="Expensas" name="Expensas" placeholder="Expensas">
-						  </div>
-						</div>
-						 <div class="col-4">
-						  <div class="form-group">
-							<label for="orientacion">Orientación</label>
-							<input type="text" class="form-control" id="Orientacion" name="Orientacion" placeholder="Orientación">
-						  </div>
-						</div>
-					  </div-->
-					  
-					  <!--div class="row">  
-						<div class="col-2" style="padding-right: 30px">
-						  <div class="form-group">
-							<label for="ambientes">Ambientes</label>
-							<input type="number" class="form-control" id="Ambientes" name="Ambientes" placeholder="0" min="0" readonly>
-						  </div>
-						</div>
-						<div class="col-2">
-						  <div class="form-group">
-							<label for="dormitorios">Dormitorios</label>
-							<input type="number" class="form-control" id="Dormitorios" name="Dormitorios" placeholder="0" min="0" readonly>
-						  </div>
-						</div>
-						<div class="col-2">
-						  <div class="form-group">
-							<label for="bano">Baños</label>
-							<input type="number" class="form-control" id="Bano" name="Bano" placeholder="0" min="0" readonly>
-						  </div>
-						</div>
-						<div class="col-2">
-						  <div class="form-group">
-							<label for="cochera">Cocheras</label>
-							<input type="number" class="form-control" id="Cochera" name="Cochera" placeholder="0" min="0" readonly>
-						  </div>
-						</div>
-						<div class="col-2">
-						  <div class="form-group">
-							<label for="pisos">Pisos</label>
-							<input type="number" class="form-control" id="Pisos" name="Pisos" placeholder="0" min="0" readonly>
-						  </div>
-						</div>
-						<div class="col-2">
-						  <div class="form-group">
-							<label for="antiguedad">Antiguedad</label>
-							<input type="number" class="form-control" id="Antiguedad" name="Antiguedad" placeholder="0" min="0" readonly>
-						  </div>
-						</div>
-					  </div>
-
-					  <div class="row"> 
-						<div class="col-4">
-						  <div class="form-group">
-							<label for="situacion">Situación</label>
-							<input type="text" class="form-control" id="Situacion" name="Situacion" placeholder="Situación" readonly>
-						  </div>
-						</div>
-						<div class="col-4">
-						  <div class="form-group">
-							<label for="expensas">Expensas</label>
-							<input type="text" class="form-control" id="Expensas" name="Expensas" placeholder="Expensas" readonly>
-						  </div>
-						</div>
-						 <div class="col-4">
-						  <div class="form-group">
-							<label for="orientacion">Orientación</label>
-							<input type="text" class="form-control" id="Orientacion" name="Orientacion" placeholder="Orientación" readonly>
-						  </div>
-						</div>
-					  </div>
-
-					  <div class="row">
-					   
-						<div class="col-4">
-						  <div class="form-group">
-							<label for="disposicion">Disposición</label><br>
-							<input type="text" class="form-control" id="Disposicion" name="Disposicion" placeholder="Disposición" readonly>
-						  </div>
-						</div>
-						<div class="col-4">
-						  <div class="form-group">
-						  
-							<label for="estado">Estado</label>
-							<input type="text" class="form-control" id="Estado" name="Estado" placeholder="Estado" readonly>
-						  
-						  </div>
-						</div-->
-						<!--div class="col-4">
-						  <div class="form-group">
-							<label for="descripcion">Descripción</label>
-							<input type="text" class="form-control" id="Descripcion" name="Descripcion" placeholder="Descripción">
-						  </div>
-						</div>
-					  </div-->
 				</div>
 				</div>
+				 </div>
 				<div class="row">
 				<div class="col-12 col-sm-6">
 				<div class="row mt-4">
 					<nav class="w-100">
 					  <div class="nav nav-tabs" id="product-tab" role="tablist">
-						<a class="nav-item nav-link active" id="product-desc-tab" data-toggle="tab" href="#product-desc" role="tab" aria-controls="product-desc" aria-selected="true">Descripción</a>
+						<p class="nav-item nav-link active" id="product-desc-tab" data-toggle="tab" href="#product-desc" role="tab" aria-controls="product-desc" aria-selected="true">Descripción</p>
 					  </div>
 					</nav>
 					<div class="tab-content p-3" id="nav-tabContent">
@@ -383,7 +271,7 @@
 					<div class="row mt-4">
 						<nav class="w-100">
 						  <div class="nav nav-tabs" id="product-tab" role="tablist">
-							<a class="nav-item nav-link active" id="product-desc-tab" data-toggle="tab" href="#product-desc" role="tab" aria-controls="product-desc" aria-selected="true">Contacto</a>
+							<p class="nav-item nav-link active" id="product-desc-tab" data-toggle="tab" href="#product-desc" role="tab" aria-controls="product-desc" aria-selected="true">Contacto</p>
 						  </div>
 						</nav>
 					</div>
@@ -391,7 +279,7 @@
 						<div class="row">
 							<div class="col-6">
 							  <div class="form-group">
-								<label for="nombre">Nombre</label>
+								<label for="nombre">Nombre *</label>
 								<input type="text" class="form-control" id="Nombre" name="Nombre">
 							  </div>
 							</div>
@@ -404,13 +292,13 @@
 						</div>
 						<div class="col">
 						  <div class="form-group">
-							<label for="email">Email</label>
+							<label for="email">Email *</label>
 							<input type="text" class="form-control" id="Email" name="Email" placeholder="usuario@ejemplo.com">
 						  </div>
 						</div>
 						<div class="col">
 						  <div class="form-group">
-							<label for="msj">Mensaje</label>
+							<label for="msj">Mensaje *</label>
 							<textarea class="form-control" rows="3" id="Msj" name="Msj"></textarea>
 							<!--input type="text" class="form-control" id="Msj" name="Msj"-->
 						  </div>
@@ -426,8 +314,28 @@
 						  </div>
 				  </div>
 					  
+					</div>
 				</div>
-				  
+				<div class="row">
+					<div class="row mt-4">
+					<nav class="w-100">
+					  <div class="nav nav-tabs" id="product-tab" role="tablist">
+						<p class="nav-item nav-link active" id="product-desc-tab" data-toggle="tab" href="#product-desc" role="tab" aria-controls="product-desc" aria-selected="true">Ubicación</p>
+					  </div>
+					</nav>
+						<?php 
+              if($Propiedad->mapa != NULL)
+              {
+                echo $Propiedad->mapa;
+              } else {
+              	echo '<iframe src="https://www.google.com/maps" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>';
+              }
+             ?>
+
+
+						<!--iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3289.084745544193!2d-58.784092684189325!3d-34.47537435822674!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bc98e1c0d2d5cd%3A0xc4280a97817d5249!2sJuan%20XXIII%204617%2C%20B1667EXD%20Tortuguitas%2C%20Provincia%20de%20Buenos%20Aires!5e0!3m2!1ses-419!2sar!4v1634516514312!5m2!1ses-419!2sar" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe-->
+					</div>
+				</div>
 			</form>           
               
           

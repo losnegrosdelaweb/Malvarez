@@ -258,7 +258,7 @@
 }
 
 .border-light {
-  border-color: #f8f9fa !important;
+  border-color: #e1e3e4;
 }
 
 .border-dark {
@@ -1044,7 +1044,7 @@
 }
 
 .text-light {
-  color: #f8f9fa !important;
+  color: #e1e3e4;
 }
 
 .text-dark {
@@ -1116,7 +1116,8 @@
 }
 
 .bg-light {
-  background-color: #f8f9fa !important;
+  background-color: #e1e3e4; 
+  /*#e1e3e4;*/
 }
 
 .bg-dark {

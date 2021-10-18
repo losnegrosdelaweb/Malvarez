@@ -1,4 +1,3 @@
-
   <div class="content-wrapper">
     <div class="content-header">
       <div class="container-fluid">
@@ -9,6 +8,7 @@
         </div>
       </div>
     </div>
+
     <section class="content">
       <div class="">    
         <div class="card card-danger card-outline">
@@ -25,7 +25,7 @@
               <thead>
                 <tr>
                   <th scope="col">Operación</th>
-                  <th scope="col">Dirección / Titulo</th>
+                  <th scope="col">Título</th>
                   <th scope="col">Ubicación</th>
                   <th scope="col">Tipo Propiedad</th>
                   <th scope="col">Estado</th>
@@ -33,7 +33,7 @@
                   <th scope="col" class="text-center">Modificar</th>
                   <th scope="col" class="text-center">Detalles/Img</th>
                   <th scope="col" class="text-center">Destacar</th>
-                  <th scope="col" class="text-center"vv>Inhabilitar/Habilitar</th>       
+                  <th scope="col" class="text-center">Inhabilitar/Habilitar</th>       
                 </tr>
               </thead>
               <tbody>
@@ -49,7 +49,7 @@
                       }
                       echo "<tr style=\"".$style."\">";
                       echo "<td>".$value->descOper."</td>";
-                      echo "<td>".$value->direccion."</td>";
+                      echo "<td>".$value->titulo."</td>";
                       echo "<td>".$value->ubicacion."</td>";
                       echo "<td>".$value->tipoPropiedad."</td>";
                       echo "<td>".$value->condicion."</td>";  
@@ -149,7 +149,9 @@ function edit(id){
       $('#Direccion').val(respuesta.direccion);      
       $('#SupTotal').val(respuesta.suptotal);
       $('#SupCub').val(respuesta.supcub);
-      $('#SupDesc').val(respuesta.supdesc);  
+      $('#SupDesc').val(respuesta.supdesc);
+      $('#Titulo').val(respuesta.titulo);
+      $('#Mapa').val(respuesta.mapa);
       $('#exampleModal').modal('show');
     },
     error: function() {
