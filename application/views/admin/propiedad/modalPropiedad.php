@@ -32,6 +32,12 @@
               </div>             
             </div>
             <div class="col-4">
+              <div class="form-group"> 
+                <label for="titulo">Título</label>
+                <input type="text" class="form-control limpiar" id="Titulo" name="Titulo" placeholder="Titulo de la Operacion">          
+              </div>             
+            </div>
+            <div class="col-4">
               <div class="form-group">
                   <label>Tipo Propiedad</label>
                   <select class="form-control select2 select2-danger select2-hidden-accessible" data-dropdown-css-class="select2-danger" id="TipoPropiedad" name="TipoPropiedad" style="width: 100%;" data-select2-id="2" tabindex="-1" aria-hidden="true">
@@ -77,7 +83,7 @@
         <div class="row">
           <div class="col-4" >
               <div class="form-group">
-                <label for="ambientes">Dirección / Título</label>
+                <label for="direccion">Dirección</label>
                 <input type="text" class="form-control limpiar" id="Direccion" name="Direccion">
               </div>
           </div>
@@ -106,6 +112,14 @@
               </div>    
           </div>
         </div>
+        <div class="row">
+          <div class="col-12" >
+              <div class="form-group">
+                <label for="mapa">Mapa</label>                
+                <textarea class="form-control limpiar" rows="2" id="Mapa" name="Mapa" placeholder="Incorpore el HTML de Google Maps..."></textarea>
+              </div>
+          </div>
+        </div>
         <hr>
           <div class="row">
              <div class="col-2">
@@ -122,7 +136,7 @@
             </div>
             <div class="col-2">
               <div class="form-group">
-                <label for="expensas">Precio</label>
+                <label for="precio">Precio</label>
                 <input type="text" class="form-control limpiar" id="Precio" name="Precio" placeholder="Ingrese Monto">
               </div>
             </div>

@@ -105,27 +105,27 @@
         <span class="navbar-toggler-icon"></span>
       </button> 
       <div class="collapse navbar-collapse" id="navbarTogglerDemo01" style="justify-content: center;">
-        <ul class="navbar-nav" style="padding-bottom: 1%;justify-content: center;font-weight: bold;">   
+        <ul class="navbar-nav" style="padding-bottom: 1%;justify-content: center; font-size: large;font-variant: all-petite-caps;">   
           <li class="nav-item active">
-             <a class="nav-link" aria-current="page" href="/<?=site_url('')?>">Inicio</a>
+             <a class="nav-link" aria-current="page" style="color: black;" href="/<?=site_url('')?>">Inicio</a>
             </li>
             <li class="nav-item">
-             <a class="nav-link" href="/<?=site_url('nosotros')?>">Nosotros</a>
+             <a class="nav-link" style="color: black;" href="/<?=site_url('nosotros')?>">Nosotros</a>
             </li>
             <li class="nav-item">
-             <a class="nav-link" href="/<?=site_url('catalogo-alquileres')?>">Alquileres</a>
+             <a class="nav-link" style="color: black;"href="/<?=site_url('catalogo-alquileres')?>">Alquileres</a>
             </li>
             <li class="nav-item">
-             <a class="nav-link" href="/<?=site_url('catalogo?ventas')?>">Ventas</a>
+             <a class="nav-link" style="color: black;"href="/<?=site_url('catalogo?ventas')?>">Ventas</a>
             </li>
             <li class="nav-item">
-             <a class="nav-link" href="/<?=site_url('emprendimientos')?>">Emprendimientos</a>
+             <a class="nav-link" style="color: black;" href="/<?=site_url('emprendimientos')?>">Emprendimientos</a>
             </li>
             <li class="nav-item">
-             <a class="nav-link" href="/<?=site_url('mantenimiento')?>">Mundo Inmobiliario</a>
+             <a class="nav-link" style="color: black;"href="/<?=site_url('mantenimiento')?>">Mundo Inmobiliario</a>
             </li>
             <li class="nav-item">
-             <a class="nav-link" href="/<?=site_url('contacto')?>">Contacto</a>
+             <a class="nav-link" style="color: black;"href="/<?=site_url('contacto')?>">Contacto</a>
             </li>
         </ul> 
       </div>

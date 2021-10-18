@@ -22,10 +22,12 @@ class PropiedadModel extends CI_Model {
 		if($filtroActivo){
         	$this->db->where('activo', 1);
         }
-        $this->db->select('propiedades.*,ubicacion.descripcion AS ubicacion,ciudad.descripcion AS ciudad');
+        $this->db->select('propiedades.*,tipospropiedades.descripcion AS tipoPropiedad,ubicacion.descripcion AS ubicacion,ciudad.descripcion AS ciudad,operacion.descripcion AS descOper');
         $this->db->from('propiedades');
         $this->db->join('ubicacion', 'propiedades.id_ubicacion = ubicacion.id_ubicacion');
         $this->db->join('ciudad', 'propiedades.id_ciudad = ciudad.id_ciudad');
+        $this->db->join('operacion', 'propiedades.id_operacion = operacion.id');
+        $this->db->join('tipospropiedades', 'propiedades.id_tipo = tipospropiedades.id_tipo_propiedad');
         $query = $this->db->get();
         
         return $query->result();
@@ -36,11 +38,13 @@ class PropiedadModel extends CI_Model {
         if($filtroActivo){
             $this->db->where('activo', 1);
         }
-        $this->db->select('propiedades.*,ubicacion.descripcion AS ubicacion,ciudad.descripcion AS ciudad');
+        $this->db->select('propiedades.*,tipospropiedades.descripcion AS tipoPropiedad,ubicacion.descripcion AS ubicacion,ciudad.descripcion AS ciudad,operacion.descripcion AS descOper');
         $this->db->from('propiedades');
         $this->db->where('propiedades.id_operacion', 1);
         $this->db->join('ubicacion', 'propiedades.id_ubicacion = ubicacion.id_ubicacion');
         $this->db->join('ciudad', 'propiedades.id_ciudad = ciudad.id_ciudad');
+        $this->db->join('operacion', 'propiedades.id_operacion = operacion.id');
+        $this->db->join('tipospropiedades', 'propiedades.id_tipo = tipospropiedades.id_tipo_propiedad');
         $query = $this->db->get();
         
         return $query->result();
@@ -51,11 +55,13 @@ class PropiedadModel extends CI_Model {
         if($filtroActivo){
             $this->db->where('activo', 1);
         }
-        $this->db->select('propiedades.*,ubicacion.descripcion AS ubicacion,ciudad.descripcion AS ciudad');
+        $this->db->select('propiedades.*,tipospropiedades.descripcion AS tipoPropiedad,ubicacion.descripcion AS ubicacion,ciudad.descripcion AS ciudad,operacion.descripcion AS descOper');
         $this->db->from('propiedades');
         $this->db->where('propiedades.id_operacion', 2);
         $this->db->join('ubicacion', 'propiedades.id_ubicacion = ubicacion.id_ubicacion');
         $this->db->join('ciudad', 'propiedades.id_ciudad = ciudad.id_ciudad');
+        $this->db->join('operacion', 'propiedades.id_operacion = operacion.id');
+        $this->db->join('tipospropiedades', 'propiedades.id_tipo = tipospropiedades.id_tipo_propiedad');
         $query = $this->db->get();
         
         return $query->result();
@@ -91,6 +97,8 @@ class PropiedadModel extends CI_Model {
             propiedades.antiguedad,
             propiedades.cocheras,
             propiedades.pisos,
+            propiedades.mapa,
+            propiedades.titulo,
         	ciudad.descripcion AS ciudad,
         	moneda.descripcion AS moneda,
         	moneda.signo AS signo_moneda,
@@ -233,8 +241,18 @@ class PropiedadModel extends CI_Model {
 
 	public function getCiudades($id)
 	{
-        $this->db->where('id_departamento', $id);
+        /*$this->db->where('id_departamento', $id);
         $query = $this->db->get('ciudad');
+        return $query->result();*/
+
+        $this->db->select('ciudad.*');        
+        $this->db->from('ciudad');
+        $this->db->join('departamento', 'departamento.id_departamento = ciudad.id_departamento');
+        $this->db->join('provincia', 'provincia.id_provincia=departamento.id_provincia');
+        $this->db->where('ciudad.id_departamento', $id);
+        $provincias = array('BUENOS AIRES', 'CIUDAD DE BUENOS AIRES');
+        $this->db->where_in('provincia.descripcion', $provincias);
+        $query = $this->db->get();
         return $query->result();
 	}
 
@@ -275,7 +293,16 @@ class PropiedadModel extends CI_Model {
 
 	public function getCiudad()
 	{
-        $query = $this->db->get('ciudad');
+        /*$query = $this->db->get('ciudad');
+        return $query->result();*/
+
+        $this->db->select('ciudad.*');        
+        $this->db->from('ciudad');
+        $this->db->join('departamento', 'departamento.id_departamento = ciudad.id_departamento');
+        $this->db->join('provincia', 'provincia.id_provincia=departamento.id_provincia');
+        $provincias = array('BUENOS AIRES', 'CIUDAD DE BUENOS AIRES');
+        $this->db->where_in('provincia.descripcion', $provincias);
+        $query = $this->db->get();
         return $query->result();
 	}
 
@@ -301,15 +328,18 @@ class PropiedadModel extends CI_Model {
         	propiedades.descripcion,
         	propiedades.direccion,
         	propiedades.suptotal,
+            propiedades.titulo,
         	moneda.descripcion AS moneda,        	
         	ciudad.descripcion AS ciudad,
-        	moneda.signo AS signo_moneda');
+        	moneda.signo AS signo_moneda,
+            operacion.descripcion AS descOper');
         $this->db->where('propiedades.destacada', 1);
         $this->db->from('propiedades');
         $this->db->join('ubicacion', 'propiedades.id_ubicacion = ubicacion.id_ubicacion');
         $this->db->join('tipospropiedades', 'propiedades.id_tipo = tipospropiedades.id_tipo_propiedad');
         $this->db->join('moneda', 'propiedades.id_moneda = moneda.id');        
         $this->db->join('ciudad', 'propiedades.id_ciudad = ciudad.id_ciudad');
+        $this->db->join('operacion', 'propiedades.id_operacion = operacion.id');
         $query = $this->db->get();
         return $query->result();
 	}

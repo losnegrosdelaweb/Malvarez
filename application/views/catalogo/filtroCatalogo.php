@@ -47,7 +47,7 @@
 
 
 <main>
-	<div class="row" style="background-color: #f8f9fa!important;">
+	<div class="row" style="background-color: #e1e3e4;">
 		<div class="col-md-3 col-sm-10" style="padding-left: 2%;">
 			<main class="container text-light navbar-toggleable-sm">
 				
@@ -78,12 +78,14 @@
 					<h6 class="border-bottom pb-2 mb-0">Filtros</h6>
 					<div class="d-flex pt-3">
 						<div class="col-sm-10">
-							<div class="form-check">
+							<label>Moneda</label>
+							<!--div class="form-check">
 								<input class="form-check-input" type="radio" name="gridRadiosMoneda" id="gridRadiosPesos" value="0" checked>
+
 								<label class="form-check-label" for="gridRadiosPesosDolar">
-									Pesos/Dólares
+									Todos
 								</label>
-							</div>
+							</div-->
 							<div class="form-check">
 								<input class="form-check-input" type="radio" name="gridRadiosMoneda" id="gridRadiosPesos" value="1">
 								<label class="form-check-label" for="gridRadiosPesos">
@@ -172,7 +174,7 @@
 					<div class="pt-3">  
 						 <div class="container">
 						    <div class="row">
-						      <div class="col">
+						      <div class="col-6">
 						          <button class="btn btn-primary me-md-2" id="BtnLimpiarFiltros" type="button">Limpiar</button>
 						      </div>
 

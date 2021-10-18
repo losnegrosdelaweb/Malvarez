@@ -24,6 +24,12 @@ a{
 	color: black;
 }
 
+.badge-oper {
+    color: rgb(255, 255, 255);
+    background-color: rgb(0, 0, 0);
+    border-radius: 0.25rem;
+    margin-right: 2%;
+}
 </style>
 <main id="MainContainerMobile">
   <div class="position-relative overflow-hidden p-3 p-md-5 text-center portada">
@@ -92,7 +98,7 @@ a{
         <?php foreach ($catalogo as $key => $itemCatalogo) { ?>
           <div class="row container border rounded " style="padding-left: 0px;width: 100%;height: 100%;margin-bottom: 2%;background-color: white;">
 
-          <div class="col-md-4 col-sm-12">
+          <div class="col-md-4 col-sm-12 p-3 d-flex flex-column position-static">
           <div class="card shadow-sm">        
           <div  id="carouselExampleIndicators-<?=$itemCatalogo['propiedad']->id_propiedad?>" class="carousel slide"  data-bs-ride="carousel" style="width: 100%;height: 100%;">
 
@@ -127,10 +133,20 @@ a{
           </div>
         </div>
         <div class="col-md-8 col-sm-12 p-3 d-flex flex-column position-static">
+          <div class="row">
+            <div class="col"><a href="/<?=site_url('detpropiedad/'.$itemCatalogo['propiedad']->id_propiedad)?>">
+            <h3 class="mb-0"><?=$itemCatalogo['propiedad']->titulo?></h3></a> 
+            </div>
+            <div class="col" style="text-align: -webkit-right;">
+              <h5 class="fontStyle fw-normal badge-oper" style="width: min-content; padding: .375rem .75rem;">
+              Venta</h5>
+            </div>
+          </div>
+          <div class="row">
           <?php 
               if($itemCatalogo['propiedad']->precio != NULL)
               {
-                  echo '<h3 class="mb-0">'.$itemCatalogo['propiedad']->signo_moneda.' '.$itemCatalogo['propiedad']->precio.'</h3>';
+                  echo '<h5 class="mb-0">'.$itemCatalogo['propiedad']->signo_moneda.' '.$itemCatalogo['propiedad']->precio.'</h5>';
                 
               }    
 
@@ -139,10 +155,21 @@ a{
                 echo '<div class="mb-1 text-muted">+ '.$itemCatalogo['propiedad']->signo_moneda.' '.$itemCatalogo['propiedad']->expensas.' Expensas</div>';
               }              
             ?>
-          
-          <br>
+          </div>
+          <div class="row">
+          <p class="card-text mb-auto"> </p>
+           <h4 class="mb-0">
+            <?=$itemCatalogo['propiedad']->direccion?></h4>
+          <div class="mb-1 text-muted"><?=$itemCatalogo['propiedad']->ciudad?>,<?=$itemCatalogo['propiedad']->ubicacion?></div>
+          </div>
+          <div class="row">
+
           <p>
-            <?php 
+            <?php            
+              if($itemCatalogo['propiedad']->tipoPropiedad != NULL)
+              {
+                echo '<span style="padding-right: 5%;"><i class="fas fa-book mr-1"> </i> '.$itemCatalogo['propiedad']->tipoPropiedad.'</span>';
+              }
               if($itemCatalogo['propiedad']->suptotal != NULL)
               {
                 echo '<span style="padding-right: 5%;"><i class="fas fa-ruler-combined"> </i>'.$itemCatalogo['propiedad']->suptotal.' m²</span>';
@@ -158,12 +185,12 @@ a{
               }              
             ?>
           </p>
-          <p class="card-text mb-auto"> </p>
-           <a href="/<?=site_url('detpropiedad/'.$itemCatalogo['propiedad']->id_propiedad)?>"><h4 class="mb-0"><?=$itemCatalogo['propiedad']->direccion?></h4></a>
-          <div class="mb-1 text-muted"><?=$itemCatalogo['propiedad']->ciudad?>,<?=$itemCatalogo['propiedad']->ubicacion?></div>
+          </div>
           <!--<a href="#">Continue reading</a>-->
-          <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-            <a href="/<?=site_url('detpropiedad/'.$itemCatalogo['propiedad']->id_propiedad)?>" class="btn btn-primary me-md-2" type="button">Contactar</a>
+          <div class="row">
+            <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+              <a href="/<?=site_url('detpropiedad/'.$itemCatalogo['propiedad']->id_propiedad)?>" class="btn btn-primary me-md-2" type="button">Contactar</a>
+            </div>
           </div>
         </div>
     </div>

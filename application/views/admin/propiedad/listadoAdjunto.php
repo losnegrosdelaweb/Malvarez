@@ -51,12 +51,12 @@
                   </li>
                    <li class="list-group-item">
                     <b>Moneda</b> <a class="float-right"> <?=$Propiedad->moneda?></a>
-                  </li>
-                  <li class="list-group-item">
-                    <b>Expensas</b> <a class="float-right"> <?=$Propiedad->signo_moneda?> <?=$Propiedad->expensas?></a>
-                  </li>
+                  </li>                  
                   <li class="list-group-item">
                     <b>Precio</b> <a class="float-right"><?=$Propiedad->signo_moneda?> <?=$Propiedad->precio?></a>
+                  </li>
+                  <li class="list-group-item">
+                    <b>Expensas</b> <a class="float-right"> <?=$Propiedad->expensas?></a>
                   </li>
                 </ul>
 
@@ -74,31 +74,116 @@
           <div class="col-md-9">
              <div class="card card-danger">
               <div class="card-header">
-                <h3 class="card-title">Tipo <?=$Propiedad->tipoPropiedad?></h3>
+                <h3 class="card-title"><?=$Propiedad->titulo?> - Tipo <?=$Propiedad->tipoPropiedad?></h3>
               </div>
               <!-- /.card-header -->
               <div class="card-body">
+                
+                <strong><i class="fas fa-map-marker-alt mr-1"></i> Ubicación</strong>
+                <ul class="text">
+                  <li><p class="text"><?=$Propiedad->direccion?>, <?=$Propiedad->ciudad?> - <?=$Propiedad->ubicacion?></p></li>
+                </ul>
+                <?php
+                  if($Propiedad->supcub != NULL || $Propiedad->supdesc != NULL || $Propiedad->suptotal != NULL || $Propiedad->supcub != 0 || $Propiedad->supdesc != 0 || $Propiedad->suptotal != 0){
+                    echo '<hr>';
+                    echo '<strong><i class="fas fa-ruler-combined"></i> Superficies</strong>';                     
+                    echo '<ul class="text">';
+                      if($Propiedad->supcub != NULL && $Propiedad->supcub != 0)
+                      {
+                        echo '<li class="tag tag-danger">Cubierta: ';
+                        echo $Propiedad->supcub.' m²</li>';
+                      }
+                      if($Propiedad->supdesc != NULL && $Propiedad->supdesc != 0)
+                      {
+                        echo '<li class="tag tag-success">Descubierta: ';
+                        echo $Propiedad->supdesc.' m²</li>';
+                      }
+                      if($Propiedad->suptotal != NULL && $Propiedad->suptotal != 0)
+                      {
+                        echo '<li class="tag tag-info">Total construido: ';
+                        echo $Propiedad->suptotal.' m²</li>';
+                      }                  
+                    echo '</ul>';
+                  }                
+                  if($Propiedad->ambientes != NULL || $Propiedad->dormitorios != NULL || $Propiedad->banos != NULL || $Propiedad->ambientes != 0 || $Propiedad->dormitorios != 0 || $Propiedad->banos != 0 || $Propiedad->antiguedad != NULL || $Propiedad->cocheras != NULL || $Propiedad->pisos != NULL || $Propiedad->antiguedad != 0 || $Propiedad->cocheras != 0 || $Propiedad->pisos != 0){
+                    echo '<hr>';
+                    echo '<strong><i class="far fa-file-alt mr-1"></i> Detalles</strong>';
+                    echo '<div class="row">';
+                      echo '<div class="col-6">';
+                      echo '<ul class="text">';
+                      if($Propiedad->ambientes != NULL && $Propiedad->ambientes != 0)
+                      {
+                        echo '<li>Ambientes: '.$Propiedad->ambientes.'</li>';
+                      }
+                      if($Propiedad->dormitorios != NULL && $Propiedad->dormitorios != 0)
+                      {
+                        echo '<li>Dormitorios: '.$Propiedad->dormitorios.'</li>';
+                      }
+                      if($Propiedad->banos != NULL && $Propiedad->banos != 0)
+                      {
+                        echo '<li>Baños: '.$Propiedad->banos.'</li>';
+                      }
+                      echo '</ul></div>';
+                      echo '<div class="col-6">';
+                      echo '<ul class="text">';
+                      if($Propiedad->antiguedad != NULL && $Propiedad->antiguedad != 0)
+                      {
+                        echo '<li>Antigüedad: '.$Propiedad->antiguedad.'</li>';
+                      }
+                      if($Propiedad->cocheras != NULL && $Propiedad->cocheras != 0)
+                      {
+                        echo '<li>Cocheras: '.$Propiedad->cocheras.'</li>';
+                      }
+                      if($Propiedad->pisos != NULL && $Propiedad->pisos != 0)
+                      {
+                        echo '<li>Pisos: '.$Propiedad->pisos.'</li>';
+                      }
+                      echo '</ul></div></div>';
+                  }
+                  if($Propiedad->orientacion != NULL || $Propiedad->condicion != NULL){
+                    echo '<hr>';
+                    echo '<div class="row">';
+                    if($Propiedad->orientacion != NULL)
+                    {
+                      echo '<div class="col-6">';
+                      echo '<ul class="text">';                   
+                      echo '<li>Orientación: '.$Propiedad->orientacion.'</li>';
+                      echo '</ul></div>';
+                    }
+                    if($Propiedad->condicion != NULL){
+                      echo '<div class="col-6">';
+                      echo '<ul class="text">';
+                      echo '<li>Estado: '.$Propiedad->condicion.'</li>';
+                      echo '</ul></div>';
+                    }
+                    echo '</div>';
+                  }
+                ?>
+                <hr>
                 <strong><i class="fas fa-book mr-1"></i> Descripción</strong>
 
-                <p class="text-muted">                  
-                  <?=$Propiedad->descripcion?>
-                  <!--B.S. in Computer Science from the University of Tennessee at Knoxville-->
+                <p class="text-muted">
+                <?php 
+                  if($Propiedad->descripcion != NULL)
+                  {
+                    #echo nl2br($Propiedad->descripcion);
+                    echo '<ul class="text">';                   
+                    echo '<li>'.$Propiedad->descripcion.'</li></ul>';
+                  } else {
+                    echo ' N/A';
+                  }
+                 ?>              
+                  
                 </p>
 
-                <hr>
 
-                <strong><i class="fas fa-map-marker-alt mr-1"></i> Ubicación</strong>
 
-                <p class="text-muted"><?=$Propiedad->ubicacion?></p>
-
-                <hr>
-
-                <strong><i class="far fa-file-alt mr-1"></i> Detalles</strong>
+                <!--strong><i class="far fa-file-alt mr-1"></i> Detalles</strong>
                 <ul class="text-muted">
                   <li><b>Ambientes: </b><?=$Propiedad->ambientes?></li>
                   <li><b>Dormitorios: </b><?=$Propiedad->dormitorios?></li>
                   <li><b>baños: </b><?=$Propiedad->banos?></li>
-                </ul>
+                </ul-->
               </div>
               <!-- /.card-body -->
             </div>
@@ -137,6 +222,25 @@
                     <?php } ?>              
                   </tbody>
                 </table>                
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md">
+            <div class="card card-danger card-outline">
+              <div class="card-header border-0">
+                <div class="d-flex justify-content-between">
+                  <h3 class="card-title">Mapa</h3>                  
+                </div>
+              </div>
+              <div class="card-body" style="align-self: center;">
+                <?php 
+                  if($Propiedad->mapa != NULL)
+                  {
+                    echo $Propiedad->mapa;
+                  }
+                 ?>
               </div>
             </div>
           </div>
