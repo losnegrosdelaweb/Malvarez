@@ -52,6 +52,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 $route['default_controller'] = 'home';
 $route['buscadorHome'] = 'home/BuscarPropiedad';
+$route['buscadorHomeMobile'] = 'home/BuscarPropiedadMobile';
 /* Dashboard - Administración */
 $route['dashboard'] = 'admin';
 

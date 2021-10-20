@@ -50,6 +50,27 @@ class PropiedadModel extends CI_Model {
         return $query->result();
     }
 
+    public function getPropiedadesVentasFiltros($tipoPropiedad, $calle)
+    {
+        $this->db->where('propiedades.activo', 1);
+        $this->db->select('propiedades.*,tipospropiedades.descripcion AS tipoPropiedad,ubicacion.descripcion AS ubicacion,ciudad.descripcion AS ciudad,operacion.descripcion AS descOper');
+        $this->db->from('propiedades');
+        $this->db->where('propiedades.id_operacion', 1);
+        if($tipoPropiedad != 0 && $tipoPropiedad != -1){
+            $this->db->where('propiedades.id_tipo', $tipoPropiedad);    
+        }
+        if($calle != "" && $calle != " "){
+            $this->db->like('propiedades.titulo', $calle);    
+        }
+        $this->db->join('ubicacion', 'propiedades.id_ubicacion = ubicacion.id_ubicacion');
+        $this->db->join('ciudad', 'propiedades.id_ciudad = ciudad.id_ciudad');
+        $this->db->join('operacion', 'propiedades.id_operacion = operacion.id');
+        $this->db->join('tipospropiedades', 'propiedades.id_tipo = tipospropiedades.id_tipo_propiedad');
+        $query = $this->db->get();
+        return $query->result();
+    }
+
+
     public function getPropiedadesAlquiler($filtroActivo = false)
     {
         if($filtroActivo){
@@ -58,6 +79,27 @@ class PropiedadModel extends CI_Model {
         $this->db->select('propiedades.*,tipospropiedades.descripcion AS tipoPropiedad,ubicacion.descripcion AS ubicacion,ciudad.descripcion AS ciudad,operacion.descripcion AS descOper');
         $this->db->from('propiedades');
         $this->db->where('propiedades.id_operacion', 2);
+        $this->db->join('ubicacion', 'propiedades.id_ubicacion = ubicacion.id_ubicacion');
+        $this->db->join('ciudad', 'propiedades.id_ciudad = ciudad.id_ciudad');
+        $this->db->join('operacion', 'propiedades.id_operacion = operacion.id');
+        $this->db->join('tipospropiedades', 'propiedades.id_tipo = tipospropiedades.id_tipo_propiedad');
+        $query = $this->db->get();
+        
+        return $query->result();
+    }
+
+    public function getPropiedadesAlquilerFiltros($tipoPropiedad, $calle)
+    {
+        $this->db->where('propiedades.activo', 1);        
+        $this->db->select('propiedades.*,tipospropiedades.descripcion AS tipoPropiedad,ubicacion.descripcion AS ubicacion,ciudad.descripcion AS ciudad,operacion.descripcion AS descOper');
+        $this->db->from('propiedades');
+        $this->db->where('propiedades.id_operacion', 2);
+         if($tipoPropiedad != 0 && $tipoPropiedad != -1){
+            $this->db->where('propiedades.id_tipo', $tipoPropiedad);    
+        }
+        if($calle != "" && $calle != " "){
+            $this->db->like('propiedades.titulo', $calle);    
+        }
         $this->db->join('ubicacion', 'propiedades.id_ubicacion = ubicacion.id_ubicacion');
         $this->db->join('ciudad', 'propiedades.id_ciudad = ciudad.id_ciudad');
         $this->db->join('operacion', 'propiedades.id_operacion = operacion.id');

@@ -54,7 +54,7 @@ a{
 					}
 					?>
 				</select>
-			<input type="text" class="form-control form-control-lg" placeholder="Buscar por ubicación, dirección o calle" aria-label="Recipient's username" aria-describedby="button-addon2">
+			<input type="text" class="form-control form-control-lg" placeholder="Buscar por ubicación, dirección o calle" name="BuscadorText" aria-label="Recipient's username" aria-describedby="button-addon2">
 			<button class="btn btn-danger" type="submit" id="button-addon2">Buscar</button>
       </div>
     </form>
@@ -62,8 +62,9 @@ a{
 
 
 		<div class="d-block d-sm-block d-md-none">	<!--Mobile-->
+      <form action="../<?=site_url('buscadorHomeMobile')?>" method="POST">  
 			<div class="form-group">
-				<select id="operations-2" style="background-color: #d91a1ba1;margin-bottom: 3%;" class="btn btn-danger">
+				<select id="operations-2" name="operations-2" style="background-color: #d91a1ba1;margin-bottom: 3%;" class="btn btn-danger">
 					<option data-name="Venta" value="1">Venta</option>
 					<option data-name="Alquiler" value="2">Alquiler</option>
 				</select>
@@ -78,9 +79,10 @@ a{
 					?>
 				</select>
 
-				<input type="text" class="form-control form-control-sm" style="margin-bottom: 3%;" placeholder="Buscar por ubicación, dirección o calle" aria-label="Recipient's username" aria-describedby="button-addon2">
-				<button class="btn btn-danger" type="button" id="button-addon2">Buscar</button>
+				<input type="text" class="form-control form-control-sm" style="margin-bottom: 3%;" name="BuscadorText-2" placeholder="Buscar por ubicación, dirección o calle" aria-label="Recipient's username" aria-describedby="button-addon2">
+				<button class="btn btn-danger" type="submit" id="button-addon2">Buscar</button>
 			</div>
+    </form>
 		</div>
 		</div>
 		</div>
